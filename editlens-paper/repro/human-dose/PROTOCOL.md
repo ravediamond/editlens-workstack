@@ -2,7 +2,7 @@
 
 Date: 2026-11-06. Status: bars **proposed, owner to confirm** before the first number (frozen-protocol step 3). Once confirmed, this file is committed with the message `WS-166: protocol frozen (before any number)` and any later change is a numbered deviation in §7.
 
-Note on paths (2026-11-07, wording only, no threshold changed): the four papers now live as `papers/<name>/` in the single repository `editlens-workstack`; "paper repository" below means that folder, "commit on the default branch" means a commit of this repository that changes `papers/<name>/paper/DRAFT_4p.md`, and the baseline is the git tag `import-baseline` (the four drafts as they were in their original repositories on 2026-11-06, heads in `papers/SYNC.json`). Commits of the owner in the original repositories are replayed here by `tools/sync_papers.py` with the original author, date and subject.
+Note on paths (2026-11-07, wording only, no threshold changed): the four papers now live as `papers/<name>/` in the single repository `editlens-workstack`; "paper repository" below means that folder, "commit on the default branch" means a commit of this repository that changes `papers/<name>/paper/DRAFT_4p.md`, and the baseline is the git tag commit `a24994eabd72a41969506f37d69cea008ac869e1` (the four drafts as they were in their original repositories on 2026-11-06, heads in `papers/SYNC.json`). Commits of the owner in the original repositories are replayed here by `tools/sync_papers.py` with the original author, date and subject.
 
 ## 1. Question
 

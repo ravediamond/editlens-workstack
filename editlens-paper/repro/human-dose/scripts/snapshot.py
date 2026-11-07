@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Freeze the baselines and collect every later version of every paragraph of the four papers.
 
-    snapshot.py --freeze        record the baseline commit (the git tag `import-baseline` of this repository: the four papers exactly as
+    snapshot.py --freeze        record the baseline commit (the commit a24994eabd72a41969506f37d69cea008ac869e1 of this repository: the four papers exactly as
                                 they were before the first hand edit) in expected/baseline.json; refuses to overwrite
     snapshot.py                 walk this repository's history since the baseline for each papers/<name>/paper/DRAFT_4p.md; write expected/versions.json
 
@@ -18,11 +18,11 @@ def freeze():
     if (EXP / "baseline.json").exists():
         sys.exit("baseline.json exists; the baseline is frozen (delete it by hand only before the first number)")
     base = {}
-    head = git(ROOT, "rev-parse", "import-baseline^{commit}").strip()
+    head = git(ROOT, "rev-parse", "a24994eabd72a41969506f37d69cea008ac869e1^{commit}").strip()
     origin = json.loads((ROOT / "papers/SYNC.json").read_text())  # the heads of the original paper repositories at import
     changed = git(ROOT, "diff", "--name-only", head, "HEAD", "--", *[draft_path(p) for p in PAPERS]).split()
     if changed:
-        print("note: these drafts already differ from import-baseline (hand edits since the import):", *changed)
+        print("note: these drafts already differ from the import baseline (hand edits since the import):", *changed)
     for p in PAPERS:
         paras = paragraphs(show(head, p))
         base[p] = {"commit": head, "origin_commit": origin[p]["synced_head"], "date": git(ROOT, "log", "-1", "--format=%cI", head).strip(), "paragraphs": len(paras)}
