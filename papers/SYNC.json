@@ -1,0 +1,27 @@
+{
+ "paper-jepa-world-model": {
+  "origin": "ravediamond/paper-jepa-world-model",
+  "branch": "main",
+  "synced_head": "7730133adf4a80ecbf8491e94d2f9dcea733b5d9"
+ },
+ "paper-register-reproducibility": {
+  "origin": "ravediamond/paper-register-reproducibility",
+  "branch": "main",
+  "synced_head": "5753ec216261a02b039564d1ce797a78cc4ff0d7"
+ },
+ "paper-reward-models-stopping-rule": {
+  "origin": "ravediamond/paper-reward-models-stopping-rule",
+  "branch": "main",
+  "synced_head": "e3fa6f1d7b2ff59445760ca1dae6b481c7eab5d3"
+ },
+ "paper-vla-edge-inference": {
+  "origin": "ravediamond/paper-vla-edge-inference",
+  "branch": "main",
+  "synced_head": "33196512c52f2070acd6794ca6266ff44106a355"
+ },
+ "editlens-paper": {
+  "origin": "ravediamond/paper-editlens-sensitivity",
+  "branch": "main",
+  "synced_head": "3b2f6f1e47c715c53d934b74dbf682df15b80f4f"
+ }
+}

@@ -1,0 +1,6 @@
+accelerate==1.1.1
+emoji==2.16.0
+peft==0.13.2
+safetensors==0.8.0
+tokenizers==0.20.3
+transformers==4.46.3

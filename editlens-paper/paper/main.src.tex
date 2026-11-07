@@ -1,0 +1,229 @@
+\documentclass[10pt,twocolumn]{article}
+% Rendered by make_paper.py from main.src.tex (do not edit main.tex; main.src.tex comes from md2tex.py).
+\usepackage[margin=0.75in]{geometry}
+\usepackage{graphicx,amssymb,hyperref,booktabs}
+\usepackage[numbers]{natbib}
+\usepackage{style/shisso}
+\shissorepo{github.com/ravediamond/paper-editlens-sensitivity}
+\title{What moves an open AI-edit detector on technical prose: controlled edits, one feature at a time}
+\date{}
+\begin{document}
+\twocolumn[\vspace*{0.32in}\shissopanel{What moves an open AI-edit detector on technical prose: controlled edits, one feature at a time}{Ravindu Somawansa\\[1pt]Shisso Robotics, Paris\\[1pt]\texttt{ravindu.somawansa@shissorobotics.com}}{A correlation table of sentence scores suggests what to change in a text to lower its AI-edit score. We tested its five suggestions as controlled edits on {{n_paras}} paragraphs of four of our robotics papers, scored with Pangram's open EditLens model, and three did not hold. Joining two sentences with a semicolon raised the score of {{semi_up}} \% of the paragraphs, by {{semi}} on average, but an appended verdict sentence lowered it. Rewriting paragraphs against their sentence-level scores moved the four paper means from {{reg_b}}, {{jepa_b}}, {{rew_b}} and {{vla_b}} to {{reg_a}}, {{jepa_a}}, {{rew_a}} and {{vla_a}}. In {{hr_n}} human robot-learning papers from before November 2022 the paper means have a median of {{hr_med}}, and {{hr_ours_above}} of our four papers still score above all of them. Style features that go with low scores in the human papers did not lower the score of {{tr_not_lower}} of {{tr_paras}} paragraphs when we added them.}{\textbf{Code and rows:} \texttt{github.com/ravediamond/paper-editlens-sensitivity}\quad\textbf{Reproduce:} \texttt{make check}. Every number carries its source file.}\vspace{4pt}]
+\section{Introduction}
+Our four papers pass the slopscore and lmscan checks of the repository, and alphaXiv, which runs Pangram's detector, still flags them as AI-written. We wanted to know what in the text the detector reacts to, so that we could write the next paper without it.
+
+We first read a table of {{n_sent}} sentences from the four papers and compared the score contribution of each sentence with its features. Semicolons, contrast framing, advice, verdict words and colon set-ups went with higher scores, and ``we'', short sentences and citations went with lower ones. From this table we wrote rule 78 of the writing rules in road-to-robotics. A feature that goes with a high score can travel with something else, such as a long list of numbers. This paper changes one feature at a time and scores the result.
+
+EditLens \citep{thai2025editlens} takes a text and regresses how much an AI edited it, as a score between 0 and 1. Its authors trained it on pairs of a source text and an AI-edited version of it, from reviews, news, stories and web articles, edited with prompts such as ``make it more descriptive'' and ``fix any mistakes''. Our texts are experimental robotics papers, so we did not expect the same features to matter. The controlled edits below test that.
+
+A score also needs a scale. We therefore scored {{hr_n}} human robot-learning papers from before November 2022 in the same way, and we tried to write our paragraphs in the style that those papers suggest.
+
+\section{Setup}
+The scorer is \texttt{pangram/editlens\_Llama-3.2-3B}, the open model, on a Jetson Orin NX at 25 W. The production detector that flagged the papers is a different and stronger model, and we did not run it. The model is licensed for non-commercial use and we used it on our own four papers only.
+
+The texts are the rendered drafts of four papers: a register of re-tested robot-learning claims, a JEPA world model on a low-cost arm, reward models and a stopping rule, and chunking tricks for a VLA on an edge GPU. Citations are stripped and the model lower-cases its input. Paragraphs of at least 40 words are scored on their own, since shorter ones are noisy. There are {{n_paras}} of them, in {{n_sent}} sentences. As a human reference we took the first 40 results of an arXiv query for robot-learning papers submitted from 2018 to 2021 (the rule is in \texttt{repro/human-reference/PROTOCOL.md}) and read their PDFs with the same extractor we used on our own four built PDFs. {{hr_dropped}} paper had too few scoreable paragraphs and was dropped. Reference lists and acknowledgements that the extractor had kept as prose ({{hr_excl}} paragraphs, found after the first scoring because they were among the highest scores) were excluded, which leaves {{hr_n}} papers and {{hr_paras}} paragraphs.
+
+An edit changes one thing in every paragraph that contains it, and we report the mean change in the paragraph score with a 95 \% bootstrap interval over paragraphs. An edit that changes only case and spacing gives exactly {{null_edit}}, because the model normalizes both. We removed semicolons and colons from the texts before this test, so for these two we could only test adding them.
+
+\section{Results}
+\subsection{Controlled edits}
+
+
+\begin{table}[t]\centering\scriptsize
+\setlength{\tabcolsep}{3pt}\renewcommand{\arraystretch}{1.1}
+\begin{tabular}{>{\raggedright\arraybackslash}p{3.1cm}>{\raggedright\arraybackslash}p{1.4cm}>{\raggedright\arraybackslash}p{3.5cm}}
+\toprule
+\shissohead edit & paragraphs changed & change in score (95 \% CI) \\
+\midrule
+join sentence pairs with a semicolon & {{n_paras}} & {{semi}} ({{semi_lo}} to {{semi_hi}}) \\
+append a generic closer, ``The result holds on this rig.'' & {{n_paras}} & {{closer}} ({{closer_lo}} to {{closer_hi}}) \\
+append a contrast closer, ``a limit of the setting, not of the method'' & {{n_paras}} & {{contrast}} ({{contrast_lo}} to {{contrast_hi}}) \\
+append advice, ``Check the simple baseline first.'' & {{n_paras}} & {{advice}} ({{advice_lo}} to {{advice_hi}}) \\
+append a verdict, ``The row fails.'' & {{n_paras}} & {{verdict}} ({{verdict_lo}} to {{verdict_hi}}) \\
+append a sentence about the rig, ``We ran this on the Jetson Orin NX.'' & {{n_paras}} & {{weran}} ({{weran_lo}} to {{weran_hi}}) \\
+append a real sentence from another paragraph of the same paper & {{n_paras}} & {{realsent}} ({{realsent_lo}} to {{realsent_hi}}) \\
+change ``we'' and ``our'' to ``I'' and ``my'' & {{we_to_i_n}} & {{we_to_i}} ({{we_to_i_lo}} to {{we_to_i_hi}}) \\
+shuffle the sentences of a paragraph & {{n_paras}} & {{shuffle_a}} ({{shuffle_a_lo}} to {{shuffle_a_hi}}) \\
+drop the parentheticals & {{parens_n}} & {{parens}} ({{parens_lo}} to {{parens_hi}}) \\
+split at ``, and'' and ``, but'' & {{split_and_n}} & {{split_and}} ({{split_and_lo}} to {{split_and_hi}}) \\
+replace every number with ``many'' & {{mask_num_n}} & {{mask_num}} ({{mask_num_lo}} to {{mask_num_hi}}) \\
+keep only the first half of the sentences & {{n_paras}} & {{first_half}} ({{first_half_lo}} to {{first_half_hi}}) \\
+\bottomrule
+\end{tabular}
+\caption{Controlled edits on the original paragraphs. A positive change means the edited paragraph scores higher, which is worse for us.}
+\end{table}
+
+
+The semicolon and the two closers raise the score, and the verdict sentence lowers it. Advice, the sentence about the rig, a real sentence of the same paper and the pronoun change do nothing, so adding length or changing the pronoun does not move the score. Shuffling does nothing either. Dropping the parentheticals, splitting at ``and'' and ``but'', and masking numbers lower the score. Keeping half of a paragraph lowers it most.
+
+\subsection{What the earlier table got right}
+
+
+\begin{table}[t]\centering\scriptsize
+\setlength{\tabcolsep}{3pt}\renewcommand{\arraystretch}{1.1}
+\begin{tabular}{>{\raggedright\arraybackslash}p{3.1cm}>{\raggedright\arraybackslash}p{1.4cm}>{\raggedright\arraybackslash}p{3.5cm}}
+\toprule
+\shissohead feature & correlation table & controlled edit \\
+\midrule
+semicolons & {{c_semi}} & {{semi}}, holds \\
+contrast framing & {{c_contrast}} & {{contrast}}, holds and is smaller \\
+advice or imperatives & {{c_advice}} & {{advice}}, does not hold \\
+verdict words & {{c_verdict}} & {{verdict}}, reversed \\
+``we'' or ``our'' doing something & {{c_we}} & {{we_to_i}}, does not hold \\
+\bottomrule
+\end{tabular}
+\caption{The sentence-level correlations we first used as rules, against the controlled edit of the same feature.}
+\end{table}
+
+
+Two of five features held. The verdict result is the one we did not expect. In the papers a verdict word sits in sentences that also carry a number, a bar and a citation, which may be what raised the score in the table. We did not test that. A verdict sentence appended on its own does not raise it.
+
+\subsection{The rewrite loop}
+
+We rewrote paragraphs from the highest-scoring sentences down. Each round scored a few candidate rewrites with the placeholders of the paper filled in, and kept the lowest one that preserved every number and claim. In the register paper one sentence moved to another paragraph and one that repeated another was dropped. There were {{n_cand}} candidates in {{n_rounds}} paragraph-rounds. {{n_lower}} of the candidates scored lower than the text they replaced, and the best candidate of a round improved the paragraph in {{share_impr}} \% of the rounds, by {{mean_best}} on average.
+
+
+\begin{table}[t]\centering\scriptsize
+\setlength{\tabcolsep}{3pt}\renewcommand{\arraystretch}{1.1}
+\begin{tabular}{>{\raggedright\arraybackslash}p{3.3cm}>{\raggedright\arraybackslash}p{1.9cm}>{\raggedright\arraybackslash}p{1.4cm}>{\raggedright\arraybackslash}p{1.4cm}}
+\toprule
+\shissohead paper & paragraphs & mean before & mean after \\
+\midrule
+register of re-tested claims & {{reg_p}} & {{reg_b}} & {{reg_a}} \\
+JEPA world model & {{jepa_p}} & {{jepa_b}} & {{jepa_a}} \\
+reward models and a stopping rule & {{rew_p}} & {{rew_b}} & {{rew_a}} \\
+chunking tricks on an edge GPU & {{vla_p}} & {{vla_b}} & {{vla_a}} \\
+\bottomrule
+\end{tabular}
+\caption{Word-weighted mean paragraph score before and after the rewrite.}
+\end{table}
+
+
+The largest single drops came from three changes, listed in Table 4. Merging sentences into longer ones with ``so'' or ``which means'' raised a limitations paragraph from {{merge_b}} to {{merge_a}} in the first variant, and the other two variants did the same. Paragraphs made of numbers, bars and verdicts stayed above the median of human results paragraphs ({{hr_res_med}}) whatever we did.
+
+
+\begin{table}[t]\centering\scriptsize
+\setlength{\tabcolsep}{3pt}\renewcommand{\arraystretch}{1.1}
+\begin{tabular}{>{\raggedright\arraybackslash}p{3.3cm}>{\raggedright\arraybackslash}p{1.9cm}>{\raggedright\arraybackslash}p{1.4cm}>{\raggedright\arraybackslash}p{1.4cm}}
+\toprule
+\shissohead change & paragraph & before & after \\
+\midrule
+name the works in place of ``papers propose several uses'' & JEPA introduction & {{jepa_intro_b}} & {{jepa_intro_a}} \\
+split one list sentence into plain statements & register, cold reruns & {{cold_b}} & {{cold_a}} \\
+open with the AUROC example and give the class letter after it & register, classes B and C & {{classes_b}} & {{classes_a}} \\
+\bottomrule
+\end{tabular}
+\caption{The three largest drops in one paragraph, by the change that caused them.}
+\end{table}
+
+
+A rewrite changes several sentences at once, so we asked whether the changes add up. For the {{add_paras}} paragraphs the loop changed, we split each rewrite into its sentence-level hunks and applied every hunk alone to the original paragraph ({{add_hunks}} hunks, \texttt{repro/additivity}). {{add_multi}} paragraphs have two or more hunks, and in them the hunk effects sum to {{add_S}} on average against {{add_D}} for the whole rewrite. The two agree across paragraphs with a correlation of {{add_r}} (Spearman {{add_rho}}), and the mean gap is {{add_resid}} per paragraph. In every one of these paragraphs the hunk with the largest effect has the sign of the whole rewrite. Nearly all hunks are reworded sentences ({{add_replace}} of {{add_hunks}}), so this shows that sentence-level changes add up, and it does not separate the named moves, such as naming the works or splitting a list.
+
+\subsection{A lexicon of words}
+
+We also tried to turn the sentence scores into a list of words. A lexicon built on three papers predicts the sentence effects of the fourth with a correlation of {{lex_held}}, and the 95th percentile of shuffled labels is {{lex_null}}. Deleting single words in the {{wd_paras}} highest paragraphs ({{wd_n}} deletions) agrees in sign with the sentence source for {{lex_same}} of {{lex_words}} words. Only {{lex_listed}} words pass our strict test. Words that name a method for talking about itself (protocol, rule, committed, reports, CI) go with higher scores, and plain task words and units go with lower ones. The effect of one word is small, since the mean deletion changes a paragraph by {{wd_mean}} and the largest by {{wd_max}}. The list is a tie-breaker between synonyms.
+
+\subsection{A human reference}
+
+Table 5 gives the paragraph scores of the {{hr_n}} human papers by the type of section. The paper means run from {{hr_min}} to {{hr_max}} with a median of {{hr_med}}. The median paragraph scores {{hr_para_med}}, {{hr_gt15}} \% of the paragraphs score above 0.15, and {{hr_gt25}} \% score above 0.25. Results paragraphs have a median of {{hr_res_med}}, so a results paragraph at 0.15, the level where ours stopped, is high for a human one.
+
+
+\begin{table}[t]\centering\scriptsize
+\setlength{\tabcolsep}{3pt}\renewcommand{\arraystretch}{1.1}
+\begin{tabular}{>{\raggedright\arraybackslash}p{3.3cm}>{\raggedright\arraybackslash}p{1.9cm}>{\raggedright\arraybackslash}p{1.4cm}>{\raggedright\arraybackslash}p{1.4cm}}
+\toprule
+\shissohead section type & paragraphs & median & 90th percentile \\
+\midrule
+introduction & {{hr_intro_n}} & {{hr_intro_med}} & {{hr_intro_p90}} \\
+related work & {{hr_rel_n}} & {{hr_rel_med}} & {{hr_rel_p90}} \\
+method & {{hr_meth_n}} & {{hr_meth_med}} & {{hr_meth_p90}} \\
+results & {{hr_res_n}} & {{hr_res_med}} & {{hr_res_p90}} \\
+conclusion & {{hr_conc_n}} & {{hr_conc_med}} & {{hr_conc_p90}} \\
+other or not recognised & {{hr_oth_n}} & {{hr_oth_med}} & {{hr_oth_p90}} \\
+\bottomrule
+\end{tabular}
+\caption{Paragraph scores of the human reference papers by section type, read from the PDFs. Section types come from the headings and are rough.}
+\end{table}
+
+
+Read the same way, our four built PDFs have paper means of {{hr_ours_reg}}, {{hr_ours_jepa}}, {{hr_ours_rew}} and {{hr_ours_vla}}, and {{hr_ours_gt15}} \% of their {{hr_ours_paras}} scoreable paragraphs score above 0.15. All four lie above the human median, and {{hr_ours_above}} of the {{hr_ours_all}} lie above the highest human paper.
+
+\subsection{Writing in the style of the human papers}
+
+Our papers score above the human ones, so we measured style features of the human paragraphs and of ours (Table 6) and looked for the ones that go with a low score. The rank correlations are weak, at most {{st_maxrho}} in absolute value. The largest gaps between our paragraphs and the human ones are the numeric tokens, the passive constructions, and the contrast and connective words. Our paragraphs have {{st_dig_ours}} numeric tokens per 100 words where the human paragraphs below 0.05 have {{st_dig_lo}}.
+
+
+\begin{table}[t]\centering\scriptsize
+\setlength{\tabcolsep}{3pt}\renewcommand{\arraystretch}{1.1}
+\begin{tabular}{>{\raggedright\arraybackslash}p{2.9cm}>{\raggedright\arraybackslash}p{1.3cm}>{\raggedright\arraybackslash}p{1.2cm}>{\raggedright\arraybackslash}p{1.2cm}>{\raggedright\arraybackslash}p{1.2cm}}
+\toprule
+\shissohead feature & rank correlation with score & low & high & ours \\
+\midrule
+numeric tokens & {{st_dig_rho}} & {{st_dig_lo}} & {{st_dig_hi}} & {{st_dig_ours}} \\
+passive constructions & {{st_pas_rho}} & {{st_pas_lo}} & {{st_pas_hi}} & {{st_pas_ours}} \\
+contrast words & {{st_con_rho}} & {{st_con_lo}} & {{st_con_hi}} & {{st_con_ours}} \\
+connective words & {{st_cnx_rho}} & {{st_cnx_lo}} & {{st_cnx_hi}} & {{st_cnx_ours}} \\
+commas & {{st_com_rho}} & {{st_com_lo}} & {{st_com_hi}} & {{st_com_ours}} \\
+words per paragraph & {{st_wds_rho}} & {{st_wds_lo}} & {{st_wds_hi}} & {{st_wds_ours}} \\
+\bottomrule
+\end{tabular}
+\caption{Style features of the human paragraphs by score, and of ours, read from the PDFs. Counts are per 100 words except the last row. Low is the {{st_n_low}} human paragraphs below 0.05 and high the {{st_n_high}} above 0.15.}
+\end{table}
+
+
+We rewrote {{tr_paras}} paragraphs of two of our papers in that direction, in our own words and with every number kept, joining clauses with contrast and connective words and using the passive for procedures. Of the {{tr_cands}} candidates, {{tr_higher}} scored higher than the paragraph they replaced and {{tr_lower}} lower, and the mean change was {{tr_mean}}. No candidate lowered {{tr_not_lower}} of the {{tr_paras}} paragraphs. The related-work paragraph of the register paper rose from {{tr_rw_b}} to {{tr_rw_a}}. The features that go with low scores across human paragraphs did not lower ours when we added them, which is the same gap between a correlation and an edit as in Section 3.2.
+
+\subsection{What the model reacts to}
+
+The first battery of edits used the highest and lowest paragraphs as hosts and misled us, because at the ends of the score any edit seems to move a paragraph toward the middle. The second battery uses {{trg_n_h}} random human paragraphs and our {{trg_n_o}}, with a control that appends or prepends a real sentence from another paragraph. The control moves a human paragraph by {{trg_ctl_a_h}} when appended and {{trg_ctl_p_h}} when prepended, and ours by {{trg_ctl_a_o}} and {{trg_ctl_p_o}}.
+
+
+\begin{table}[t]\centering\scriptsize
+\setlength{\tabcolsep}{3pt}\renewcommand{\arraystretch}{1.1}
+\begin{tabular}{>{\raggedright\arraybackslash}p{3.1cm}>{\raggedright\arraybackslash}p{1.4cm}>{\raggedright\arraybackslash}p{3.5cm}}
+\toprule
+\shissohead edit & ours & human, random \\
+\midrule
+language-model-style sentence appended & {{trg_ai_a_o}} ({{trg_ai_a_o_ci}}) & {{trg_ai_a_h}} ({{trg_ai_a_h_ci}}) \\
+language-model-style sentence prepended & {{trg_ai_p_o}} ({{trg_ai_p_o_ci}}) & {{trg_ai_p_h}} ({{trg_ai_p_h_ci}}) \\
+generic opener on an important and challenging problem & {{trg_mot_o}} ({{trg_mot_o_ci}}) & {{trg_mot_h}} ({{trg_mot_h_ci}}) \\
+generic sentence on importance appended & {{trg_imp_o}} ({{trg_imp_o_ci}}) & {{trg_imp_h}} ({{trg_imp_h_ci}}) \\
+neutral figure pointer appended & {{trg_ptr_a_o}} ({{trg_ptr_a_o_ci}}) & {{trg_ptr_a_h}} ({{trg_ptr_a_h_ci}}) \\
+neutral figure pointer prepended & {{trg_ptr_p_o}} ({{trg_ptr_p_o_ci}}) & {{trg_ptr_p_h}} ({{trg_ptr_p_h_ci}}) \\
+long specific technical paragraph appended & {{trg_spec_a_o}} ({{trg_spec_a_o_ci}}) & {{trg_spec_a_h}} ({{trg_spec_a_h_ci}}) \\
+long specific technical paragraph prepended & {{trg_spec_p_o}} ({{trg_spec_p_o_ci}}) & {{trg_spec_p_h}} ({{trg_spec_p_h_ci}}) \\
+paragraph of the same register appended & {{trg_peer_o}} ({{trg_peer_o_ci}}) & {{trg_peer_h}} ({{trg_peer_h_ci}}) \\
+names replaced by ``the method'' & {{trg_names_o}} ({{trg_names_o_ci}}) & {{trg_names_h}} ({{trg_names_h_ci}}) \\
+digits dropped & {{trg_dig_o}} ({{trg_dig_o_ci}}) & {{trg_dig_h}} ({{trg_dig_h_ci}}) \\
+evaluative words deleted & {{trg_eval_o}} ({{trg_eval_o_ci}}) & {{trg_eval_h}} ({{trg_eval_h_ci}}) \\
+control: real sentence appended & {{trg_ctl_a_o}} ({{trg_ctl_a_o_ci}}) & {{trg_ctl_a_h}} ({{trg_ctl_a_h_ci}}) \\
+control: real sentence prepended & {{trg_ctl_p_o}} ({{trg_ctl_p_o_ci}}) & {{trg_ctl_p_h}} ({{trg_ctl_p_h_ci}}) \\
+\bottomrule
+\end{tabular}
+\caption{Single edits on hosts not chosen by their score. Mean change in the paragraph score with a 95 \% bootstrap CI. The base mean is {{trg_base_o}} for ours and {{trg_base_h}} for the human paragraphs.}
+\end{table}
+
+
+A sentence in the style of a language model raises the score in either position, by {{trg_ai_a_o}} appended and {{trg_ai_p_o}} prepended to ours. A generic opener about an important and challenging problem raises ours by {{trg_mot_o}}. Digits are the clearest feature of our own text. Dropping them moves our paragraphs by {{trg_dig_o}}, replacing names with ``the method'' does nothing ({{trg_names_o}}), and the human paragraphs are not sensitive to digits ({{trg_dig_h}}). A neutral figure pointer moves ours by {{trg_ptr_a_o}}. A long, specific technical paragraph from a human paper moves ours most, by {{trg_spec_a_o}} appended and {{trg_spec_p_o}} prepended, and a paragraph of the same register does not ({{trg_peer_o}}). Single evaluative words hardly matter. Deleting them from human paragraphs moves the score by {{trg_eval_h}}, and an appended sentence on importance by {{trg_imp_h}}.
+
+The gradient of the score with respect to the input shows no single trigger word. In {{sal_n}} example paragraphs the top tenth of the words holds {{sal_min}} to {{sal_max}} of the positive attribution. The score looks like a measure of how much of a paragraph is generic exposition against specific technical detail, since a run of specifics dilutes it and generic framing or language-model phrasing adds to it. We tested this reading only with these edits.
+
+\section{Limitations}
+The model is the open 3B one, and the detector that flagged the papers is another. We did not run the production model, so none of these effects is shown to carry over to it. Running it on the four papers costs about {{pass_cost}} dollars for each full pass at the listed API rate, and we did not spend it.
+
+We drafted the four papers with Claude Code, and Claude Code wrote the rewrites in this paper too. The author has not yet read the rewrites paragraph by paragraph. The open EditLens model scores a paragraph low when it sees little AI editing in it. We do not read the score as who wrote the paragraph.
+
+Table 1 changes one feature per edit. A real rewrite changes several at once. We applied the sentence-level hunks of the rewrites one at a time (Section 3.3), but nearly all of them are reworded sentences, so we did not separate the named moves. All {{n_paras}} paragraphs come from the four papers of one author, on one SO-101 arm and one Jetson Orin NX. The five appended sentences are our own examples, and other wording could behave differently. The human reference is the first 40 results of one query, not a sample of the field, and its section types are rough because many headings were not recognised. Our own four PDFs give only {{hr_ours_paras}} scoreable paragraphs, so their section types are not compared. The trigger edits use one language-model-style sentence and one figure pointer that we wrote, so they show that these sentences move the score and not that every such sentence does. The style trial is {{tr_paras}} paragraphs from two papers, one round, with features we chose, so it shows that these edits did not help in that sample and does not rule them out.
+
+\section{Related work}
+EditLens \citep{thai2025editlens} introduces the continuous score and reports binary and ternary detection results, and we use its open 3B model. Its authors state that the model has a non-zero error rate and can cause harm when used to accuse someone. The AI Polish study \citep{saha2025polish}, which EditLens evaluates on, shows that binary detectors flag lightly polished text as AI. Work on paraphrasers and humanizers \citep{krishna2023paraphrase,cheng2025adversarial,masrour2025damage} studies how they degrade the detection of AI text. We read only the descriptions of these in the EditLens paper and not the works themselves. We start from human-directed drafts of technical prose and ask which edits move an open model's score, and we report the edits that did nothing.
+
+\section{Conclusion}
+\begin{shissofinding}[Conclusion.]
+Of the five features we had read off a correlation table, a semicolon and a contrast closer raised the score and the other three did not. A suspected feature should therefore be tested as an edit before it becomes a writing rule. Our four papers score above the human median, and our result paragraphs stayed above the median of human results paragraphs. Adding the style features of the human papers did not lower our scores. In our rewrites, paragraphs with named things and plain ``we ran X on Y'' sentences scored lower than paragraphs of procedure words. Adding long specific technical text lowered the score most, and generic framing and language-model phrasing raised it. We have not tested whether the rest of the gap is content that only the author can add, such as the reasons for a decision.
+\end{shissofinding}
+\bibliographystyle{plainnat}
+\bibliography{refs}
+
+
+\end{document}

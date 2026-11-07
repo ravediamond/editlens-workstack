@@ -1,0 +1,1327 @@
+{
+ "meta": {
+  "model": "pangram/editlens_Llama-3.2-3B",
+  "base": "meta-llama/Llama-3.2-3B",
+  "date": "2026-11-05T13:47:48",
+  "scale": "raw EditLens score in [0, 1], 0 = human, 1 = AI; no thresholds are published",
+  "note": "score_alone is for one sentence as a text of its own (noisy: the model trained on 75+ words); contribution = paragraph score minus the score of the paragraph without that sentence (paragraphs of 40+ words only)"
+ },
+ "paper": "paper-reward-models-stopping-rule",
+ "text": "rendered source (numbers filled) (DRAFT_4p.md)",
+ "file": "/home/jetson/scratch/paper-repos/paper-reward-models-stopping-rule/paper/DRAFT_4p.md",
+ "sentences": [
+  {
+   "id": 1,
+   "section": "Abstract",
+   "lines": [
+    9,
+    16
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.3926,
+   "sentence_in_paragraph": 1,
+   "sentence": "Episode length is the failure detector that zero-shot reward models must beat, and how hard it is to beat depends on who stopped the episode.",
+   "words": 26,
+   "score_alone": 0.332,
+   "score_without_it": 0.451,
+   "contribution": -0.0584
+  },
+  {
+   "id": 2,
+   "section": "Abstract",
+   "lines": [
+    9,
+    16
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.3926,
+   "sentence_in_paragraph": 2,
+   "sentence": "On a public SO-101 benchmark that anyone can rerun, where runs end at a time limit, length alone separates failure from success at AUROC 0.942 within policy.",
+   "words": 29,
+   "score_alone": 0.3095,
+   "score_without_it": 0.427,
+   "contribution": -0.0344
+  },
+  {
+   "id": 3,
+   "section": "Abstract",
+   "lines": [
+    9,
+    16
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.3926,
+   "sentence_in_paragraph": 3,
+   "sentence": "It does not need the timeout.",
+   "words": 6,
+   "score_alone": 0.2159,
+   "score_without_it": 0.4303,
+   "contribution": -0.0377
+  },
+  {
+   "id": 4,
+   "section": "Abstract",
+   "lines": [
+    9,
+    16
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.3926,
+   "sentence_in_paragraph": 4,
+   "sentence": "Watched only up to half of the longest episode, it still gives 0.851, because failed runs are slow rather than cut off.",
+   "words": 23,
+   "score_alone": 0.1781,
+   "score_without_it": 0.3914,
+   "contribution": 0.0013
+  },
+  {
+   "id": 5,
+   "section": "Abstract",
+   "lines": [
+    9,
+    16
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.3926,
+   "sentence_in_paragraph": 5,
+   "sentence": "Both reward models we test, run zero-shot, score below it, the better one at 0.821.",
+   "words": 17,
+   "score_alone": 0.2444,
+   "score_without_it": 0.3887,
+   "contribution": 0.0039
+  },
+  {
+   "id": 6,
+   "section": "Abstract",
+   "lines": [
+    9,
+    16
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.3926,
+   "sentence_in_paragraph": 6,
+   "sentence": "Our own rollouts, which an operator stopped by judgment, reverse the picture: length falls to 0.56, and what catches failures is a judge that sees the finished episode, passing its threshold at an operating point chosen in-sample.",
+   "words": 39,
+   "score_alone": 0.3872,
+   "score_without_it": 0.4202,
+   "contribution": -0.0276
+  },
+  {
+   "id": 7,
+   "section": "Abstract",
+   "lines": [
+    9,
+    16
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.3926,
+   "sentence_in_paragraph": 7,
+   "sentence": "No mid-episode monitor reaches its bar.",
+   "words": 7,
+   "score_alone": 0.2775,
+   "score_without_it": 0.3706,
+   "contribution": 0.022
+  },
+  {
+   "id": 8,
+   "section": "Abstract",
+   "lines": [
+    9,
+    16
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.3926,
+   "sentence_in_paragraph": 8,
+   "sentence": "So report a within-policy length baseline, and name the dataset's stopping rule.",
+   "words": 14,
+   "score_alone": 0.3294,
+   "score_without_it": 0.3281,
+   "contribution": 0.0645
+  },
+  {
+   "id": 9,
+   "section": "1 Introduction",
+   "lines": [
+    20,
+    25
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.3295,
+   "sentence_in_paragraph": 1,
+   "sentence": "A reward model that scores robot rollouts is also a failure detector, and papers evaluate it as one, mostly against other learned detectors.",
+   "words": 23,
+   "score_alone": 0.28,
+   "score_without_it": 0.3178,
+   "contribution": 0.0117
+  },
+  {
+   "id": 10,
+   "section": "1 Introduction",
+   "lines": [
+    20,
+    25
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.3295,
+   "sentence_in_paragraph": 2,
+   "sentence": "The baseline that matters is often simpler.",
+   "words": 7,
+   "score_alone": 0.3674,
+   "score_without_it": 0.3014,
+   "contribution": 0.0281
+  },
+  {
+   "id": 11,
+   "section": "1 Introduction",
+   "lines": [
+    20,
+    25
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.3295,
+   "sentence_in_paragraph": 3,
+   "sentence": "When a benchmark stops failed runs at a time limit, the length of an episode encodes its outcome, and so does the identity of the policy that ran (we call the second one the policy-identity null).",
+   "words": 37,
+   "score_alone": 0.2624,
+   "score_without_it": 0.4293,
+   "contribution": -0.0999
+  },
+  {
+   "id": 12,
+   "section": "1 Introduction",
+   "lines": [
+    20,
+    25
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.3295,
+   "sentence_in_paragraph": 4,
+   "sentence": "When an operator stops each run by judgment, both signals collapse and the detection task changes with them.",
+   "words": 18,
+   "score_alone": 0.3745,
+   "score_without_it": 0.2886,
+   "contribution": 0.0409
+  },
+  {
+   "id": 13,
+   "section": "1 Introduction",
+   "lines": [
+    20,
+    25
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.3295,
+   "sentence_in_paragraph": 5,
+   "sentence": "Which of the two a dataset uses is its *stopping rule*, and none of the reward-model papers in our library reports it or the length baseline it implies.",
+   "words": 29,
+   "score_alone": 0.3471,
+   "score_without_it": 0.3539,
+   "contribution": -0.0244
+  },
+  {
+   "id": 14,
+   "section": "1 Introduction",
+   "lines": [
+    27,
+    29
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.2565,
+   "sentence_in_paragraph": 1,
+   "sentence": "We started with a narrower claim, that elapsed time is the reward model to beat.",
+   "words": 15,
+   "score_alone": 0.1353,
+   "score_without_it": 0.2045,
+   "contribution": 0.052
+  },
+  {
+   "id": 15,
+   "section": "1 Introduction",
+   "lines": [
+    27,
+    29
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.2565,
+   "sentence_in_paragraph": 2,
+   "sentence": "Our own rollouts broke it.",
+   "words": 5,
+   "score_alone": 0.1849,
+   "score_without_it": 0.2716,
+   "contribution": -0.0151
+  },
+  {
+   "id": 16,
+   "section": "1 Introduction",
+   "lines": [
+    27,
+    29
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.2565,
+   "sentence_in_paragraph": 3,
+   "sentence": "On them length is near chance while a robot-trained judge passed its pre-registered threshold, and since the stopping rule is what separates the two results, it became the subject of the paper.",
+   "words": 34,
+   "score_alone": 0.3759,
+   "score_without_it": 0.1672,
+   "contribution": 0.0893
+  },
+  {
+   "id": 17,
+   "section": "1 Introduction",
+   "lines": [
+    31,
+    33
+   ],
+   "paragraph": 3,
+   "paragraph_score": 0.1974,
+   "sentence_in_paragraph": 1,
+   "sentence": "We measured length on a public SO-101 benchmark and on our own rollouts, with the length analyses frozen before any number existed, and set against it two zero-shot reward models and every judge and monitor we had run on our 88 operator-stopped rollouts.",
+   "words": 46,
+   "score_alone": 0.1974,
+   "score_without_it": null,
+   "contribution": null
+  },
+  {
+   "id": 18,
+   "section": "2 Data and labels",
+   "lines": [
+    37,
+    42
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.1977,
+   "sentence_in_paragraph": 1,
+   "sentence": "ArmnetBench v0.1 covers the SO-101 with 8 tasks and 7 policies.",
+   "words": 13,
+   "score_alone": 0.2057,
+   "score_without_it": 0.1466,
+   "contribution": 0.0511
+  },
+  {
+   "id": 19,
+   "section": "2 Data and labels",
+   "lines": [
+    37,
+    42
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.1977,
+   "sentence_in_paragraph": 2,
+   "sentence": "We use its 2,047 policy rollouts with a success or failure class (515 successes, 1,532 failures) and leave out the teleoperated episodes.",
+   "words": 24,
+   "score_alone": 0.3111,
+   "score_without_it": 0.1475,
+   "contribution": 0.0502
+  },
+  {
+   "id": 20,
+   "section": "2 Data and labels",
+   "lines": [
+    37,
+    42
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.1977,
+   "sentence_in_paragraph": 3,
+   "sentence": "One task, pushing a Displayport cable (270 rollouts), has rollouts of a single class and so no per-task AUROC.",
+   "words": 20,
+   "score_alone": 0.1294,
+   "score_without_it": 0.2835,
+   "contribution": -0.0858
+  },
+  {
+   "id": 21,
+   "section": "2 Data and labels",
+   "lines": [
+    37,
+    42
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.1977,
+   "sentence_in_paragraph": 4,
+   "sentence": "Our own data are 88 labelled bowls-task episodes on one SO-101 arm with a Jetson Orin NX, and the 50-episode subset (42 successes, 8 failures) that every monitor gate used.",
+   "words": 33,
+   "score_alone": 0.1134,
+   "score_without_it": 0.1662,
+   "contribution": 0.0314
+  },
+  {
+   "id": 22,
+   "section": "2 Data and labels",
+   "lines": [
+    37,
+    42
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.1977,
+   "sentence_in_paragraph": 5,
+   "sentence": "The author was the operator: he stopped each run and labelled it at rest, not blind to the policy.",
+   "words": 19,
+   "score_alone": 0.2593,
+   "score_without_it": 0.1817,
+   "contribution": 0.016
+  },
+  {
+   "id": 23,
+   "section": "3 The length baseline",
+   "lines": [
+    46,
+    48
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.1863,
+   "sentence_in_paragraph": 1,
+   "sentence": "On ArmnetBench, episode length is a strong failure detector, and not only because it tells the policies apart (Table 1, Fig. 1).",
+   "words": 22,
+   "score_alone": 0.1556,
+   "score_without_it": 0.1614,
+   "contribution": 0.025
+  },
+  {
+   "id": 24,
+   "section": "3 The length baseline",
+   "lines": [
+    46,
+    48
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.1863,
+   "sentence_in_paragraph": 2,
+   "sentence": "Pooled over policies it reaches 0.938.",
+   "words": 7,
+   "score_alone": 0.2609,
+   "score_without_it": 0.1743,
+   "contribution": 0.012
+  },
+  {
+   "id": 25,
+   "section": "3 The length baseline",
+   "lines": [
+    46,
+    48
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.1863,
+   "sentence_in_paragraph": 3,
+   "sentence": "Within each policy it ranges from 0.91 to 0.96, or 0.942 pair-weighted, with a CI of 0.927–0.956.",
+   "words": 24,
+   "score_alone": 0.1875,
+   "score_without_it": 0.16,
+   "contribution": 0.0263
+  },
+  {
+   "id": 26,
+   "section": "3 The length baseline",
+   "lines": [
+    50,
+    56
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.2156,
+   "sentence_in_paragraph": 1,
+   "sentence": "Both reward models, run zero-shot, fall below it on this benchmark.",
+   "words": 12,
+   "score_alone": 0.307,
+   "score_without_it": 0.2342,
+   "contribution": -0.0186
+  },
+  {
+   "id": 27,
+   "section": "3 The length baseline",
+   "lines": [
+    50,
+    56
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.2156,
+   "sentence_in_paragraph": 2,
+   "sentence": "Robometer-4B, as its authors ship it, scores 0.818 pooled and 0.821 within policy (pair-weighted over its per-policy scores, whose range stands in for a CI; §7 says why).",
+   "words": 33,
+   "score_alone": 0.3744,
+   "score_without_it": 0.1512,
+   "contribution": 0.0644
+  },
+  {
+   "id": 28,
+   "section": "3 The length baseline",
+   "lines": [
+    50,
+    56
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.2156,
+   "sentence_in_paragraph": 3,
+   "sentence": "TOPReward, with Qwen3-VL-8B and no training, scores 0.661 within policy, and its paired difference to length has a 95 % CI of -0.31 to -0.25.",
+   "words": 29,
+   "score_alone": 0.2084,
+   "score_without_it": 0.2691,
+   "contribution": -0.0535
+  },
+  {
+   "id": 29,
+   "section": "3 The length baseline",
+   "lines": [
+    50,
+    56
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.2156,
+   "sentence_in_paragraph": 4,
+   "sentence": "The protocols fixed each model's primary score before any score existed (Robometer's success probability, and the success score of TOPReward's paper).",
+   "words": 24,
+   "score_alone": 0.2794,
+   "score_without_it": 0.1841,
+   "contribution": 0.0315
+  },
+  {
+   "id": 30,
+   "section": "3 The length baseline",
+   "lines": [
+    50,
+    56
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.2156,
+   "sentence_in_paragraph": 5,
+   "sentence": "The two descriptive rows of Table 1, read from the same runs, score higher but still below length.",
+   "words": 18,
+   "score_alone": 0.1358,
+   "score_without_it": 0.231,
+   "contribution": -0.0154
+  },
+  {
+   "id": 31,
+   "section": "4 Length is more than the timeout",
+   "lines": [
+    73,
+    77
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.2301,
+   "sentence_in_paragraph": 1,
+   "sentence": "If length only reflected the timeout, its signal would sit in the few runs that hit it.",
+   "words": 17,
+   "score_alone": 0.3006,
+   "score_without_it": 0.2516,
+   "contribution": -0.0215
+  },
+  {
+   "id": 32,
+   "section": "4 Length is more than the timeout",
+   "lines": [
+    73,
+    77
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.2301,
+   "sentence_in_paragraph": 2,
+   "sentence": "It does not.",
+   "words": 3,
+   "score_alone": 0.1598,
+   "score_without_it": 0.2336,
+   "contribution": -0.0035
+  },
+  {
+   "id": 33,
+   "section": "4 Length is more than the timeout",
+   "lines": [
+    73,
+    77
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.2301,
+   "sentence_in_paragraph": 3,
+   "sentence": "Taking each task's longest episode as its timeout, only 8.7 % of failures run that long.",
+   "words": 17,
+   "score_alone": 0.3649,
+   "score_without_it": 0.2236,
+   "contribution": 0.0065
+  },
+  {
+   "id": 34,
+   "section": "4 Length is more than the timeout",
+   "lines": [
+    73,
+    77
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.2301,
+   "sentence_in_paragraph": 4,
+   "sentence": "At half that length 88 % of failures are still running but only 19 % of successes, and length observed up to that cut gives 0.851 within policy (CI 0.829–0.873; Fig. 2).",
+   "words": 34,
+   "score_alone": 0.1979,
+   "score_without_it": 0.2224,
+   "contribution": 0.0077
+  },
+  {
+   "id": 35,
+   "section": "4 Length is more than the timeout",
+   "lines": [
+    73,
+    77
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.2301,
+   "sentence_in_paragraph": 5,
+   "sentence": "TOPReward on frames up to the same cut reaches 0.667.",
+   "words": 11,
+   "score_alone": 0.1897,
+   "score_without_it": 0.3125,
+   "contribution": -0.0824
+  },
+  {
+   "id": 36,
+   "section": "4 Length is more than the timeout",
+   "lines": [
+    73,
+    77
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.2301,
+   "sentence_in_paragraph": 6,
+   "sentence": "Failed rollouts are slow, not timed out, and both readings fixed in the protocol hold.",
+   "words": 15,
+   "score_alone": 0.2786,
+   "score_without_it": 0.1543,
+   "contribution": 0.0758
+  },
+  {
+   "id": 37,
+   "section": "4 Length is more than the timeout",
+   "lines": [
+    81,
+    86
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.0571,
+   "sentence_in_paragraph": 1,
+   "sentence": "On our own operator-stopped rollouts the same baseline is at chance: 0.56 on the 69 rollouts TOPReward scored and 0.52 on all 88.",
+   "words": 26,
+   "score_alone": 0.1404,
+   "score_without_it": 0.129,
+   "contribution": -0.0719
+  },
+  {
+   "id": 38,
+   "section": "4 Length is more than the timeout",
+   "lines": [
+    81,
+    86
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.0571,
+   "sentence_in_paragraph": 2,
+   "sentence": "The baseline that matters here is the policy-identity null, because 17 of the 25 failures in the 69 come from one policy, TurboVLA.",
+   "words": 24,
+   "score_alone": 0.1796,
+   "score_without_it": 0.055,
+   "contribution": 0.0021
+  },
+  {
+   "id": 39,
+   "section": "4 Length is more than the timeout",
+   "lines": [
+    81,
+    86
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.0571,
+   "sentence_in_paragraph": 3,
+   "sentence": "Neither reward model beats it.",
+   "words": 5,
+   "score_alone": 0.1842,
+   "score_without_it": 0.0638,
+   "contribution": -0.0068
+  },
+  {
+   "id": 40,
+   "section": "4 Length is more than the timeout",
+   "lines": [
+    81,
+    86
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.0571,
+   "sentence_in_paragraph": 4,
+   "sentence": "TOPReward scores 0.82 (CI 0.70–0.93) against 0.87 for policy identity alone, and 0.78 on the 50 episodes without TurboVLA.",
+   "words": 25,
+   "score_alone": 0.1895,
+   "score_without_it": 0.0489,
+   "contribution": 0.0082
+  },
+  {
+   "id": 41,
+   "section": "4 Length is more than the timeout",
+   "lines": [
+    81,
+    86
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.0571,
+   "sentence_in_paragraph": 5,
+   "sentence": "Robometer scores 0.577 against 0.878 on all 88.",
+   "words": 10,
+   "score_alone": 0.3152,
+   "score_without_it": 0.0601,
+   "contribution": -0.0031
+  },
+  {
+   "id": 42,
+   "section": "5 Judges and monitors on our rollouts",
+   "lines": [
+    90,
+    91
+   ],
+   "paragraph": 1,
+   "paragraph_score": null,
+   "sentence_in_paragraph": 1,
+   "sentence": "Table 2 gives each judge and monitor a threshold-free AUROC where one is defined, then failures caught and successes flagged at its operating point, which for the judges at rest is chosen in-sample.",
+   "words": 35,
+   "score_alone": 0.1937,
+   "score_without_it": null,
+   "contribution": null
+  },
+  {
+   "id": 43,
+   "section": "5 Judges and monitors on our rollouts",
+   "lines": [
+    93,
+    102
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.2891,
+   "sentence_in_paragraph": 1,
+   "sentence": "A judge that sees the finished episode works on these rollouts, and the input format matters more than the robot fine-tune.",
+   "words": 22,
+   "score_alone": 0.3453,
+   "score_without_it": 0.2677,
+   "contribution": 0.0214
+  },
+  {
+   "id": 44,
+   "section": "5 Judges and monitors on our rollouts",
+   "lines": [
+    93,
+    102
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.2891,
+   "sentence_in_paragraph": 2,
+   "sentence": "A deterministic top-camera check (colour masks and geometry, no learning) is right on 94.3 % of judged episodes, with 0 false positives (Wilson 0–13 %) and 5 false negatives.",
+   "words": 30,
+   "score_alone": 0.3935,
+   "score_without_it": 0.2783,
+   "contribution": 0.0108
+  },
+  {
+   "id": 45,
+   "section": "5 Judges and monitors on our rollouts",
+   "lines": [
+    93,
+    102
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.2891,
+   "sentence_in_paragraph": 3,
+   "sentence": "Given a 64-frame two-view clip and NVIDIA's prompt, Flora-Rewarder-27B reaches a threshold-free AUROC of 1.00 (bootstrap CI 1.00–1.00).",
+   "words": 28,
+   "score_alone": 0.2301,
+   "score_without_it": 0.325,
+   "contribution": -0.0358
+  },
+  {
+   "id": 46,
+   "section": "5 Judges and monitors on our rollouts",
+   "lines": [
+    93,
+    102
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.2891,
+   "sentence_in_paragraph": 4,
+   "sentence": "At its in-sample operating point it flags 8 of 8 failures at 2 of 42 successes (Wilson on the false alarms 1–16 %), which passes the pre-registered bar of at least 6 of 8 failures at no more than 2 of 42 successes.",
+   "words": 45,
+   "score_alone": 0.2528,
+   "score_without_it": 0.3325,
+   "contribution": -0.0433
+  },
+  {
+   "id": 47,
+   "section": "5 Judges and monitors on our rollouts",
+   "lines": [
+    93,
+    102
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.2891,
+   "sentence_in_paragraph": 5,
+   "sentence": "Its base model Qwen3.5-27B, without the robot fine-tune, passes the same bar on the same input: AUROC 0.91 (0.78–1.00), 7 of 8 at 2 of 42.",
+   "words": 33,
+   "score_alone": 0.1881,
+   "score_without_it": 0.2891,
+   "contribution": 0.0
+  },
+  {
+   "id": 48,
+   "section": "5 Judges and monitors on our rollouts",
+   "lines": [
+    93,
+    102
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.2891,
+   "sentence_in_paragraph": 6,
+   "sentence": "The smaller Qwen3.5-9B and Gemini 3.8 Flash fail it, the 9B by flagging 16 successes and Gemini by one false alarm too many.",
+   "words": 26,
+   "score_alone": 0.0512,
+   "score_without_it": 0.2997,
+   "contribution": -0.0106
+  },
+  {
+   "id": 49,
+   "section": "5 Judges and monitors on our rollouts",
+   "lines": [
+    104,
+    110
+   ],
+   "paragraph": 3,
+   "paragraph_score": 0.2447,
+   "sentence_in_paragraph": 1,
+   "sentence": "On these 50 rollouts, no mid-episode monitor reaches its bar of at least 5 of 8 failures at no more than 1 of 20 false interventions (Fig. 3).",
+   "words": 29,
+   "score_alone": 0.325,
+   "score_without_it": 0.2792,
+   "contribution": -0.0346
+  },
+  {
+   "id": 50,
+   "section": "5 Judges and monitors on our rollouts",
+   "lines": [
+    104,
+    110
+   ],
+   "paragraph": 3,
+   "paragraph_score": 0.2447,
+   "sentence_in_paragraph": 2,
+   "sentence": "The surprise of a separate world model, trained in the LeWorldModel recipe, comes closest with 2 of 8 at 2 of 42 (AUROC 0.86).",
+   "words": 25,
+   "score_alone": 0.1509,
+   "score_without_it": 0.3378,
+   "contribution": -0.0932
+  },
+  {
+   "id": 51,
+   "section": "5 Judges and monitors on our rollouts",
+   "lines": [
+    104,
+    110
+   ],
+   "paragraph": 3,
+   "paragraph_score": 0.2447,
+   "sentence_in_paragraph": 3,
+   "sentence": "A Gemini sliding-window judge catches 0.",
+   "words": 7,
+   "score_alone": 0.349,
+   "score_without_it": 0.2718,
+   "contribution": -0.0272
+  },
+  {
+   "id": 52,
+   "section": "5 Judges and monitors on our rollouts",
+   "lines": [
+    104,
+    110
+   ],
+   "paragraph": 3,
+   "paragraph_score": 0.2447,
+   "sentence_in_paragraph": 4,
+   "sentence": "The action-conditioned risk head on the world model's latent has a history.",
+   "words": 14,
+   "score_alone": 0.268,
+   "score_without_it": 0.1968,
+   "contribution": 0.0479
+  },
+  {
+   "id": 53,
+   "section": "5 Judges and monitors on our rollouts",
+   "lines": [
+    104,
+    110
+   ],
+   "paragraph": 3,
+   "paragraph_score": 0.2447,
+   "sentence_in_paragraph": 5,
+   "sentence": "Its first version reached AUROC 0.93, but it read elapsed time, so we withdrew that result and pre-registered a second version without time or length.",
+   "words": 27,
+   "score_alone": 0.0995,
+   "score_without_it": 0.2407,
+   "contribution": 0.004
+  },
+  {
+   "id": 54,
+   "section": "5 Judges and monitors on our rollouts",
+   "lines": [
+    104,
+    110
+   ],
+   "paragraph": 3,
+   "paragraph_score": 0.2447,
+   "sentence_in_paragraph": 6,
+   "sentence": "The second version catches 3 of 8 at 5 of 42, with AUROC 0.79 against 0.71 when its actions are shuffled, and its MLP variant catches 6 of 8 but flags 13 of 42.",
+   "words": 36,
+   "score_alone": 0.1615,
+   "score_without_it": 0.2579,
+   "contribution": -0.0132
+  },
+  {
+   "id": 55,
+   "section": "6 Related work",
+   "lines": [
+    131,
+    140
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.2192,
+   "sentence_in_paragraph": 1,
+   "sentence": "Robometer and TOPReward are the two reward models we test.",
+   "words": 10,
+   "score_alone": 0.1539,
+   "score_without_it": 0.1821,
+   "contribution": 0.0372
+  },
+  {
+   "id": 56,
+   "section": "6 Related work",
+   "lines": [
+    131,
+    140
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.2192,
+   "sentence_in_paragraph": 2,
+   "sentence": "Robometer scales a general-purpose reward model through trajectory comparisons, TOPReward reads the token probabilities of a video-language model as hidden rewards, while a survey of verifiers for robot policies maps the wider family.",
+   "words": 35,
+   "score_alone": 0.2073,
+   "score_without_it": 0.1756,
+   "contribution": 0.0436
+  },
+  {
+   "id": 57,
+   "section": "6 Related work",
+   "lines": [
+    131,
+    140
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.2192,
+   "sentence_in_paragraph": 3,
+   "sentence": "Our monitors borrow from the mid-episode line of work.",
+   "words": 10,
+   "score_alone": 0.1678,
+   "score_without_it": 0.2762,
+   "contribution": -0.057
+  },
+  {
+   "id": 58,
+   "section": "6 Related work",
+   "lines": [
+    131,
+    140
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.2192,
+   "sentence_in_paragraph": 4,
+   "sentence": "FAIL-Detect and SAFE learn uncertainty- and feature-based failure scores for imitation and VLA policies.",
+   "words": 16,
+   "score_alone": 0.1855,
+   "score_without_it": 0.2376,
+   "contribution": -0.0184
+  },
+  {
+   "id": 59,
+   "section": "6 Related work",
+   "lines": [
+    131,
+    140
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.2192,
+   "sentence_in_paragraph": 5,
+   "sentence": "FARM reads failure signals from the internal states of a frozen world model, close to our world-model monitors, and ReAP predicts action-conditioned risk, the idea behind our risk head.",
+   "words": 31,
+   "score_alone": 0.2226,
+   "score_without_it": 0.2357,
+   "contribution": -0.0165
+  },
+  {
+   "id": 60,
+   "section": "6 Related work",
+   "lines": [
+    131,
+    140
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.2192,
+   "sentence_in_paragraph": 6,
+   "sentence": "VLA-Corrector, Spotter and REMORA add stage verification, a reflecting VLM and recurrent progress tracking.",
+   "words": 15,
+   "score_alone": 0.2178,
+   "score_without_it": 0.2286,
+   "contribution": -0.0093
+  },
+  {
+   "id": 61,
+   "section": "6 Related work",
+   "lines": [
+    131,
+    140
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.2192,
+   "sentence_in_paragraph": 7,
+   "sentence": "ArmnetBench and a standardized SO-101 VLA benchmark evaluate policies on the same low-cost arm.",
+   "words": 16,
+   "score_alone": 0.1374,
+   "score_without_it": 0.222,
+   "contribution": -0.0028
+  },
+  {
+   "id": 62,
+   "section": "6 Related work",
+   "lines": [
+    131,
+    140
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.2192,
+   "sentence_in_paragraph": 8,
+   "sentence": "None of these works reports the elapsed-length baseline under the dataset's stopping rule, and that comparison is what this paper adds.",
+   "words": 23,
+   "score_alone": 0.3464,
+   "score_without_it": 0.207,
+   "contribution": 0.0123
+  },
+  {
+   "id": 63,
+   "section": "7 Limitations",
+   "lines": [
+    144,
+    153
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.1593,
+   "sentence_in_paragraph": 1,
+   "sentence": "The judge pass on our own rollouts rests on 8 failures and on operating thresholds chosen on the same 50 episodes, labelled by a single operator, the author, who was not blind to the policy.",
+   "words": 35,
+   "score_alone": 0.2782,
+   "score_without_it": 0.1488,
+   "contribution": 0.0105
+  },
+  {
+   "id": 64,
+   "section": "7 Limitations",
+   "lines": [
+    144,
+    153
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.1593,
+   "sentence_in_paragraph": 2,
+   "sentence": "The threshold-free AUROCs do not depend on that choice, and fresh rollouts scored at the frozen thresholds are the confirming test.",
+   "words": 22,
+   "score_alone": 0.2578,
+   "score_without_it": 0.1368,
+   "contribution": 0.0225
+  },
+  {
+   "id": 65,
+   "section": "7 Limitations",
+   "lines": [
+    144,
+    153
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.1593,
+   "sentence_in_paragraph": 3,
+   "sentence": "Policy identity is a second confound: 17 of the 25 failures in our 69 rollouts are TurboVLA's, so any score that reads the policy gets the policy-identity null for free.",
+   "words": 32,
+   "score_alone": 0.1428,
+   "score_without_it": 0.1714,
+   "contribution": -0.0121
+  },
+  {
+   "id": 66,
+   "section": "7 Limitations",
+   "lines": [
+    144,
+    153
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.1593,
+   "sentence_in_paragraph": 4,
+   "sentence": "The risk head is trained and tested on the same 50 episodes (five folds by episode keep episodes from leaking, but tasks and policies do leak).",
+   "words": 26,
+   "score_alone": 0.2419,
+   "score_without_it": 0.169,
+   "contribution": -0.0097
+  },
+  {
+   "id": 67,
+   "section": "7 Limitations",
+   "lines": [
+    144,
+    153
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.1593,
+   "sentence_in_paragraph": 5,
+   "sentence": "Robometer's within-policy number has no episode-bootstrap CI and Robometer is missing from the truncation analysis, because its per-episode scores stayed on an older machine; a copy from that machine or a re-score of about $6 would restore both.",
+   "words": 43,
+   "score_alone": 0.2676,
+   "score_without_it": 0.1542,
+   "contribution": 0.0051
+  },
+  {
+   "id": 68,
+   "section": "7 Limitations",
+   "lines": [
+    144,
+    153
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.1593,
+   "sentence_in_paragraph": 6,
+   "sentence": "TOPReward's paper does not give its prefix count, frames per query or Yes/No wording, so those are our choices.",
+   "words": 21,
+   "score_alone": 0.1664,
+   "score_without_it": 0.185,
+   "contribution": -0.0257
+  },
+  {
+   "id": 69,
+   "section": "7 Limitations",
+   "lines": [
+    144,
+    153
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.1593,
+   "sentence_in_paragraph": 7,
+   "sentence": "The ArmnetBench result covers eight tasks, and the timeout is approximated by each task's longest episode.",
+   "words": 17,
+   "score_alone": 0.2561,
+   "score_without_it": 0.1538,
+   "contribution": 0.0055
+  },
+  {
+   "id": 70,
+   "section": "8 Conclusion",
+   "lines": [
+    157,
+    160
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.3027,
+   "sentence_in_paragraph": 1,
+   "sentence": "Before evaluating a reward model as a failure detector, run episode length within policy on the same rows, and say how the episodes ended.",
+   "words": 24,
+   "score_alone": 0.2183,
+   "score_without_it": 0.1929,
+   "contribution": 0.1098
+  },
+  {
+   "id": 71,
+   "section": "8 Conclusion",
+   "lines": [
+    157,
+    160
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.3027,
+   "sentence_in_paragraph": 2,
+   "sentence": "On a benchmark that stops at a time limit, length was the detector to beat, and neither reward model beat it.",
+   "words": 21,
+   "score_alone": 0.2375,
+   "score_without_it": 0.2705,
+   "contribution": 0.0321
+  },
+  {
+   "id": 72,
+   "section": "8 Conclusion",
+   "lines": [
+    157,
+    160
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.3027,
+   "sentence_in_paragraph": 3,
+   "sentence": "On rollouts an operator stopped, length was useless, and what caught failures was a judge that saw the whole finished episode in the right input format.",
+   "words": 26,
+   "score_alone": 0.3461,
+   "score_without_it": 0.1381,
+   "contribution": 0.1645
+  },
+  {
+   "id": 73,
+   "section": "Appendix: from plain name to analysis",
+   "lines": [
+    164,
+    164
+   ],
+   "paragraph": 1,
+   "paragraph_score": null,
+   "sentence_in_paragraph": 1,
+   "sentence": "Every number is recomputable from the repository; this table maps each analysis to its files.",
+   "words": 15,
+   "score_alone": 0.2401,
+   "score_without_it": null,
+   "contribution": null
+  },
+  {
+   "id": 74,
+   "section": "(figure and table captions)",
+   "lines": [
+    58,
+    58
+   ],
+   "paragraph": 1,
+   "paragraph_score": null,
+   "sentence_in_paragraph": 1,
+   "sentence": "Table 1: ArmnetBench, failure AUROC with 95 % episode-bootstrap CIs.",
+   "words": 10,
+   "score_alone": 0.0832,
+   "score_without_it": null,
+   "contribution": null
+  },
+  {
+   "id": 75,
+   "section": "(figure and table captions)",
+   "lines": [
+    58,
+    58
+   ],
+   "paragraph": 1,
+   "paragraph_score": null,
+   "sentence_in_paragraph": 2,
+   "sentence": "Read down the within-policy column: no reward-model score reaches length.",
+   "words": 12,
+   "score_alone": 0.1876,
+   "score_without_it": null,
+   "contribution": null
+  },
+  {
+   "id": 76,
+   "section": "(figure and table captions)",
+   "lines": [
+    69,
+    69
+   ],
+   "paragraph": 2,
+   "paragraph_score": null,
+   "sentence_in_paragraph": 1,
+   "sentence": "Failure AUROC on ArmnetBench: episode length against two zero-shot reward models.",
+   "words": 12,
+   "score_alone": 0.1787,
+   "score_without_it": null,
+   "contribution": null
+  },
+  {
+   "id": 77,
+   "section": "(figure and table captions)",
+   "lines": [
+    69,
+    69
+   ],
+   "paragraph": 2,
+   "paragraph_score": null,
+   "sentence_in_paragraph": 2,
+   "sentence": "Length leads both, pooled and within policy (95 % CIs where available).",
+   "words": 11,
+   "score_alone": 0.1923,
+   "score_without_it": null,
+   "contribution": null
+  },
+  {
+   "id": 78,
+   "section": "(figure and table captions)",
+   "lines": [
+    79,
+    79
+   ],
+   "paragraph": 3,
+   "paragraph_score": null,
+   "sentence_in_paragraph": 1,
+   "sentence": "Length observed up to a fraction of the task's longest episode, AUROC within policy: most of the signal is there by half the episode (band: 95 % CI).",
+   "words": 28,
+   "score_alone": 0.1875,
+   "score_without_it": null,
+   "contribution": null
+  },
+  {
+   "id": 79,
+   "section": "(figure and table captions)",
+   "lines": [
+    112,
+    112
+   ],
+   "paragraph": 4,
+   "paragraph_score": null,
+   "sentence_in_paragraph": 1,
+   "sentence": "Table 2: Judges and monitors on the 50 operator-stopped rollouts (42 successes, 8 failures).",
+   "words": 15,
+   "score_alone": 0.1804,
+   "score_without_it": null,
+   "contribution": null
+  },
+  {
+   "id": 80,
+   "section": "(figure and table captions)",
+   "lines": [
+    112,
+    112
+   ],
+   "paragraph": 4,
+   "paragraph_score": null,
+   "sentence_in_paragraph": 2,
+   "sentence": "Judges see the finished episode; monitors are held to ≥ 5/8 caught at ≤ 1/20 false interventions.",
+   "words": 17,
+   "score_alone": 0.5577,
+   "score_without_it": null,
+   "contribution": null
+  },
+  {
+   "id": 81,
+   "section": "(figure and table captions)",
+   "lines": [
+    127,
+    127
+   ],
+   "paragraph": 5,
+   "paragraph_score": null,
+   "sentence_in_paragraph": 1,
+   "sentence": "Failures caught against successes flagged on the 50 rollouts.",
+   "words": 9,
+   "score_alone": 0.3417,
+   "score_without_it": null,
+   "contribution": null
+  },
+  {
+   "id": 82,
+   "section": "(figure and table captions)",
+   "lines": [
+    127,
+    127
+   ],
+   "paragraph": 5,
+   "paragraph_score": null,
+   "sentence_in_paragraph": 2,
+   "sentence": "No monitor (circles) reaches its shaded bar; the judges at rest (squares) sit at their in-sample operating point, where the monitor bar does not apply.",
+   "words": 26,
+   "score_alone": 0.3146,
+   "score_without_it": null,
+   "contribution": null
+  }
+ ],
+ "n_sentences": 82
+}

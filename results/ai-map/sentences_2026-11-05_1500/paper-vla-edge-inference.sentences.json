@@ -1,0 +1,1023 @@
+{
+ "meta": {
+  "model": "pangram/editlens_Llama-3.2-3B",
+  "base": "meta-llama/Llama-3.2-3B",
+  "date": "2026-11-05T15:01:08",
+  "scale": "raw EditLens score in [0, 1], 0 = human, 1 = AI; no thresholds are published",
+  "note": "score_alone is for one sentence as a text of its own (noisy: the model trained on 75+ words); contribution = paragraph score minus the score of the paragraph without that sentence (paragraphs of 40+ words only)"
+ },
+ "paper": "paper-vla-edge-inference",
+ "text": "rendered source (numbers filled) (DRAFT_4p.md)",
+ "file": "/home/jetson/scratch/paper-repos/paper-vla-edge-inference/paper/DRAFT_4p.md",
+ "sentences": [
+  {
+   "id": 1,
+   "section": "Abstract",
+   "lines": [
+    9,
+    16
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.2672,
+   "sentence_in_paragraph": 1,
+   "sentence": "We re-measured seven training-free methods for action chunking in flow-matching VLAs, whose papers report numbers from desktop GPUs, on the hardware a low-cost robot runs: SmolVLA on a Jetson Orin NX.",
+   "words": 35,
+   "score_alone": 0.2678,
+   "score_without_it": 0.3064,
+   "contribution": -0.0392
+  },
+  {
+   "id": 2,
+   "section": "Abstract",
+   "lines": [
+    9,
+    16
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.2672,
+   "sentence_in_paragraph": 2,
+   "sentence": "All tests share one checkpoint and the same recorded episodes, each had its threshold committed before the run, and every number traces to a result file and a protocol commit.",
+   "words": 30,
+   "score_alone": 0.4037,
+   "score_without_it": 0.168,
+   "contribution": 0.0992
+  },
+  {
+   "id": 3,
+   "section": "Abstract",
+   "lines": [
+    9,
+    16
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.2672,
+   "sentence_in_paragraph": 3,
+   "sentence": "On this board the vision encoder takes 151.0 of 219.0 ms of server time per chunk (25 W).",
+   "words": 20,
+   "score_alone": 0.1363,
+   "score_without_it": 0.3129,
+   "contribution": -0.0457
+  },
+  {
+   "id": 4,
+   "section": "Abstract",
+   "lines": [
+    9,
+    16
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.2672,
+   "sentence_in_paragraph": 4,
+   "sentence": "The two methods that act on the seam between chunks pass.",
+   "words": 11,
+   "score_alone": 0.2347,
+   "score_without_it": 0.2992,
+   "contribution": -0.032
+  },
+  {
+   "id": 5,
+   "section": "Abstract",
+   "lines": [
+    9,
+    16
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.2672,
+   "sentence_in_paragraph": 5,
+   "sentence": "A gradient-free prefix overwrite cuts the boundary jump by 72 % or more, and movement-primitive seam conditioning removes most of the seam jerk.",
+   "words": 24,
+   "score_alone": 0.371,
+   "score_without_it": 0.2488,
+   "contribution": 0.0184
+  },
+  {
+   "id": 6,
+   "section": "Abstract",
+   "lines": [
+    9,
+    16
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.2672,
+   "sentence_in_paragraph": 6,
+   "sentence": "The sampling methods do not transfer, because vla.cpp samples in sequence and every N-sample method pays for N chunks one after another.",
+   "words": 24,
+   "score_alone": 0.2284,
+   "score_without_it": 0.3138,
+   "contribution": -0.0466
+  },
+  {
+   "id": 7,
+   "section": "1 Introduction",
+   "lines": [
+    20,
+    23
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.292,
+   "sentence_in_paragraph": 1,
+   "sentence": "Several training-free chunking tricks for flow-matching VLAs were published this year, with numbers from desktop and data-centre GPUs (RTX 4090, A100, H100, RTX 5090).",
+   "words": 27,
+   "score_alone": 0.2105,
+   "score_without_it": 0.2179,
+   "contribution": 0.0741
+  },
+  {
+   "id": 8,
+   "section": "1 Introduction",
+   "lines": [
+    20,
+    23
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.292,
+   "sentence_in_paragraph": 2,
+   "sentence": "There a chunk costs tens of milliseconds, and spare compute can hide an extra pass.",
+   "words": 15,
+   "score_alone": 0.3372,
+   "score_without_it": 0.2676,
+   "contribution": 0.0244
+  },
+  {
+   "id": 9,
+   "section": "1 Introduction",
+   "lines": [
+    20,
+    23
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.292,
+   "sentence_in_paragraph": 3,
+   "sentence": "A robot people can buy runs its policy on an edge GPU, where most of the chunk goes to the vision encoder, which these tricks do not touch.",
+   "words": 28,
+   "score_alone": 0.1596,
+   "score_without_it": 0.2819,
+   "contribution": 0.01
+  },
+  {
+   "id": 10,
+   "section": "1 Introduction",
+   "lines": [
+    20,
+    23
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.292,
+   "sentence_in_paragraph": 4,
+   "sentence": "We measured how much of each trick is left on such a board.",
+   "words": 13,
+   "score_alone": 0.3585,
+   "score_without_it": 0.2715,
+   "contribution": 0.0205
+  },
+  {
+   "id": 11,
+   "section": "1 Introduction",
+   "lines": [
+    25,
+    30
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.2359,
+   "sentence_in_paragraph": 1,
+   "sentence": "Our robot is an SO-101 arm [arXiv:2606.08881] with a Jetson Orin NX 16 GB.",
+   "words": 17,
+   "score_alone": 0.1015,
+   "score_without_it": 0.2856,
+   "contribution": -0.0497
+  },
+  {
+   "id": 12,
+   "section": "1 Introduction",
+   "lines": [
+    25,
+    30
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.2359,
+   "sentence_in_paragraph": 2,
+   "sentence": "It runs SmolVLA [arXiv:2506.01844] through vla.cpp, a C++ inference engine, on episodes recorded with LeRobot.",
+   "words": 18,
+   "score_alone": 0.0982,
+   "score_without_it": 0.3127,
+   "contribution": -0.0768
+  },
+  {
+   "id": 13,
+   "section": "1 Introduction",
+   "lines": [
+    25,
+    30
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.2359,
+   "sentence_in_paragraph": 3,
+   "sentence": "This paper started once SmolVLA ran on the arm through vla.cpp, when we looked at where the rest of a chunk's time went and at which published tricks could still help.",
+   "words": 33,
+   "score_alone": 0.2399,
+   "score_without_it": 0.1829,
+   "contribution": 0.0531
+  },
+  {
+   "id": 14,
+   "section": "1 Introduction",
+   "lines": [
+    25,
+    30
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.2359,
+   "sentence_in_paragraph": 4,
+   "sentence": "We took seven of them, each as a gate with a bar committed before the number.",
+   "words": 16,
+   "score_alone": 0.1884,
+   "score_without_it": 0.2438,
+   "contribution": -0.0079
+  },
+  {
+   "id": 15,
+   "section": "1 Introduction",
+   "lines": [
+    25,
+    30
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.2359,
+   "sentence_in_paragraph": 5,
+   "sentence": "Offline effects get an episode bootstrap, and latencies are medians of at least 50 calls.",
+   "words": 15,
+   "score_alone": 0.1832,
+   "score_without_it": 0.2127,
+   "contribution": 0.0232
+  },
+  {
+   "id": 16,
+   "section": "1 Introduction",
+   "lines": [
+    25,
+    30
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.2359,
+   "sentence_in_paragraph": 6,
+   "sentence": "The appendix maps every number to its result file and protocol commit.",
+   "words": 12,
+   "score_alone": 0.2489,
+   "score_without_it": 0.2244,
+   "contribution": 0.0115
+  },
+  {
+   "id": 17,
+   "section": "2 Where the time goes",
+   "lines": [
+    34,
+    37
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.2918,
+   "sentence_in_paragraph": 1,
+   "sentence": "We follow one chunk of ten Euler steps at full power (MAXN_SUPER), which costs 237.5 ms end to end (Fig. 1).",
+   "words": 22,
+   "score_alone": 0.2652,
+   "score_without_it": 0.2019,
+   "contribution": 0.0899
+  },
+  {
+   "id": 18,
+   "section": "2 Where the time goes",
+   "lines": [
+    34,
+    37
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.2918,
+   "sentence_in_paragraph": 2,
+   "sentence": "Vision takes 150.7 ms, prefill 14.9 ms, and each denoise step 5.3 ms.",
+   "words": 16,
+   "score_alone": 0.3674,
+   "score_without_it": 0.2845,
+   "contribution": 0.0073
+  },
+  {
+   "id": 19,
+   "section": "2 Where the time goes",
+   "lines": [
+    34,
+    37
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.2918,
+   "sentence_in_paragraph": 3,
+   "sentence": "At 25 W the server-side split is 151.0 ms of vision in 219.0 ms.",
+   "words": 17,
+   "score_alone": 0.23,
+   "score_without_it": 0.3317,
+   "contribution": -0.0399
+  },
+  {
+   "id": 20,
+   "section": "2 Where the time goes",
+   "lines": [
+    34,
+    37
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.2918,
+   "sentence_in_paragraph": 4,
+   "sentence": "A trick that only touches the denoising loop works on at most a quarter of the chunk.",
+   "words": 17,
+   "score_alone": 0.316,
+   "score_without_it": 0.2967,
+   "contribution": -0.0048
+  },
+  {
+   "id": 21,
+   "section": "2 Where the time goes",
+   "lines": [
+    39,
+    40
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.3012,
+   "sentence_in_paragraph": 1,
+   "sentence": "Two power modes appear in this paper because each gate's protocol froze the mode it ran in: the serving split and the boundary experiments ran at 25 W, and the latency experiments at full power.",
+   "words": 36,
+   "score_alone": 0.3381,
+   "score_without_it": 0.1421,
+   "contribution": 0.1591
+  },
+  {
+   "id": 22,
+   "section": "2 Where the time goes",
+   "lines": [
+    39,
+    40
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.3012,
+   "sentence_in_paragraph": 2,
+   "sentence": "Every number below carries its mode.",
+   "words": 6,
+   "score_alone": 0.1421,
+   "score_without_it": 0.3381,
+   "contribution": -0.0369
+  },
+  {
+   "id": 23,
+   "section": "3 Seven tricks, one checkpoint",
+   "lines": [
+    46,
+    47
+   ],
+   "paragraph": 1,
+   "paragraph_score": null,
+   "sentence_in_paragraph": 1,
+   "sentence": "All offline effects use the same SmolVLA checkpoint and the same 20 recorded episodes, with 254 chunk boundaries per delay.",
+   "words": 20,
+   "score_alone": 0.2017,
+   "score_without_it": null,
+   "contribution": null
+  },
+  {
+   "id": 24,
+   "section": "3 Seven tricks, one checkpoint",
+   "lines": [
+    46,
+    47
+   ],
+   "paragraph": 1,
+   "paragraph_score": null,
+   "sentence_in_paragraph": 2,
+   "sentence": "Table 1 gives every effect, bar and verdict.",
+   "words": 8,
+   "score_alone": 0.1187,
+   "score_without_it": null,
+   "contribution": null
+  },
+  {
+   "id": 25,
+   "section": "3 Seven tricks, one checkpoint",
+   "lines": [
+    49,
+    54
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.3063,
+   "sentence_in_paragraph": 1,
+   "sentence": "Two tricks act on the seam between chunks, and both pass.",
+   "words": 11,
+   "score_alone": 0.2729,
+   "score_without_it": 0.3151,
+   "contribution": -0.0088
+  },
+  {
+   "id": 26,
+   "section": "3 Seven tricks, one checkpoint",
+   "lines": [
+    49,
+    54
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.3063,
+   "sentence_in_paragraph": 2,
+   "sentence": "The first overwrites the new chunk's executed prefix with the actions already committed, and it passes the 50 % jump-cut bar at every delay, in PyTorch and in vla.cpp, where it adds 0.4 ms per chunk.",
+   "words": 39,
+   "score_alone": 0.3132,
+   "score_without_it": 0.3043,
+   "contribution": 0.0021
+  },
+  {
+   "id": 27,
+   "section": "3 Seven tricks, one checkpoint",
+   "lines": [
+    49,
+    54
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.3063,
+   "sentence_in_paragraph": 3,
+   "sentence": "The second is movement-primitive chunking [arXiv:2610.39451].",
+   "words": 9,
+   "score_alone": 0.1995,
+   "score_without_it": 0.3263,
+   "contribution": -0.02
+  },
+  {
+   "id": 28,
+   "section": "3 Seven tricks, one checkpoint",
+   "lines": [
+    49,
+    54
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.3063,
+   "sentence_in_paragraph": 4,
+   "sentence": "Projecting each chunk onto ten Gaussian bases keeps the error within its bar and removes within-chunk jerk.",
+   "words": 18,
+   "score_alone": 0.2093,
+   "score_without_it": 0.3006,
+   "contribution": 0.0057
+  },
+  {
+   "id": 29,
+   "section": "3 Seven tricks, one checkpoint",
+   "lines": [
+    49,
+    54
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.3063,
+   "sentence_in_paragraph": 5,
+   "sentence": "Conditioning on the last action sent removes 83–87 % of the seam jerk at +0.19° of error, against 73–84 % in its paper (we measured on the commanded stream only).",
+   "words": 31,
+   "score_alone": 0.3652,
+   "score_without_it": 0.2758,
+   "contribution": 0.0305
+  },
+  {
+   "id": 30,
+   "section": "3 Seven tricks, one checkpoint",
+   "lines": [
+    56,
+    57
+   ],
+   "paragraph": 3,
+   "paragraph_score": null,
+   "sentence_in_paragraph": 1,
+   "sentence": "Exact real-time chunking [arXiv:2506.07339] inpaints the prefix with guidance instead of overwriting it.",
+   "words": 16,
+   "score_alone": 0.364,
+   "score_without_it": null,
+   "contribution": null
+  },
+  {
+   "id": 31,
+   "section": "3 Seven tricks, one checkpoint",
+   "lines": [
+    56,
+    57
+   ],
+   "paragraph": 3,
+   "paragraph_score": null,
+   "sentence_in_paragraph": 2,
+   "sentence": "It cuts the jump by less than 50 % at every delay (Fig. 2), and in PyTorch it costs 1.9× a naive chunk.",
+   "words": 23,
+   "score_alone": 0.2099,
+   "score_without_it": null,
+   "contribution": null
+  },
+  {
+   "id": 32,
+   "section": "3 Seven tricks, one checkpoint",
+   "lines": [
+    59,
+    64
+   ],
+   "paragraph": 4,
+   "paragraph_score": 0.2864,
+   "sentence_in_paragraph": 1,
+   "sentence": "Cutting the Euler steps from ten to two [arXiv:2610.32102] saves 41 ms per chunk at full power, which is small next to the vision cost.",
+   "words": 27,
+   "score_alone": 0.3165,
+   "score_without_it": 0.2074,
+   "contribution": 0.079
+  },
+  {
+   "id": 33,
+   "section": "3 Seven tricks, one checkpoint",
+   "lines": [
+    59,
+    64
+   ],
+   "paragraph": 4,
+   "paragraph_score": 0.2864,
+   "sentence_in_paragraph": 2,
+   "sentence": "The paper claims that the action cloud contracts around an unchanged centroid, with a cloud ratio of 0.51 on π0.",
+   "words": 21,
+   "score_alone": 0.3123,
+   "score_without_it": 0.4177,
+   "contribution": -0.1313
+  },
+  {
+   "id": 34,
+   "section": "3 Seven tricks, one checkpoint",
+   "lines": [
+    59,
+    64
+   ],
+   "paragraph": 4,
+   "paragraph_score": 0.2864,
+   "sentence_in_paragraph": 3,
+   "sentence": "Our ratio is 0.78, between the bar of 0.70 and the fail line of 0.85, so the claim is not proven here.",
+   "words": 25,
+   "score_alone": 0.2208,
+   "score_without_it": 0.282,
+   "contribution": 0.0044
+  },
+  {
+   "id": 35,
+   "section": "3 Seven tricks, one checkpoint",
+   "lines": [
+    59,
+    64
+   ],
+   "paragraph": 4,
+   "paragraph_score": 0.2864,
+   "sentence_in_paragraph": 4,
+   "sentence": "The paper also expects fewer steps to remove edge-GPU thermal throttling, and our Orin did not throttle at ten steps in either power mode.",
+   "words": 25,
+   "score_alone": 0.148,
+   "score_without_it": 0.2717,
+   "contribution": 0.0147
+  },
+  {
+   "id": 36,
+   "section": "3 Seven tricks, one checkpoint",
+   "lines": [
+    59,
+    64
+   ],
+   "paragraph": 4,
+   "paragraph_score": 0.2864,
+   "sentence_in_paragraph": 5,
+   "sentence": "We keep ten steps, as the protocol says while the contraction is unproven.",
+   "words": 13,
+   "score_alone": 0.1531,
+   "score_without_it": 0.2885,
+   "contribution": -0.0021
+  },
+  {
+   "id": 37,
+   "section": "3 Seven tricks, one checkpoint",
+   "lines": [
+    66,
+    73
+   ],
+   "paragraph": 5,
+   "paragraph_score": 0.2737,
+   "sentence_in_paragraph": 1,
+   "sentence": "Two tricks sample several chunks per decision.",
+   "words": 7,
+   "score_alone": 0.3039,
+   "score_without_it": 0.2825,
+   "contribution": -0.0088
+  },
+  {
+   "id": 38,
+   "section": "3 Seven tricks, one checkpoint",
+   "lines": [
+    66,
+    73
+   ],
+   "paragraph": 5,
+   "paragraph_score": 0.2737,
+   "sentence_in_paragraph": 2,
+   "sentence": "Speculative chunk selection [arXiv:2610.28019] samples four candidates and uses the pre-commit frame to pick the one closest to the recorded teleoperation continuation.",
+   "words": 25,
+   "score_alone": 0.3665,
+   "score_without_it": 0.3024,
+   "contribution": -0.0287
+  },
+  {
+   "id": 39,
+   "section": "3 Seven tricks, one checkpoint",
+   "lines": [
+    66,
+    73
+   ],
+   "paragraph": 5,
+   "paragraph_score": 0.2737,
+   "sentence_in_paragraph": 3,
+   "sentence": "Offline it beats a random pick (one continuation per frame, training-set episodes, open loop).",
+   "words": 15,
+   "score_alone": 0.2446,
+   "score_without_it": 0.2753,
+   "contribution": -0.0016
+  },
+  {
+   "id": 40,
+   "section": "3 Seven tricks, one checkpoint",
+   "lines": [
+    66,
+    73
+   ],
+   "paragraph": 5,
+   "paragraph_score": 0.2737,
+   "sentence_in_paragraph": 4,
+   "sentence": "Its paper promises no added control-step delay, but on the Orin vla.cpp samples the candidates in sequence, and a cycle costs 1,200 ms and 37 control ticks against 8 for a naive chunk (Fig. 3).",
+   "words": 38,
+   "score_alone": 0.3148,
+   "score_without_it": 0.2375,
+   "contribution": 0.0363
+  },
+  {
+   "id": 41,
+   "section": "3 Seven tricks, one checkpoint",
+   "lines": [
+    66,
+    73
+   ],
+   "paragraph": 5,
+   "paragraph_score": 0.2737,
+   "sentence_in_paragraph": 5,
+   "sentence": "Entropy-adaptive chunk length [arXiv:2604.04161] samples 20 chunks per decision, and one decision takes 4,751 ms on the Orin against a threshold of 298 ms.",
+   "words": 28,
+   "score_alone": 0.3057,
+   "score_without_it": 0.3012,
+   "contribution": -0.0275
+  },
+  {
+   "id": 42,
+   "section": "3 Seven tricks, one checkpoint",
+   "lines": [
+    66,
+    73
+   ],
+   "paragraph": 5,
+   "paragraph_score": 0.2737,
+   "sentence_in_paragraph": 6,
+   "sentence": "Its chosen length also sits at the floor in both task phases, and the jump is no better than with fixed chunks and the overwrite.",
+   "words": 25,
+   "score_alone": 0.3028,
+   "score_without_it": 0.2837,
+   "contribution": -0.01
+  },
+  {
+   "id": 43,
+   "section": "4 What transfers to the board",
+   "lines": [
+    93,
+    98
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.3462,
+   "sentence_in_paragraph": 1,
+   "sentence": "The prefix overwrite and the primitive projection with seam conditioning act on the seam, and each costs under a millisecond on this board.",
+   "words": 23,
+   "score_alone": 0.3105,
+   "score_without_it": 0.3451,
+   "contribution": 0.0011
+  },
+  {
+   "id": 44,
+   "section": "4 What transfers to the board",
+   "lines": [
+    93,
+    98
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.3462,
+   "sentence_in_paragraph": 2,
+   "sentence": "We keep ten Euler steps until the contraction passes its threshold, since the two-step saving is small next to vision.",
+   "words": 21,
+   "score_alone": 0.203,
+   "score_without_it": 0.2885,
+   "contribution": 0.0577
+  },
+  {
+   "id": 45,
+   "section": "4 What transfers to the board",
+   "lines": [
+    93,
+    98
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.3462,
+   "sentence_in_paragraph": 3,
+   "sentence": "Exact guidance, speculative selection and adaptive length all pay for N chunks in series on a sequential engine.",
+   "words": 18,
+   "score_alone": 0.2869,
+   "score_without_it": 0.2581,
+   "contribution": 0.0882
+  },
+  {
+   "id": 46,
+   "section": "4 What transfers to the board",
+   "lines": [
+    93,
+    98
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.3462,
+   "sentence_in_paragraph": 4,
+   "sentence": "If you run one of them on an edge board, check first whether your engine samples in a batch, because ours does not.",
+   "words": 23,
+   "score_alone": 0.1951,
+   "score_without_it": 0.3569,
+   "contribution": -0.0107
+  },
+  {
+   "id": 47,
+   "section": "4 What transfers to the board",
+   "lines": [
+    93,
+    98
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.3462,
+   "sentence_in_paragraph": 5,
+   "sentence": "This version is offline and latency only, and the closed-loop columns on the arm, for seam smoothing and for the overwrite in the robot client, belong to a longer version.",
+   "words": 31,
+   "score_alone": 0.1786,
+   "score_without_it": 0.3724,
+   "contribution": -0.0262
+  },
+  {
+   "id": 48,
+   "section": "5 Related work",
+   "lines": [
+    102,
+    108
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.1355,
+   "sentence_in_paragraph": 1,
+   "sentence": "Other chunking tricks are also reported on desktop-class GPUs, and we did not re-measure them here: extending the executing chunk instead of resampling [arXiv:2610.05719], driving reactive chunking with a latent world model [arXiv:2606.18589], and fine-tuning the policy for latency with reinforcement learning [arXiv:2608.23831].",
+   "words": 52,
+   "score_alone": 0.2088,
+   "score_without_it": 0.2362,
+   "contribution": -0.1007
+  },
+  {
+   "id": 49,
+   "section": "5 Related work",
+   "lines": [
+    102,
+    108
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.1355,
+   "sentence_in_paragraph": 2,
+   "sentence": "On the engine side, TurboVLA [arXiv:2607.27205] pushes VLA throughput on a desktop GPU. vla.cpp, the engine we measure, runs VLAs on edge boards.",
+   "words": 26,
+   "score_alone": 0.1377,
+   "score_without_it": 0.1292,
+   "contribution": 0.0063
+  },
+  {
+   "id": 50,
+   "section": "5 Related work",
+   "lines": [
+    102,
+    108
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.1355,
+   "sentence_in_paragraph": 3,
+   "sentence": "Two works use the same arm to evaluate policies, a standardized benchmark that reports failures and recoveries of VLA policies [arXiv:2606.08881] and a fleet of SO-101 cells that evaluates policies at scale [arXiv:2607.24481].",
+   "words": 38,
+   "score_alone": 0.1451,
+   "score_without_it": 0.1322,
+   "contribution": 0.0033
+  },
+  {
+   "id": 51,
+   "section": "5 Related work",
+   "lines": [
+    102,
+    108
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.1355,
+   "sentence_in_paragraph": 4,
+   "sentence": "We re-measure the execution tricks around one policy, under bars fixed before the run.",
+   "words": 15,
+   "score_alone": 0.2475,
+   "score_without_it": 0.1469,
+   "contribution": -0.0115
+  },
+  {
+   "id": 52,
+   "section": "6 Limitations",
+   "lines": [
+    112,
+    119
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.1736,
+   "sentence_in_paragraph": 1,
+   "sentence": "The sampling result depends on the engine. vla.cpp samples sequentially, and we contribute to it (the overwrite runs on our fork, X).",
+   "words": 23,
+   "score_alone": 0.1237,
+   "score_without_it": 0.1873,
+   "contribution": -0.0136
+  },
+  {
+   "id": 53,
+   "section": "6 Limitations",
+   "lines": [
+    112,
+    119
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.1736,
+   "sentence_in_paragraph": 2,
+   "sentence": "Parity and determinism checks against PyTorch on the same board are in the gate logs, and a batched sampler would test the sampling result, but we have not run one.",
+   "words": 30,
+   "score_alone": 0.198,
+   "score_without_it": 0.191,
+   "contribution": -0.0174
+  },
+  {
+   "id": 54,
+   "section": "6 Limitations",
+   "lines": [
+    112,
+    119
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.1736,
+   "sentence_in_paragraph": 3,
+   "sentence": "Effects other than latency are offline and come from 20 recorded demonstrations of one task family (bowls), which the policy was trained on.",
+   "words": 23,
+   "score_alone": 0.3053,
+   "score_without_it": 0.1521,
+   "contribution": 0.0215
+  },
+  {
+   "id": 55,
+   "section": "6 Limitations",
+   "lines": [
+    112,
+    119
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.1736,
+   "sentence_in_paragraph": 4,
+   "sentence": "The arm gates for seam smoothing and for the overwrite in the robot client have not run.",
+   "words": 17,
+   "score_alone": 0.1517,
+   "score_without_it": 0.1931,
+   "contribution": -0.0195
+  },
+  {
+   "id": 56,
+   "section": "6 Limitations",
+   "lines": [
+    112,
+    119
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.1736,
+   "sentence_in_paragraph": 5,
+   "sentence": "We left out the adaptive-length arm gate because SmolVLA is at ceiling on this task, so a gain could not show.",
+   "words": 22,
+   "score_alone": 0.1253,
+   "score_without_it": 0.1732,
+   "contribution": 0.0004
+  },
+  {
+   "id": 57,
+   "section": "6 Limitations",
+   "lines": [
+    112,
+    119
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.1736,
+   "sentence_in_paragraph": 6,
+   "sentence": "Latency rows run at MAXN_SUPER and the serving and boundary rows at 25 W, which makes power mode a confound wherever the two are compared.",
+   "words": 25,
+   "score_alone": 0.1698,
+   "score_without_it": 0.1768,
+   "contribution": -0.0032
+  },
+  {
+   "id": 58,
+   "section": "6 Limitations",
+   "lines": [
+    112,
+    119
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.1736,
+   "sentence_in_paragraph": 7,
+   "sentence": "The study covers one policy, SmolVLA at 450M, since π0-class models do not fit on the Orin.",
+   "words": 18,
+   "score_alone": 0.1302,
+   "score_without_it": 0.149,
+   "contribution": 0.0246
+  },
+  {
+   "id": 59,
+   "section": "Appendix: from plain name to gate",
+   "lines": [
+    123,
+    123
+   ],
+   "paragraph": 1,
+   "paragraph_score": null,
+   "sentence_in_paragraph": 1,
+   "sentence": "Every number in this paper is recomputable from the repository; this table maps each experiment to its files.",
+   "words": 18,
+   "score_alone": 0.1715,
+   "score_without_it": null,
+   "contribution": null
+  },
+  {
+   "id": 60,
+   "section": "(figure and table captions)",
+   "lines": [
+    42,
+    42
+   ],
+   "paragraph": 1,
+   "paragraph_score": null,
+   "sentence_in_paragraph": 1,
+   "sentence": "Fig. 1 — where one SmolVLA chunk's time goes on the Orin NX (vla.cpp, ten Euler steps, MAXN_SUPER): vision is most of it",
+   "words": 24,
+   "score_alone": 0.147,
+   "score_without_it": null,
+   "contribution": null
+  },
+  {
+   "id": 61,
+   "section": "(figure and table captions)",
+   "lines": [
+    75,
+    75
+   ],
+   "paragraph": 2,
+   "paragraph_score": null,
+   "sentence_in_paragraph": 1,
+   "sentence": "Table 1: Seven tricks on one checkpoint: what each acts on, its offline effect, the pre-registered bar, the verdict and its cost on the Orin NX.",
+   "words": 27,
+   "score_alone": 0.2089,
+   "score_without_it": null,
+   "contribution": null
+  },
+  {
+   "id": 62,
+   "section": "(figure and table captions)",
+   "lines": [
+    87,
+    87
+   ],
+   "paragraph": 3,
+   "paragraph_score": null,
+   "sentence_in_paragraph": 1,
+   "sentence": "Fig. 2 — median boundary-jump cut against naive asynchronous execution (254 boundaries per delay, 25 W): the overwrite clears the 50 % bar at every delay, exact RTC guidance does not.",
+   "words": 30,
+   "score_alone": 0.2662,
+   "score_without_it": null,
+   "contribution": null
+  },
+  {
+   "id": 63,
+   "section": "(figure and table captions)",
+   "lines": [
+    89,
+    89
+   ],
+   "paragraph": 4,
+   "paragraph_score": null,
+   "sentence_in_paragraph": 1,
+   "sentence": "Fig. 3 — cost per decision on the Orin NX (log scale, MAXN_SUPER): both sampling methods miss their bar (dashed: AAC's 298 ms; PACT's bar is one chunk, 237.5 ms).",
+   "words": 32,
+   "score_alone": 0.1609,
+   "score_without_it": null,
+   "contribution": null
+  }
+ ],
+ "n_sentences": 63
+}

@@ -1,0 +1,13 @@
+{
+ "rule": "1.3 \u00d7 p99.9 commanded speed of the demos + 0.15 rad/s, per joint, deg/s",
+ "deg_per_s": [
+  97.73718156319282,
+  135.4514836261811,
+  186.8800732453408,
+  111.45139207344673,
+  71.28923093302997,
+  258.3808472254815
+ ],
+ "gripper_command_floor": 0.0,
+ "episodes": 182
+}

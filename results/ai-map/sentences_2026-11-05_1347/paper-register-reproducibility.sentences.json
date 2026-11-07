@@ -1,0 +1,1375 @@
+{
+ "meta": {
+  "model": "pangram/editlens_Llama-3.2-3B",
+  "base": "meta-llama/Llama-3.2-3B",
+  "date": "2026-11-05T13:47:48",
+  "scale": "raw EditLens score in [0, 1], 0 = human, 1 = AI; no thresholds are published",
+  "note": "score_alone is for one sentence as a text of its own (noisy: the model trained on 75+ words); contribution = paragraph score minus the score of the paragraph without that sentence (paragraphs of 40+ words only)"
+ },
+ "paper": "paper-register-reproducibility",
+ "text": "rendered source (numbers filled) (DRAFT_4p.md)",
+ "file": "/home/jetson/scratch/paper-repos/paper-register-reproducibility/paper/DRAFT_4p.md",
+ "sentences": [
+  {
+   "id": 1,
+   "section": "Abstract",
+   "lines": [
+    7,
+    7
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.3774,
+   "sentence_in_paragraph": 1,
+   "sentence": "Re-testing a robot-learning paper does not need a lab.",
+   "words": 11,
+   "score_alone": 0.2908,
+   "score_without_it": 0.3638,
+   "contribution": 0.0136
+  },
+  {
+   "id": 2,
+   "section": "Abstract",
+   "lines": [
+    7,
+    7
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.3774,
+   "sentence_in_paragraph": 2,
+   "sentence": "For $45.10 of compute on a €1,350 rig, an SO-101 arm with a Jetson Orin NX, we re-tested the central claims of recent papers under pass marks committed before each run, and every published number rebuilds from stored rows.",
+   "words": 43,
+   "score_alone": 0.2379,
+   "score_without_it": 0.5164,
+   "contribution": -0.139
+  },
+  {
+   "id": 3,
+   "section": "Abstract",
+   "lines": [
+    7,
+    7
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.3774,
+   "sentence_in_paragraph": 3,
+   "sentence": "Of the 37 paper claims tested, 12 held on this hardware.",
+   "words": 11,
+   "score_alone": 0.3685,
+   "score_without_it": 0.4319,
+   "contribution": -0.0545
+  },
+  {
+   "id": 4,
+   "section": "Abstract",
+   "lines": [
+    7,
+    7
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.3774,
+   "sentence_in_paragraph": 4,
+   "sentence": "The failures fit three proposed classes, each named after the condition the claim did not survive.",
+   "words": 16,
+   "score_alone": 0.2965,
+   "score_without_it": 0.3598,
+   "contribution": 0.0177
+  },
+  {
+   "id": 5,
+   "section": "Abstract",
+   "lines": [
+    7,
+    7
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.3774,
+   "sentence_in_paragraph": 5,
+   "sentence": "The clearest is the clock: methods that work on a desktop GPU but miss the real-time budget on the edge board.",
+   "words": 22,
+   "score_alone": 0.3188,
+   "score_without_it": 0.339,
+   "contribution": 0.0384
+  },
+  {
+   "id": 6,
+   "section": "Abstract",
+   "lines": [
+    7,
+    7
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.3774,
+   "sentence_in_paragraph": 6,
+   "sentence": "The other two are zero-shot judges beaten by a trivial signal and latent planners beaten by the commanded joints.",
+   "words": 20,
+   "score_alone": 0.3237,
+   "score_without_it": 0.3636,
+   "contribution": 0.0138
+  },
+  {
+   "id": 7,
+   "section": "Abstract",
+   "lines": [
+    7,
+    7
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.3774,
+   "sentence_in_paragraph": 7,
+   "sentence": "A blind second reader still has to confirm the classes.",
+   "words": 10,
+   "score_alone": 0.2054,
+   "score_without_it": 0.381,
+   "contribution": -0.0035
+  },
+  {
+   "id": 8,
+   "section": "Abstract",
+   "lines": [
+    7,
+    7
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.3774,
+   "sentence_in_paragraph": 8,
+   "sentence": "We also audited our own pre-registration by commit ancestry, and the audit shows where our ordering holds and where the repository cannot prove it.",
+   "words": 25,
+   "score_alone": 0.1375,
+   "score_without_it": 0.4025,
+   "contribution": -0.0251
+  },
+  {
+   "id": 9,
+   "section": "1. The register",
+   "lines": [
+    11,
+    11
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.4042,
+   "sentence_in_paragraph": 1,
+   "sentence": "A robot-learning paper reports what happened on one setup, and most of the 22 papers here sit far from ours.",
+   "words": 21,
+   "score_alone": 0.4273,
+   "score_without_it": 0.3528,
+   "contribution": 0.0515
+  },
+  {
+   "id": 10,
+   "section": "1. The register",
+   "lines": [
+    11,
+    11
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.4042,
+   "sentence_in_paragraph": 2,
+   "sentence": "Of these, 9 were shown in simulation and another 7 on rigs above X5k, the bracket our rig falls in (the appendix table gives each paper's rig, including the 3 in between and the 1 that does not say).",
+   "words": 40,
+   "score_alone": 0.1923,
+   "score_without_it": 0.4063,
+   "contribution": -0.0021
+  },
+  {
+   "id": 11,
+   "section": "1. The register",
+   "lines": [
+    11,
+    11
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.4042,
+   "sentence_in_paragraph": 3,
+   "sentence": "Ours costs €1,350: an SO-101 arm and a Jetson Orin NX 16 GB, with 2 small parts not yet priced.",
+   "words": 22,
+   "score_alone": 0.1045,
+   "score_without_it": 0.3703,
+   "contribution": 0.034
+  },
+  {
+   "id": 12,
+   "section": "1. The register",
+   "lines": [
+    13,
+    13
+   ],
+   "paragraph": 2,
+   "paragraph_score": null,
+   "sentence_in_paragraph": 1,
+   "sentence": "The register grew out of our own write-ups, 29 so far, each published with its data.",
+   "words": 17,
+   "score_alone": 0.1248,
+   "score_without_it": null,
+   "contribution": null
+  },
+  {
+   "id": 13,
+   "section": "1. The register",
+   "lines": [
+    13,
+    13
+   ],
+   "paragraph": 2,
+   "paragraph_score": null,
+   "sentence_in_paragraph": 2,
+   "sentence": "This paper collects them in one table and audits how the table was kept.",
+   "words": 14,
+   "score_alone": 0.2032,
+   "score_without_it": null,
+   "contribution": null
+  },
+  {
+   "id": 14,
+   "section": "1. The register",
+   "lines": [
+    15,
+    15
+   ],
+   "paragraph": 3,
+   "paragraph_score": 0.2202,
+   "sentence_in_paragraph": 1,
+   "sentence": "Take one entry.",
+   "words": 3,
+   "score_alone": 0.0895,
+   "score_without_it": 0.2131,
+   "contribution": 0.0072
+  },
+  {
+   "id": 15,
+   "section": "1. The register",
+   "lines": [
+    15,
+    15
+   ],
+   "paragraph": 3,
+   "paragraph_score": 0.2202,
+   "sentence_in_paragraph": 2,
+   "sentence": "An adaptive chunking paper claims that choosing the chunk length from the entropy of sampled chunks follows the task's phases, long in transport and short at the grasp.",
+   "words": 29,
+   "score_alone": 0.3571,
+   "score_without_it": 0.1734,
+   "contribution": 0.0468
+  },
+  {
+   "id": 16,
+   "section": "1. The register",
+   "lines": [
+    15,
+    15
+   ],
+   "paragraph": 3,
+   "paragraph_score": 0.2202,
+   "sentence_in_paragraph": 3,
+   "sentence": "On our edge GPU a single decision takes 4,751 ms.",
+   "words": 11,
+   "score_alone": 0.2567,
+   "score_without_it": 0.2356,
+   "contribution": -0.0154
+  },
+  {
+   "id": 17,
+   "section": "1. The register",
+   "lines": [
+    15,
+    15
+   ],
+   "paragraph": 3,
+   "paragraph_score": 0.2202,
+   "sentence_in_paragraph": 4,
+   "sentence": "The budget is 298 ms.",
+   "words": 5,
+   "score_alone": 0.103,
+   "score_without_it": 0.2336,
+   "contribution": -0.0134
+  },
+  {
+   "id": 18,
+   "section": "1. The register",
+   "lines": [
+    15,
+    15
+   ],
+   "paragraph": 3,
+   "paragraph_score": 0.2202,
+   "sentence_in_paragraph": 5,
+   "sentence": "So the entry records a fail on this rig, which says nothing against the method on the hardware it was shown on, and beside the verdict it keeps the claim in the paper's words, our pass mark, our measurement and the published rows that rebuild it.",
+   "words": 47,
+   "score_alone": 0.2118,
+   "score_without_it": 0.234,
+   "contribution": -0.0138
+  },
+  {
+   "id": 19,
+   "section": "1. The register",
+   "lines": [
+    17,
+    17
+   ],
+   "paragraph": 4,
+   "paragraph_score": 0.5792,
+   "sentence_in_paragraph": 1,
+   "sentence": "Before a learned model gets credit, the cheapest signal it must beat runs on the same rows: copy-last for a predictor, the commanded joints for a latent, episode length for a judge.",
+   "words": 33,
+   "score_alone": 0.4444,
+   "score_without_it": 0.4475,
+   "contribution": 0.1317
+  },
+  {
+   "id": 20,
+   "section": "1. The register",
+   "lines": [
+    17,
+    17
+   ],
+   "paragraph": 4,
+   "paragraph_score": 0.5792,
+   "sentence_in_paragraph": 2,
+   "sentence": "A method that loses to that signal has not shown what it claims, however good its own number looks.",
+   "words": 19,
+   "score_alone": 0.3989,
+   "score_without_it": 0.4402,
+   "contribution": 0.139
+  },
+  {
+   "id": 21,
+   "section": "1. The register",
+   "lines": [
+    17,
+    17
+   ],
+   "paragraph": 4,
+   "paragraph_score": 0.5792,
+   "sentence_in_paragraph": 3,
+   "sentence": "The threshold itself is committed before the run, and §2 checks how often that held.",
+   "words": 15,
+   "score_alone": 0.3009,
+   "score_without_it": 0.6142,
+   "contribution": -0.035
+  },
+  {
+   "id": 22,
+   "section": "1. The register",
+   "lines": [
+    19,
+    19
+   ],
+   "paragraph": 5,
+   "paragraph_score": null,
+   "sentence_in_paragraph": 1,
+   "sentence": "We chose the papers for the stack this rig runs (world models, VLA policies, failure monitors, chunking, edge latency) and entered each one before testing it.",
+   "words": 26,
+   "score_alone": 0.1578,
+   "score_without_it": null,
+   "contribution": null
+  },
+  {
+   "id": 23,
+   "section": "1. The register",
+   "lines": [
+    19,
+    19
+   ],
+   "paragraph": 5,
+   "paragraph_score": null,
+   "sentence_in_paragraph": 2,
+   "sentence": "The next ones are already listed in the register file.",
+   "words": 10,
+   "score_alone": 0.251,
+   "score_without_it": null,
+   "contribution": null
+  },
+  {
+   "id": 24,
+   "section": "2. Auditing our own pre-registration",
+   "lines": [
+    23,
+    23
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.1974,
+   "sentence_in_paragraph": 1,
+   "sentence": "To rule out moving the goalposts after the fact, a gate's threshold had to be in version control before its result.",
+   "words": 22,
+   "score_alone": 0.3879,
+   "score_without_it": 0.224,
+   "contribution": -0.0266
+  },
+  {
+   "id": 25,
+   "section": "2. Auditing our own pre-registration",
+   "lines": [
+    23,
+    23
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.1974,
+   "sentence_in_paragraph": 2,
+   "sentence": "Notes and commit dates can be edited by hand.",
+   "words": 9,
+   "score_alone": 0.2442,
+   "score_without_it": 0.2434,
+   "contribution": -0.046
+  },
+  {
+   "id": 26,
+   "section": "2. Auditing our own pre-registration",
+   "lines": [
+    23,
+    23
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.1974,
+   "sentence_in_paragraph": 3,
+   "sentence": "Commit ancestry cannot, short of rewriting history that others have already cloned, so the order of each gate is read from X alone, between the first commit that contains its bar and the first that contains its result.",
+   "words": 38,
+   "score_alone": 0.1877,
+   "score_without_it": 0.2043,
+   "contribution": -0.0069
+  },
+  {
+   "id": 27,
+   "section": "2. Auditing our own pre-registration",
+   "lines": [
+    23,
+    23
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.1974,
+   "sentence_in_paragraph": 4,
+   "sentence": "On the 89 gates logged by 2026-10-31, the audit finds most of them bar-first and 0 result-first (Table 1).",
+   "words": 23,
+   "score_alone": 0.329,
+   "score_without_it": 0.152,
+   "contribution": 0.0454
+  },
+  {
+   "id": 28,
+   "section": "2. Auditing our own pre-registration",
+   "lines": [
+    23,
+    23
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.1974,
+   "sentence_in_paragraph": 5,
+   "sentence": "Same-commit says nothing about which was written first; it only means bar and result entered the repository together.",
+   "words": 19,
+   "score_alone": 0.3538,
+   "score_without_it": 0.1942,
+   "contribution": 0.0032
+  },
+  {
+   "id": 29,
+   "section": "2. Auditing our own pre-registration",
+   "lines": [
+    37,
+    37
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.2871,
+   "sentence_in_paragraph": 1,
+   "sentence": "Text search alone had found 31 same-commit gates, and batch logging was the reason.",
+   "words": 15,
+   "score_alone": 0.3289,
+   "score_without_it": 0.2879,
+   "contribution": -0.0007
+  },
+  {
+   "id": 30,
+   "section": "2. Auditing our own pre-registration",
+   "lines": [
+    37,
+    37
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.2871,
+   "sentence_in_paragraph": 2,
+   "sentence": "A bar written earlier in a protocol, plan, scorer or specification often reached the log in the same commit as its result.",
+   "words": 22,
+   "score_alone": 0.2128,
+   "score_without_it": 0.2498,
+   "contribution": 0.0373
+  },
+  {
+   "id": 31,
+   "section": "2. Auditing our own pre-registration",
+   "lines": [
+    37,
+    37
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.2871,
+   "sentence_in_paragraph": 3,
+   "sentence": "Tracing each one back to that file moved 21 to bar-first and 4 to no-bar (their bar cell declares none), and left 6 where they were; the audit table in the repository gives the evidence line for every move.",
+   "words": 41,
+   "score_alone": 0.2507,
+   "score_without_it": 0.2674,
+   "contribution": 0.0197
+  },
+  {
+   "id": 32,
+   "section": "2. Auditing our own pre-registration",
+   "lines": [
+    37,
+    37
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.2871,
+   "sentence_in_paragraph": 4,
+   "sentence": "Rows that were already bar-first were not re-audited for a result hidden elsewhere.",
+   "words": 15,
+   "score_alone": 0.2556,
+   "score_without_it": 0.3074,
+   "contribution": -0.0203
+  },
+  {
+   "id": 33,
+   "section": "2. Auditing our own pre-registration",
+   "lines": [
+    37,
+    37
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.2871,
+   "sentence_in_paragraph": 5,
+   "sentence": "One open candidate remains, the reward-model progress test of 2026-11-01: same-commit by text search, although its protocol (X) is older than the log commit.",
+   "words": 28,
+   "score_alone": 0.3056,
+   "score_without_it": 0.2934,
+   "contribution": -0.0062
+  },
+  {
+   "id": 34,
+   "section": "2. Auditing our own pre-registration",
+   "lines": [
+    39,
+    39
+   ],
+   "paragraph": 3,
+   "paragraph_score": 0.2762,
+   "sentence_in_paragraph": 1,
+   "sentence": "Point estimates give clean verdicts, and intervals do not always agree with them.",
+   "words": 13,
+   "score_alone": 0.3885,
+   "score_without_it": 0.228,
+   "contribution": 0.0481
+  },
+  {
+   "id": 35,
+   "section": "2. Auditing our own pre-registration",
+   "lines": [
+    39,
+    39
+   ],
+   "paragraph": 3,
+   "paragraph_score": 0.2762,
+   "sentence_in_paragraph": 2,
+   "sentence": "Recomputing 10 early gates from stored rows with one statistic (episode bootstrap, 2,000 resamples, percentile 95 % CI) leaves 3 with the bar inside the interval (Table 2).",
+   "words": 28,
+   "score_alone": 0.2553,
+   "score_without_it": 0.2011,
+   "contribution": 0.0751
+  },
+  {
+   "id": 36,
+   "section": "2. Auditing our own pre-registration",
+   "lines": [
+    39,
+    39
+   ],
+   "paragraph": 3,
+   "paragraph_score": 0.2762,
+   "sentence_in_paragraph": 3,
+   "sentence": "The colour judge is the one to look at, a fail on the point that its interval cannot settle.",
+   "words": 19,
+   "score_alone": 0.0916,
+   "score_without_it": 0.2917,
+   "contribution": -0.0156
+  },
+  {
+   "id": 37,
+   "section": "2. Auditing our own pre-registration",
+   "lines": [
+    39,
+    39
+   ],
+   "paragraph": 3,
+   "paragraph_score": 0.2762,
+   "sentence_in_paragraph": 4,
+   "sentence": "For the false-intervention rate the interval only describes, since that threshold was fitted to meet it.",
+   "words": 17,
+   "score_alone": 0.308,
+   "score_without_it": 0.2866,
+   "contribution": -0.0105
+  },
+  {
+   "id": 38,
+   "section": "2. Auditing our own pre-registration",
+   "lines": [
+    39,
+    39
+   ],
+   "paragraph": 3,
+   "paragraph_score": 0.2762,
+   "sentence_in_paragraph": 5,
+   "sentence": "The register keeps the pre-registered point verdicts and flags all three as fragile.",
+   "words": 14,
+   "score_alone": 0.1938,
+   "score_without_it": 0.2403,
+   "contribution": 0.0358
+  },
+  {
+   "id": 39,
+   "section": "2. Auditing our own pre-registration",
+   "lines": [
+    49,
+    49
+   ],
+   "paragraph": 4,
+   "paragraph_score": 0.2219,
+   "sentence_in_paragraph": 1,
+   "sentence": "All 29 write-ups rebuild from their published rows.",
+   "words": 9,
+   "score_alone": 0.2307,
+   "score_without_it": 0.2538,
+   "contribution": -0.0319
+  },
+  {
+   "id": 40,
+   "section": "2. Auditing our own pre-registration",
+   "lines": [
+    49,
+    49
+   ],
+   "paragraph": 4,
+   "paragraph_score": 0.2219,
+   "sentence_in_paragraph": 2,
+   "sentence": "Cold reruns are a stricter test.",
+   "words": 6,
+   "score_alone": 0.181,
+   "score_without_it": 0.1828,
+   "contribution": 0.0391
+  },
+  {
+   "id": 41,
+   "section": "2. Auditing our own pre-registration",
+   "lines": [
+    49,
+    49
+   ],
+   "paragraph": 4,
+   "paragraph_score": 0.2219,
+   "sentence_in_paragraph": 3,
+   "sentence": "From a fresh clone with no credentials, 6 gates rerun and match, 5 of them exactly.",
+   "words": 16,
+   "score_alone": 0.2049,
+   "score_without_it": 0.1804,
+   "contribution": 0.0415
+  },
+  {
+   "id": 42,
+   "section": "2. Auditing our own pre-registration",
+   "lines": [
+    49,
+    49
+   ],
+   "paragraph": 4,
+   "paragraph_score": 0.2219,
+   "sentence_in_paragraph": 4,
+   "sentence": "Another 12 stop at the same place, the world-model environment, which is not published yet; publishing it would unblock most of them.",
+   "words": 23,
+   "score_alone": 0.1511,
+   "score_without_it": 0.2179,
+   "contribution": 0.004
+  },
+  {
+   "id": 43,
+   "section": "2. Auditing our own pre-registration",
+   "lines": [
+    49,
+    49
+   ],
+   "paragraph": 4,
+   "paragraph_score": 0.2219,
+   "sentence_in_paragraph": 5,
+   "sentence": "The remaining 11 need a larger GPU, a private checkpoint, the arm or a step the write-up leaves out.",
+   "words": 20,
+   "score_alone": 0.1736,
+   "score_without_it": 0.1508,
+   "contribution": 0.0711
+  },
+  {
+   "id": 44,
+   "section": "2. Auditing our own pre-registration",
+   "lines": [
+    49,
+    49
+   ],
+   "paragraph": 4,
+   "paragraph_score": 0.2219,
+   "sentence_in_paragraph": 6,
+   "sentence": "Citations and paper-side fields were checked against the papers' PDFs and corrected.",
+   "words": 13,
+   "score_alone": 0.267,
+   "score_without_it": 0.239,
+   "contribution": -0.0171
+  },
+  {
+   "id": 45,
+   "section": "2. Auditing our own pre-registration",
+   "lines": [
+    49,
+    49
+   ],
+   "paragraph": 4,
+   "paragraph_score": 0.2219,
+   "sentence_in_paragraph": 7,
+   "sentence": "Of the 38 arXiv ids the register names, those missing from our papers mirror all belong to scheduled tests, and the one tested paper without an arXiv id was not checked against a PDF.",
+   "words": 34,
+   "score_alone": 0.0661,
+   "score_without_it": 0.3311,
+   "contribution": -0.1092
+  },
+  {
+   "id": 46,
+   "section": "3. Results",
+   "lines": [
+    53,
+    53
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.3564,
+   "sentence_in_paragraph": 1,
+   "sentence": "Table 3 counts the verdicts, and the appendix lists every entry.",
+   "words": 11,
+   "score_alone": 0.2565,
+   "score_without_it": 0.3244,
+   "contribution": 0.032
+  },
+  {
+   "id": 47,
+   "section": "3. Results",
+   "lines": [
+    53,
+    53
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.3564,
+   "sentence_in_paragraph": 2,
+   "sentence": "The figure we lead with counts only claims taken from papers: 12 of 37 reproduce and 18 fail.",
+   "words": 18,
+   "score_alone": 0.2629,
+   "score_without_it": 0.2954,
+   "contribution": 0.061
+  },
+  {
+   "id": 48,
+   "section": "3. Results",
+   "lines": [
+    53,
+    53
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.3564,
+   "sentence_in_paragraph": 3,
+   "sentence": "The other 8 rows test our own baselines, for instance that the commanded joints beat the world model, and 5 of those hold.",
+   "words": 23,
+   "score_alone": 0.226,
+   "score_without_it": 0.29,
+   "contribution": 0.0664
+  },
+  {
+   "id": 49,
+   "section": "4. Three failure classes",
+   "lines": [
+    68,
+    68
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.3624,
+   "sentence_in_paragraph": 1,
+   "sentence": "The adaptive chunking entry of §1 is the plainest kind of failure: the method may be sound, but on the edge GPU it misses the real-time budget the claim needs (4,751 ms per decision against 298 ms).",
+   "words": 39,
+   "score_alone": 0.3968,
+   "score_without_it": 0.0869,
+   "contribution": 0.2754
+  },
+  {
+   "id": 50,
+   "section": "4. Three failure classes",
+   "lines": [
+    68,
+    68
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.3624,
+   "sentence_in_paragraph": 2,
+   "sentence": "Nothing about the idea is refuted there; the board is too slow for it.",
+   "words": 14,
+   "score_alone": 0.1661,
+   "score_without_it": 0.3068,
+   "contribution": 0.0556
+  },
+  {
+   "id": 51,
+   "section": "4. Three failure classes",
+   "lines": [
+    68,
+    68
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.3624,
+   "sentence_in_paragraph": 3,
+   "sentence": "We call this class A, the clock.",
+   "words": 7,
+   "score_alone": 0.1002,
+   "score_without_it": 0.446,
+   "contribution": -0.0836
+  },
+  {
+   "id": 52,
+   "section": "4. Three failure classes",
+   "lines": [
+    70,
+    70
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.3447,
+   "sentence_in_paragraph": 1,
+   "sentence": "A second kind turned up whenever a model judged outcomes without training on this rig.",
+   "words": 15,
+   "score_alone": 0.37,
+   "score_without_it": 0.3182,
+   "contribution": 0.0264
+  },
+  {
+   "id": 53,
+   "section": "4. Three failure classes",
+   "lines": [
+    70,
+    70
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.3447,
+   "sentence_in_paragraph": 2,
+   "sentence": "A learned reward model detects failures at AUROC 0.818, where episode length alone reaches 0.938, and judges of success, failure or progress that lose to a trivial signal like this one make up class B. The commanded joints did the same to learned latents.",
+   "words": 46,
+   "score_alone": 0.2387,
+   "score_without_it": 0.3764,
+   "contribution": -0.0318
+  },
+  {
+   "id": 54,
+   "section": "4. Three failure classes",
+   "lines": [
+    70,
+    70
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.3447,
+   "sentence_in_paragraph": 3,
+   "sentence": "A world model ranks the executed chunk first in 0.60 of anchors, below its pass mark of 0.8 and below the 0.68–0.90 of an action-only baseline, which puts it in class C: a latent used to plan, rank or track progress that loses to the joints or to a copy-last or action-only baseline.",
+   "words": 61,
+   "score_alone": 0.4389,
+   "score_without_it": 0.3249,
+   "contribution": 0.0198
+  },
+  {
+   "id": 55,
+   "section": "4. Three failure classes",
+   "lines": [
+    72,
+    72
+   ],
+   "paragraph": 3,
+   "paragraph_score": 0.2166,
+   "sentence_in_paragraph": 1,
+   "sentence": "These examples illustrate the classes; they do not count them.",
+   "words": 10,
+   "score_alone": 0.2476,
+   "score_without_it": 0.2113,
+   "contribution": 0.0054
+  },
+  {
+   "id": 56,
+   "section": "4. Three failure classes",
+   "lines": [
+    72,
+    72
+   ],
+   "paragraph": 3,
+   "paragraph_score": 0.2166,
+   "sentence_in_paragraph": 2,
+   "sentence": "A protocol committed before any labelling says the labels count only once a blind second reader, given the same 20 failed rows on the same form, agrees with the first reading at Cohen's κ ≥ 0.6.",
+   "words": 37,
+   "score_alone": 0.2818,
+   "score_without_it": 0.2096,
+   "contribution": 0.007
+  },
+  {
+   "id": 57,
+   "section": "4. Three failure classes",
+   "lines": [
+    72,
+    72
+   ],
+   "paragraph": 3,
+   "paragraph_score": 0.2166,
+   "sentence_in_paragraph": 3,
+   "sentence": "That reading has not happened yet.",
+   "words": 6,
+   "score_alone": 0.278,
+   "score_without_it": 0.2226,
+   "contribution": -0.006
+  },
+  {
+   "id": 58,
+   "section": "5. Limitations",
+   "lines": [
+    76,
+    76
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.3814,
+   "sentence_in_paragraph": 1,
+   "sentence": "With a single operator, the author, running the rig and labelling outcomes at rest and not always blind to the arm, observer bias is the main confound.",
+   "words": 27,
+   "score_alone": 0.3713,
+   "score_without_it": 0.3533,
+   "contribution": 0.0281
+  },
+  {
+   "id": 59,
+   "section": "5. Limitations",
+   "lines": [
+    76,
+    76
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.3814,
+   "sentence_in_paragraph": 2,
+   "sentence": "Two things limit it.",
+   "words": 4,
+   "score_alone": 0.1407,
+   "score_without_it": 0.3533,
+   "contribution": 0.0281
+  },
+  {
+   "id": 60,
+   "section": "5. Limitations",
+   "lines": [
+    76,
+    76
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.3814,
+   "sentence_in_paragraph": 3,
+   "sentence": "Where commit order shows it, the pass mark predates the run, so a label could not have moved the bar.",
+   "words": 20,
+   "score_alone": 0.1941,
+   "score_without_it": 0.363,
+   "contribution": 0.0184
+  },
+  {
+   "id": 61,
+   "section": "5. Limitations",
+   "lines": [
+    76,
+    76
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.3814,
+   "sentence_in_paragraph": 4,
+   "sentence": "A blind two-reader protocol for the failure classes is also committed and ready, though it has not run, and until it does no verdict has a second reader.",
+   "words": 29,
+   "score_alone": 0.2524,
+   "score_without_it": 0.3712,
+   "contribution": 0.0102
+  },
+  {
+   "id": 62,
+   "section": "5. Limitations",
+   "lines": [
+    76,
+    76
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.3814,
+   "sentence_in_paragraph": 5,
+   "sentence": "Ordering is provable for most gates, not all: for 29 of the 89 the repository cannot show which came first, and 21 of the bar-first verdicts rest on matching a bar text in an earlier file.",
+   "words": 37,
+   "score_alone": 0.2672,
+   "score_without_it": 0.3957,
+   "contribution": -0.0143
+  },
+  {
+   "id": 63,
+   "section": "5. Limitations",
+   "lines": [
+    76,
+    76
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.3814,
+   "sentence_in_paragraph": 6,
+   "sentence": "Under the bootstrap 3 verdicts are fragile.",
+   "words": 7,
+   "score_alone": 0.225,
+   "score_without_it": 0.3989,
+   "contribution": -0.0175
+  },
+  {
+   "id": 64,
+   "section": "5. Limitations",
+   "lines": [
+    76,
+    76
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.3814,
+   "sentence_in_paragraph": 7,
+   "sentence": "Cold reruns cover 6 gates so far, with the unpublished world-model environment as the main blocker.",
+   "words": 17,
+   "score_alone": 0.1811,
+   "score_without_it": 0.3567,
+   "contribution": 0.0247
+  },
+  {
+   "id": 65,
+   "section": "5. Limitations",
+   "lines": [
+    76,
+    76
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.3814,
+   "sentence_in_paragraph": 8,
+   "sentence": "A failure here describes this rig, not the paper in its own setting, and because the papers were chosen for one stack the rate describes this register rather than the field.",
+   "words": 31,
+   "score_alone": 0.2617,
+   "score_without_it": 0.3154,
+   "contribution": 0.066
+  },
+  {
+   "id": 66,
+   "section": "6. Related work",
+   "lines": [
+    80,
+    80
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.275,
+   "sentence_in_paragraph": 1,
+   "sentence": "Work on the same arm evaluates policies.",
+   "words": 7,
+   "score_alone": 0.3321,
+   "score_without_it": 0.2759,
+   "contribution": -0.0009
+  },
+  {
+   "id": 67,
+   "section": "6. Related work",
+   "lines": [
+    80,
+    80
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.275,
+   "sentence_in_paragraph": 2,
+   "sentence": "A standardized real-world benchmark reports a taxonomy of failures and recoveries for VLA policies [arXiv:2606.08881], and a fleet of SO-101 cells evaluates policies at scale [arXiv:2607.24481].",
+   "words": 32,
+   "score_alone": 0.2606,
+   "score_without_it": 0.2804,
+   "contribution": -0.0054
+  },
+  {
+   "id": 68,
+   "section": "6. Related work",
+   "lines": [
+    80,
+    80
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.275,
+   "sentence_in_paragraph": 3,
+   "sentence": "The vla-eval tool runs VLAs across 14 simulation benchmarks [arXiv:2603.13966].",
+   "words": 13,
+   "score_alone": 0.1885,
+   "score_without_it": 0.27,
+   "contribution": 0.005
+  },
+  {
+   "id": 69,
+   "section": "6. Related work",
+   "lines": [
+    80,
+    80
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.275,
+   "sentence_in_paragraph": 4,
+   "sentence": "A benchmark of demonstration quality studies one method family [arXiv:2610.18869].",
+   "words": 12,
+   "score_alone": 0.2128,
+   "score_without_it": 0.2695,
+   "contribution": 0.0056
+  },
+  {
+   "id": 70,
+   "section": "6. Related work",
+   "lines": [
+    80,
+    80
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.275,
+   "sentence_in_paragraph": 5,
+   "sentence": "We test something else.",
+   "words": 4,
+   "score_alone": 0.1897,
+   "score_without_it": 0.2942,
+   "contribution": -0.0192
+  },
+  {
+   "id": 71,
+   "section": "6. Related work",
+   "lines": [
+    80,
+    80
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.275,
+   "sentence_in_paragraph": 6,
+   "sentence": "Our targets are the claims behind methods (judges, world models, latency), checked against thresholds fixed before the run, with our own pre-registration audited.",
+   "words": 24,
+   "score_alone": 0.3897,
+   "score_without_it": 0.2291,
+   "contribution": 0.046
+  },
+  {
+   "id": 72,
+   "section": "6. Related work",
+   "lines": [
+    80,
+    80
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.275,
+   "sentence_in_paragraph": 7,
+   "sentence": "The closest statement of our thesis [arXiv:2610.40026] scores VLA and world-action models on five dimensions, among them reproduction evidence and deployment affordability.",
+   "words": 25,
+   "score_alone": 0.2738,
+   "score_without_it": 0.3083,
+   "contribution": -0.0332
+  },
+  {
+   "id": 73,
+   "section": "6. Related work",
+   "lines": [
+    80,
+    80
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.275,
+   "sentence_in_paragraph": 8,
+   "sentence": "Its reproduction-evidence score counts five audit milestones (configuration mapping, task records, task coverage, training records, seeds), and its authors state that it is not a probability that a result is correct.",
+   "words": 32,
+   "score_alone": 0.2976,
+   "score_without_it": 0.3356,
+   "contribution": -0.0606
+  },
+  {
+   "id": 74,
+   "section": "6. Related work",
+   "lines": [
+    80,
+    80
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.275,
+   "sentence_in_paragraph": 9,
+   "sentence": "We give one pass or fail per claim on a €1,350 rig instead.",
+   "words": 14,
+   "score_alone": 0.1654,
+   "score_without_it": 0.2415,
+   "contribution": 0.0336
+  },
+  {
+   "id": 75,
+   "section": "7. Conclusion",
+   "lines": [
+    84,
+    84
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.3221,
+   "sentence_in_paragraph": 1,
+   "sentence": "A €1,350 rig and $45.10 of compute were enough to re-test these claims and publish every row behind the verdicts, and 12 of 37 held.",
+   "words": 28,
+   "score_alone": 0.3553,
+   "score_without_it": 0.2694,
+   "contribution": 0.0528
+  },
+  {
+   "id": 76,
+   "section": "7. Conclusion",
+   "lines": [
+    84,
+    84
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.3221,
+   "sentence_in_paragraph": 2,
+   "sentence": "Money was never the constraint.",
+   "words": 5,
+   "score_alone": 0.1416,
+   "score_without_it": 0.3657,
+   "contribution": -0.0435
+  },
+  {
+   "id": 77,
+   "section": "7. Conclusion",
+   "lines": [
+    84,
+    84
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.3221,
+   "sentence_in_paragraph": 3,
+   "sentence": "Order was: keeping each pass mark ahead of its result, which our own history cannot prove for 29 of 89 gates.",
+   "words": 21,
+   "score_alone": 0.2831,
+   "score_without_it": 0.1854,
+   "contribution": 0.1368
+  },
+  {
+   "id": 78,
+   "section": "7. Conclusion",
+   "lines": [
+    84,
+    84
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.3221,
+   "sentence_in_paragraph": 4,
+   "sentence": "If you re-test a paper on a cheap rig, start with its cheapest baseline on the same rows, and commit the threshold before you look.",
+   "words": 26,
+   "score_alone": 0.2581,
+   "score_without_it": 0.2965,
+   "contribution": 0.0256
+  },
+  {
+   "id": 79,
+   "section": "7. Conclusion",
+   "lines": [
+    84,
+    84
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.3221,
+   "sentence_in_paragraph": 5,
+   "sentence": "Every number here can be rebuilt from the repository (X).",
+   "words": 10,
+   "score_alone": 0.1463,
+   "score_without_it": 0.3944,
+   "contribution": -0.0722
+  },
+  {
+   "id": 80,
+   "section": "(figure and table captions)",
+   "lines": [
+    25,
+    25
+   ],
+   "paragraph": 1,
+   "paragraph_score": null,
+   "sentence_in_paragraph": 1,
+   "sentence": "Table 1: Commit-order class of each gate.",
+   "words": 8,
+   "score_alone": 0.1517,
+   "score_without_it": null,
+   "contribution": null
+  },
+  {
+   "id": 81,
+   "section": "(figure and table captions)",
+   "lines": [
+    25,
+    25
+   ],
+   "paragraph": 1,
+   "paragraph_score": null,
+   "sentence_in_paragraph": 2,
+   "sentence": "The audited column is the one the paper uses; the first pass is what text search alone gave on the same gates.",
+   "words": 22,
+   "score_alone": 0.15,
+   "score_without_it": null,
+   "contribution": null
+  },
+  {
+   "id": 82,
+   "section": "(figure and table captions)",
+   "lines": [
+    41,
+    41
+   ],
+   "paragraph": 2,
+   "paragraph_score": null,
+   "sentence_in_paragraph": 1,
+   "sentence": "Table 2: The three gates whose verdict flips somewhere inside its 95 % interval.",
+   "words": 13,
+   "score_alone": 0.1612,
+   "score_without_it": null,
+   "contribution": null
+  },
+  {
+   "id": 83,
+   "section": "(figure and table captions)",
+   "lines": [
+    55,
+    55
+   ],
+   "paragraph": 3,
+   "paragraph_score": null,
+   "sentence_in_paragraph": 1,
+   "sentence": "Table 3: Verdicts by paper and by claim row (claim rows include our own baseline comparisons).",
+   "words": 16,
+   "score_alone": 0.1295,
+   "score_without_it": null,
+   "contribution": null
+  },
+  {
+   "id": 84,
+   "section": "(figure and table captions)",
+   "lines": [
+    90,
+    90
+   ],
+   "paragraph": 4,
+   "paragraph_score": null,
+   "sentence_in_paragraph": 1,
+   "sentence": "Table 4: The register, one row per paper, generated from the register file (internal model and gate names kept).",
+   "words": 19,
+   "score_alone": 0.1232,
+   "score_without_it": null,
+   "contribution": null
+  },
+  {
+   "id": 85,
+   "section": "(figure and table captions)",
+   "lines": [
+    90,
+    90
+   ],
+   "paragraph": 4,
+   "paragraph_score": null,
+   "sentence_in_paragraph": 2,
+   "sentence": "Read the verdict column against the rig each paper was shown on.",
+   "words": 12,
+   "score_alone": 0.0707,
+   "score_without_it": null,
+   "contribution": null
+  }
+ ],
+ "n_sentences": 85
+}

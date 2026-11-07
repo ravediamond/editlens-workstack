@@ -1,0 +1,12 @@
+# Texts a person will read; tools/prose_check.py checks these and nothing else. One glob per line, `!` excludes and wins.
+# Relative globs are from the repo root.
+README.md
+papers/*/README.md
+papers/*/paper/DRAFT_4p.src.md
+papers/*/paper/DRAFT_4p.md.in
+editlens-paper/README.md
+editlens-paper/paper/DRAFT_4p.src.md
+!**/results/**
+!**/expected/**
+!**/archive/**
+!rules/**

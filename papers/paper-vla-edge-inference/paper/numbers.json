@@ -1,0 +1,294 @@
+{
+ "aac_bar_ms": {
+  "value": "298",
+  "anchor": "repro/aac/expected/gate0.json, gate1_latency.json, AAC gates 0 / 1"
+ },
+ "aac_fixed_jump": {
+  "value": "0.940",
+  "anchor": "repro/aac/expected/gate0.json, gate1_latency.json, AAC gates 0 / 1"
+ },
+ "aac_h_grasp": {
+  "value": "2",
+  "anchor": "repro/aac/expected/gate0.json, gate1_latency.json, AAC gates 0 / 1"
+ },
+ "aac_h_transport": {
+  "value": "2",
+  "anchor": "repro/aac/expected/gate0.json, gate1_latency.json, AAC gates 0 / 1"
+ },
+ "aac_jump": {
+  "value": "0.973",
+  "anchor": "repro/aac/expected/gate0.json, gate1_latency.json, AAC gates 0 / 1"
+ },
+ "aac_n20_ms": {
+  "value": "4,751",
+  "anchor": "repro/aac/expected/gate0.json, gate1_latency.json, AAC gates 0 / 1"
+ },
+ "bar_aac": {
+  "value": "581a955",
+  "anchor": "first commit of the gate's protocol (git log --diff-filter=A)"
+ },
+ "bar_bat": {
+  "value": "1d7e6c4",
+  "anchor": "road-to-robotics projects/pact-vla/PROTOCOL_BATCHED.md, first commit (the bar, frozen before any number)"
+ },
+ "bar_glat": {
+  "value": "82fdc15",
+  "anchor": "first commit of the gate's protocol (git log --diff-filter=A)"
+ },
+ "bar_hd": {
+  "value": "0a79846",
+  "anchor": "first commit of the gate's protocol (git log --diff-filter=A)"
+ },
+ "bar_pact": {
+  "value": "0a79846",
+  "anchor": "first commit of the gate's protocol (git log --diff-filter=A)"
+ },
+ "bar_sm": {
+  "value": "6f58d7b",
+  "anchor": "first commit of the gate's protocol (git log --diff-filter=A)"
+ },
+ "bat_batch20": {
+  "value": "1,803",
+  "anchor": "repro/pact/expected/batched.json (PROTOCOL_BATCHED.md, WS-134 part 2a)"
+ },
+ "bat_batch4": {
+  "value": "1,092",
+  "anchor": "repro/pact/expected/batched.json (PROTOCOL_BATCHED.md, WS-134 part 2a)"
+ },
+ "bat_calls": {
+  "value": "50",
+  "anchor": "repro/pact/expected/batched.json (PROTOCOL_BATCHED.md, WS-134 part 2a)"
+ },
+ "bat_frames": {
+  "value": "5",
+  "anchor": "repro/pact/expected/batched.json (PROTOCOL_BATCHED.md, WS-134 part 2a)"
+ },
+ "bat_mem20": {
+  "value": "166",
+  "anchor": "repro/pact/expected/batched.json (PROTOCOL_BATCHED.md, WS-134 part 2a)"
+ },
+ "bat_mem4": {
+  "value": "49",
+  "anchor": "repro/pact/expected/batched.json (PROTOCOL_BATCHED.md, WS-134 part 2a)"
+ },
+ "bat_prefix": {
+  "value": "410",
+  "anchor": "repro/pact/expected/batched.json (PROTOCOL_BATCHED.md, WS-134 part 2a)"
+ },
+ "bat_ratio20": {
+  "value": "1.70",
+  "anchor": "repro/pact/expected/batched.json (PROTOCOL_BATCHED.md, WS-134 part 2a)"
+ },
+ "bat_ratio4": {
+  "value": "1.03",
+  "anchor": "repro/pact/expected/batched.json (PROTOCOL_BATCHED.md, WS-134 part 2a)"
+ },
+ "bat_seq20": {
+  "value": "21,212",
+  "anchor": "repro/pact/expected/batched.json (PROTOCOL_BATCHED.md, WS-134 part 2a)"
+ },
+ "bat_seq4": {
+  "value": "4,239",
+  "anchor": "repro/pact/expected/batched.json (PROTOCOL_BATCHED.md, WS-134 part 2a)"
+ },
+ "bat_shared4": {
+  "value": "3,003",
+  "anchor": "repro/pact/expected/batched.json (PROTOCOL_BATCHED.md, WS-134 part 2a)"
+ },
+ "bat_t1": {
+  "value": "1,060",
+  "anchor": "repro/pact/expected/batched.json (PROTOCOL_BATCHED.md, WS-134 part 2a)"
+ },
+ "bat_vs_cpp": {
+  "value": "4.5",
+  "anchor": "repro/pact/expected/batched.json (PROTOCOL_BATCHED.md, WS-134 part 2a) and gate_a.json T_gen_1"
+ },
+ "cpp_cut_12": {
+  "value": "73",
+  "anchor": "repro/chunk-boundary/expected/vlacpp_overwrite_summary.json, G13b in vla.cpp"
+ },
+ "cpp_cut_20": {
+  "value": "72",
+  "anchor": "repro/chunk-boundary/expected/vlacpp_overwrite_summary.json, G13b in vla.cpp"
+ },
+ "cpp_cut_8": {
+  "value": "71",
+  "anchor": "repro/chunk-boundary/expected/vlacpp_overwrite_summary.json, G13b in vla.cpp"
+ },
+ "cpp_ow_added_ms": {
+  "value": "0.4",
+  "anchor": "repro/chunk-boundary/expected/vlacpp_overwrite_summary.json, G13b in vla.cpp"
+ },
+ "denoise_ms": {
+  "value": "53",
+  "anchor": "repro/horizon-depth/expected (A2 split): ten denoise steps = 10 x the per-step ms"
+ },
+ "denoise_share": {
+  "value": "22",
+  "anchor": "repro/horizon-depth/expected (A2 split): 10 x the per-step ms over the end-to-end chunk ms"
+ },
+ "ex_cut_12": {
+  "value": "31",
+  "anchor": "repro/chunk-boundary/expected/ (g13b_summary.json, g13b_preflight.json; G13b, PyTorch, 25 W, 254 boundaries per delay)"
+ },
+ "ex_cut_20": {
+  "value": "21",
+  "anchor": "repro/chunk-boundary/expected/ (g13b_summary.json, g13b_preflight.json; G13b, PyTorch, 25 W, 254 boundaries per delay)"
+ },
+ "ex_cut_8": {
+  "value": "29",
+  "anchor": "repro/chunk-boundary/expected/ (g13b_summary.json, g13b_preflight.json; G13b, PyTorch, 25 W, 254 boundaries per delay)"
+ },
+ "exact_over_naive": {
+  "value": "1.9",
+  "anchor": "repro/chunk-boundary/expected/ (g13b_summary.json, g13b_preflight.json; G13b, PyTorch, 25 W, 254 boundaries per delay)"
+ },
+ "glat_rest": {
+  "value": "67.3",
+  "anchor": "repro/glat2/expected/glat2_gpu640_summary.json, G-lat-2 (mean of 400 chunks)"
+ },
+ "glat_total": {
+  "value": "219.0",
+  "anchor": "repro/glat2/expected/glat2_gpu640_summary.json, G-lat-2 (mean of 400 chunks)"
+ },
+ "glat_vision": {
+  "value": "151.0",
+  "anchor": "repro/glat2/expected/glat2_gpu640_summary.json, G-lat-2 (mean of 400 chunks)"
+ },
+ "glat_vision_pct": {
+  "value": "69",
+  "anchor": "repro/glat2/expected/glat2_gpu640_summary.json, G-lat-2 (mean of 400 chunks)"
+ },
+ "n10_ms": {
+  "value": "237.5",
+  "anchor": "repro/horizon-depth/expected/a2_latency.json, horizon x depth A2 (MAXN_SUPER, median of 50 calls)"
+ },
+ "n2_ms": {
+  "value": "196.1",
+  "anchor": "repro/horizon-depth/expected/a2_latency.json, horizon x depth A2 (MAXN_SUPER, median of 50 calls)"
+ },
+ "n2_over_n10": {
+  "value": "0.83",
+  "anchor": "repro/horizon-depth/expected/a2_latency.json, horizon x depth A2 (MAXN_SUPER, median of 50 calls)"
+ },
+ "n2_saved_ms": {
+  "value": "41",
+  "anchor": "repro/horizon-depth/expected/a2_latency.json, horizon x depth A2 (MAXN_SUPER, median of 50 calls)"
+ },
+ "n2_saved_pct": {
+  "value": "17",
+  "anchor": "repro/horizon-depth/expected/a2_latency.json, horizon x depth A2 (MAXN_SUPER, median of 50 calls)"
+ },
+ "naive_d": {
+  "value": "8",
+  "anchor": "repro/pact/expected/gate_a.json, gate_b.json, PACT-VLA gates A / B"
+ },
+ "ow_cut_12": {
+  "value": "74",
+  "anchor": "repro/chunk-boundary/expected/ (g13b_summary.json, g13b_preflight.json; G13b, PyTorch, 25 W, 254 boundaries per delay)"
+ },
+ "ow_cut_20": {
+  "value": "72",
+  "anchor": "repro/chunk-boundary/expected/ (g13b_summary.json, g13b_preflight.json; G13b, PyTorch, 25 W, 254 boundaries per delay)"
+ },
+ "ow_cut_8": {
+  "value": "73",
+  "anchor": "repro/chunk-boundary/expected/ (g13b_summary.json, g13b_preflight.json; G13b, PyTorch, 25 W, 254 boundaries per delay)"
+ },
+ "pact_d": {
+  "value": "37",
+  "anchor": "repro/pact/expected/gate_a.json, gate_b.json, PACT-VLA gates A / B"
+ },
+ "pact_ms": {
+  "value": "1,200",
+  "anchor": "repro/pact/expected/gate_a.json, gate_b.json, PACT-VLA gates A / B"
+ },
+ "pact_sel": {
+  "value": "-0.27",
+  "anchor": "repro/pact/expected/gate_a.json, gate_b.json, PACT-VLA gates A / B"
+ },
+ "pact_sel_hi": {
+  "value": "-0.09",
+  "anchor": "repro/pact/expected/gate_a.json, gate_b.json, PACT-VLA gates A / B"
+ },
+ "pact_sel_lo": {
+  "value": "-0.44",
+  "anchor": "repro/pact/expected/gate_a.json, gate_b.json, PACT-VLA gates A / B"
+ },
+ "pact_tgen1": {
+  "value": "237.5",
+  "anchor": "repro/pact/expected/gate_a.json, gate_b.json, PACT-VLA gates A / B"
+ },
+ "prefill_ms": {
+  "value": "14.9",
+  "anchor": "repro/horizon-depth/expected/a2_latency.json, horizon x depth A2 (MAXN_SUPER, median of 50 calls)"
+ },
+ "pt_exact_ms": {
+  "value": "1962",
+  "anchor": "repro/chunk-boundary/expected/ (g13b_summary.json, g13b_preflight.json; G13b, PyTorch, 25 W, 254 boundaries per delay)"
+ },
+ "pt_naive_ms": {
+  "value": "1028",
+  "anchor": "repro/chunk-boundary/expected/ (g13b_summary.json, g13b_preflight.json; G13b, PyTorch, 25 W, 254 boundaries per delay)"
+ },
+ "r2_bar": {
+  "value": "0.70",
+  "anchor": "repro/horizon-depth/README.md: 'median R(2)/R(10) \u2264 0.70'"
+ },
+ "r2_failline": {
+  "value": "0.85",
+  "anchor": "repro/horizon-depth/README.md: '(fail if R > 0.85)'"
+ },
+ "r2_hi": {
+  "value": "0.81",
+  "anchor": "repro/horizon-depth/expected/a1_cloud.json, horizon x depth A1 (20 frames x 32 draws)"
+ },
+ "r2_lo": {
+  "value": "0.73",
+  "anchor": "repro/horizon-depth/expected/a1_cloud.json, horizon x depth A1 (20 frames x 32 draws)"
+ },
+ "r2_paper": {
+  "value": "0.51",
+  "anchor": "repro/horizon-depth/README.md: 'R(2)/R(10) 0.51 on \u03c00'"
+ },
+ "r2_ratio": {
+  "value": "0.78",
+  "anchor": "repro/horizon-depth/expected/a1_cloud.json, horizon x depth A1 (20 frames x 32 draws)"
+ },
+ "r2_verdict": {
+  "value": "not proven",
+  "anchor": "repro/horizon-depth/expected/a1_cloud.json, horizon x depth A1 (20 frames x 32 draws)"
+ },
+ "sm_cost": {
+  "value": "+0.19",
+  "anchor": "repro/smooth-chunking/expected/a_summary.json, smooth MP chunking gate A (20 episodes)"
+ },
+ "sm_err": {
+  "value": "-0.020",
+  "anchor": "repro/smooth-chunking/expected/a_summary.json, smooth MP chunking gate A (20 episodes)"
+ },
+ "sm_jerk": {
+  "value": "94",
+  "anchor": "repro/smooth-chunking/expected/a_summary.json, smooth MP chunking gate A (20 episodes)"
+ },
+ "sm_paper": {
+  "value": "73\u201384",
+  "anchor": "repro/smooth-chunking/README.md: '73\u201384 % of boundary jerk'"
+ },
+ "sm_seam25": {
+  "value": "83",
+  "anchor": "repro/smooth-chunking/expected/a_summary.json, smooth MP chunking gate A (20 episodes)"
+ },
+ "sm_seam50": {
+  "value": "87",
+  "anchor": "repro/smooth-chunking/expected/a_summary.json, smooth MP chunking gate A (20 episodes)"
+ },
+ "step_ms": {
+  "value": "5.3",
+  "anchor": "repro/horizon-depth/expected/a2_latency.json, horizon x depth A2 (MAXN_SUPER, median of 50 calls)"
+ },
+ "vision_ms_a2": {
+  "value": "150.7",
+  "anchor": "repro/horizon-depth/expected/a2_latency.json, horizon x depth A2 (MAXN_SUPER, median of 50 calls)"
+ }
+}

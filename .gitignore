@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.cache/
+runs/
+refs/
+*.aux
+*.log
+**/paper/shisso_commit.tex
+**/polish/last_try_*.json
+*_local.json
+.env
+*.token

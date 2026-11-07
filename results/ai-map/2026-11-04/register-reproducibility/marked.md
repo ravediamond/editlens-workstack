@@ -1,0 +1,132 @@
+# paper-register-reproducibility: chunks in paper order
+
+## rendered source (numbers filled)
+
+### Abstract (mean 0.301)
+
+<!-- editlens chunk 0.301 lines 7-16 -->
+<!-- editlens paragraph 0.301 lines 7-16 -->
+Robot-learning papers are mostly shown in simulation, on costly arms or on data-centre GPUs. Does the claim survive on hardware a student can buy? We re-tested the central claim of 22 papers on a low-cost arm (SO-101) and an edge GPU (Jetson Orin NX), with the cheapest baseline run first and a pass mark fixed before each run. Of the 37 claims taken from the papers, 12 reproduce and 18 fail; the rest are not proven or not tested, and 8 further rows compare against our own baselines. Three classes cover the failures we saw: methods that miss a real-time budget on the edge GPU, zero-shot judges beaten by a trivial signal, and latent planners beaten by the commanded joint positions. We also audited ourselves. Every published number was rebuilt from its stored rows, the early gates were recomputed with one statistic, and commit order says which bars provably preceded their results — most, not all. The class assignment itself waits for a blind second reader. Both limits are in the paper, with their counts. Total compute: $45.10.
+
+### 1. The register (mean 0.422)
+
+<!-- editlens chunk 0.422 lines 20-37 -->
+<!-- editlens paragraph 0.399 lines 20-31 -->
+A claim shown on a Franka-class arm, in simulation or on a data-centre GPU does not say whether it holds on the hardware most students and small labs own. The register is one entry per paper: the claim as the paper states it, the pass mark we fixed for our rig, our result and a verdict, with the numbers recomputable from published rows. It rests on three conditions. **Accessible hardware:** an SO-101 arm and a Jetson Orin NX 16 GB, €1,350 for the parts with a stated price (2 smaller parts not yet priced). **Cheapest baseline first:** before a learned model is credited, the trivial signal it must beat (copy-last, the commanded joints, episode length) is run on the same rows. **Bar before the run:** the pass mark is committed before the result; §2 audits how far that holds. The papers were picked for relevance to the stack this rig runs — latent world models, VLA policies, failure monitors and judges, action chunking, edge latency — and entered in the register before testing. The register file lists the papers scheduled next. They are not a sample of the field (§5). Of the 22 papers, 9 were shown in simulation, 7 on rigs above $20k, 3 at X5k and 1 on an unstated setup.
+
+<!-- editlens paragraph 0.248 lines 33-37 -->
+Three things come out of this. First, the register: 45 claim rows over 22 papers, each with the claim as the paper states it, a bar fixed for this rig, a verdict, and the rows it is recomputed from. Second, a commit-order audit of the study's own pre-registration, with the provable and the unprovable counts side by side. Third, three proposed failure classes, with a blind two-reader protocol committed before any labelling. Everything, the audit's own evidence included, sits in one repository.
+
+### 2. Method, and an audit of our own pre-registration (mean 0.365)
+
+<!-- editlens chunk 0.365 lines 41-73 -->
+<!-- editlens paragraph 0.333 lines 41-48 -->
+Each gate of the experiment log has a bar and a result. We find, in git history, the first commit containing each, and classify the gate by commit order alone (X) — never from a note, never from a timestamp. Of the 89 gate rows of the log as of 2026-10-31, **58 are bar-first, 6 same-commit, 0 result-first, 23 no-bar and 2 not-run** (a bar, never a result). The 93 rows of the log today give 61 / 7 / 0 / 23 / 2. "Same-commit" means the bar and the result first appear in the same commit of this repository; it is not evidence that the result came first, nor that it did not.
+
+<!-- editlens paragraph 0.240 lines 50-57 -->
+A first pass by text search alone had read 36 bar-first, 31 same-commit, 19 no-bar and 3 unresolved. Tracing each same-commit gate to its own protocol, plan, scorer or specification moved 21 to bar-first and 4 to no-bar (the bar cell itself declares none), and left 6. Those upgrades rest on a bar text found in an earlier commit of a file tied to the gate. The evidence line for each is in the audit table, so a reader can check it; the earlier bar-first rows were not re-audited for a result elsewhere in the history. One gate added on 2026-11-01 (the reward-model progress test) is same-commit by text search, but its protocol (X) predates the log commit; its result commit was not audited, so it stays same-commit and is an open candidate.
+
+<!-- editlens paragraph 0.426 lines 59-66 -->
+**One statistic.** The early gates mixed point estimates and other intervals, so we recomputed 10 of them on the episode bootstrap (2,000 resamples, percentile 95 % CI) from stored rows. 3 verdicts flip somewhere inside their interval: the oscillation rate among failed episodes (24.0 %, CI 8.0–40.0 %, bar ≥ 10 %, n = 25; pass on the point), a judge's accuracy (94.2 %, CI 89.6–98.9 %, bar ≥ 95 %, n = 87; fail) and a judge threshold's false-intervention rate (2.4 %, CI 0.0–7.1 %, bar ≤ 5 %, n = 42; pass, but the threshold was fitted to meet that rate, so its interval is descriptive). The register keeps the point verdicts and reports the three as fragile.
+
+<!-- editlens paragraph 0.424 lines 68-73 -->
+**Reproducibility of this study.** Every published number was recomputed from its published rows: 29 / 29 write-ups pass. From a fresh clone with no credentials, 6 gates rerun cold and reproduce (5 exactly). 12 are blocked by one unpublished software environment; 11 need a larger GPU, a private checkpoint, the arm or an unstated step. The register's citations and paper-side fields were audited against the papers' PDFs and the fixes are merged; of the 38 arXiv ids the published register names, the missing ones in our papers mirror belong to scheduled tests, and one tested paper, which has no arXiv id, was not checked against its PDF.
+
+### 3. Results (mean 0.143)
+
+<!-- editlens chunk 0.143 lines 104-109 -->
+<!-- editlens paragraph 0.143 lines 104-109 -->
+Table 1 lists the register. Of the 22 papers, 4 reproduce, 13 fail, 3 are not proven, 1 was not tested and 1 was withdrawn. The register holds 45 claim rows (42 tested): 17 reproduce, 20 fail, 3 not proven, 4 not tested, 1 withdrawn. 8 of the 45 rows are our own baseline comparisons rather than paper claims (5 of them reproduce, e.g. "the commanded joints beat the world model"); on the 37 paper claims alone, 12 reproduce and 18 fail.
+
+### 4. Three failure classes (mean 0.371)
+
+<!-- editlens chunk 0.371 lines 113-123 -->
+<!-- editlens paragraph 0.371 lines 113-123 -->
+We propose three classes for the 20 failed claim rows. **A, edge latency:** the method may work, but on the edge GPU it misses the real-time budget the claim needs; an adaptive chunking method takes 4,751 ms per decision against a budget of 298 ms. **B, zero-shot judges:** a model used without training on this rig to judge success, failure or progress is no better than a trivial signal; a learned reward model detects failures at AUROC 0.818 where episode length alone reaches 0.938. **C, latent planners beaten by joints:** a learned latent used to plan, rank or track progress does worse than the commanded joints or a copy-last / action-only baseline; a latent world model ranks the executed chunk first in 0.60 of anchors, against a bar of 0.8 and 0.68–0.90 for an action-only baseline. The three examples are illustrative, nothing more. Per-row labels wait: under the protocol committed before any reading, they count only once a blind second reader, labelling the same 20 rows on the same form, agrees with the first pass at Cohen's κ ≥ 0.6. The protocol and the form are in the repository. The second reading has not happened yet.
+
+### 5. Limitations (mean 0.405)
+
+<!-- editlens chunk 0.405 lines 127-134 -->
+<!-- editlens paragraph 0.405 lines 127-134 -->
+One rig, one arm, one operator. A failure here is a rig finding, not a refutation of the paper's own setting. The verdicts were labelled by one person, at rest, not always blind to the arm. Of the 89 gates, 6 are same-commit and 23 have no bar: for 29, the order of bar and result cannot be proven from this repository. The commit-order audit is mechanical, but its 21 upgrades rest on matching a bar text, and the second-reader check of the classes — the only independent check in the study — has not been run. Under the bootstrap, 3 verdicts are fragile. Only 6 gates were rerun cold. And the papers themselves were chosen for relevance to one stack, not sampled, so the reproduction rate describes this register, not the field.
+
+### 6. Related work (mean 0.299)
+
+<!-- editlens chunk 0.299 lines 138-147 -->
+<!-- editlens paragraph 0.299 lines 138-147 -->
+A standardized real-world benchmark on the same arm reports a failure and recovery taxonomy for VLA policies [arXiv:2606.08881]; a fleet of SO-101 cells evaluates policies at scale [arXiv:2607.24481]. The vla-eval tool decouples VLA inference from 14 simulation benchmarks through a WebSocket protocol and Docker isolation [arXiv:2603.13966], and a benchmark of demonstration quality studies one method family empirically [arXiv:2610.18869]. These evaluate policies; we re-test the claims behind methods (judges, world models, latency) against bars fixed before the run, and audit our own pre-registration. The closest statement of our thesis [arXiv:2610.40026] scores VLA and world-action models on five dimensions, among them reproduction evidence and deployment affordability; its reproduction-evidence score is five audit milestones (configuration mapping, task records, task coverage, training records, seeds) and, in its words, not a probability that a result is correct. We give one pass/fail per claim on a €1,350 rig, with the bar committed before the run and the pre-registration itself audited.
+
+### 7. Conclusion (mean 0.341)
+
+<!-- editlens chunk 0.341 lines 151-155 -->
+<!-- editlens paragraph 0.341 lines 151-155 -->
+On a €1,350 rig, 12 of 37 tested paper claims reproduce under bars fixed for this hardware before the run. The scarce resource was not compute — $45.10 covered all of it — but order: bars before results. Auditing our own history found 29 of 89 gates whose order we cannot prove, and both numbers belong in the same paper. The register stays open. The next papers are already scheduled in the register file, and every number here can be rebuilt from the repository (X).
+
+### (figure and table captions) (mean 0.138)
+
+<!-- editlens chunk 0.138 lines 77-77 -->
+Table 1: The register: one row per paper, generated from the register file (claim, bar and result as recorded, including our internal model and gate names); each re-tested paper is cited beside its name.
+
+## built PDF
+
+### Abstract (mean 0.311)
+
+<!-- editlens chunk 0.311 lines 12-43 -->
+<!-- editlens paragraph 0.438 lines 12-25 -->
+the result; §2 audits how far that holds. The papers were picked for relevance to the stack this rig runs — latent world models, VLA policies, failure monitors and judges, action chunking, edge latency — and entered in the register before testing. The register file lists the papers scheduled next. They are not a sample of the field (§5). Of the 22 papers, 9 were shown in simulation, 7 on rigs above $20k, 3 at $5–20k, 2 below $5k and 1 on an unstated setup. Three things come out of this. First, the register: 45 claim rows over 22 papers, each with the claim as the paper states it, a bar fixed for this rig, a verdict, and the rows it is recomputed from. Second, a commit-order audit of the study’s own pre-registration, with the provable and the unprovable counts side by side. Third, three proposed failure classes, with a blind two-reader protocol committed before any labelling. Everything, the audit’s own evidence included, sits in one repository.
+
+<!-- editlens paragraph 0.229 lines 26-43 -->
+Robot-learning papers are mostly shown in simulation, on costly arms or on data-centre GPUs. Does the claim survive on hardware a student can buy? We re-tested the central claim of 22 papers on a low-cost arm (SO-101) and an edge GPU (Jetson Orin NX), with the cheapest baseline run first and a pass mark fixed before each run. Of the 37 claims taken from the papers, 12 reproduce and 18 fail; the rest are not proven or not tested, and 8 further rows compare against our own baselines. Three classes cover the failures we saw: methods that miss a real-time budget on the edge GPU, zero-shot judges beaten by a trivial signal, and latent planners beaten by the commanded joint positions. We also audited ourselves. Every published number was rebuilt from its stored rows, the early gates were recomputed with one statistic, and commit order says which bars provably preceded their 2 Method, and an audit of our own preregistration results — most, not all. The class assignment itself waits for a blind second reader. Both limits are in the paper, Each gate of the experiment log has a bar and a rewith their counts. Total compute: $45.10. sult. We find, in git history, the first commit containing each, and classify the gate by commit order alone
+
+### 1 The register (mean 0.154)
+
+<!-- editlens chunk 0.160 lines 44-93 -->
+<!-- editlens paragraph 0.179 lines 44-64 -->
+(git merge-base --is-ancestor) — never from a note, never from a timestamp. Of the 89 gate rows of the log as A claim shown on a Franka-class arm, in simulation or on of 2026-10-31, 58 are bar-first, 6 same-commit, 0 resulta data-centre GPU does not say whether it holds on the first, 23 no-bar and 2 not-run (a bar, never a result). The hardware most students and small labs own. The regis- 93 rows of the log today give 61 / 7 / 0 / 23 / 2. ”Sameter is one entry per paper: the claim as the paper states commit” means the bar and the result first appear in the it, the pass mark we fixed for our rig, our result and a same commit of this repository; it is not evidence that the verdict, with the numbers recomputable from published result came first, nor that it did not. A first pass by text rows. It rests on three conditions. Accessible hardware: search alone had read 36 bar-first, 31 same-commit, 19 an SO-101 arm and a Jetson Orin NX 16 GB, €1,350 for the no-bar and 3 unresolved. Tracing each same-commit gate parts with a stated price (2 smaller parts not yet priced). to its own protocol, plan, scorer or specification moved Cheapest baseline first: before a learned model is cred- 21 to bar-first and 4 to no-bar (the bar cell itself declares ited, the trivial signal it must beat (copy-last, the com- none), and left 6. Those upgrades rest on a bar text found manded joints, episode length) is run on the same rows. in an earlier commit of a file tied to the gate. The evidence Bar before the run: the pass mark is committed before line for each is in the audit table, so a reader can check ∗ Every number with its source file: it; the earlier bar-first rows were not re-audited for a regithub.com/ravediamond/paper-register-reproducibility. sult elsewhere in the history. One gate added on 2026-
+
+<!-- editlens paragraph 0.276 lines 69-93 -->
+11-01 (the reward-model progress test) is same-commit by text search, but its protocol (6241570) predates the log commit; its result commit was not audited, so it stays same-commit and is an open candidate. One statistic. The early gates mixed point estimates and other intervals, so we recomputed 10 of them on the episode bootstrap (2,000 resamples, percentile 95 % CI) from stored rows. 3 verdicts flip somewhere inside their interval: the oscillation rate among failed episodes (24.0 %, CI 8.0–40.0 %, bar ≥ 10 %, n = 25; pass on the point), a judge’s accuracy (94.2 %, CI 89.6–98.9 %, bar ≥ 95 %, n = 87; fail) and a judge threshold’s false-intervention rate (2.4 %, CI 0.0–7.1 %, bar ≤ 5 %, n = 42; pass, but the threshold was fitted to meet that rate, so its interval is descriptive). The register keeps the point verdicts and reports the three as fragile. Reproducibility of this study. Every published number was recomputed from its published rows: 29 / 29 write-ups pass. From a fresh clone with no credentials, 6 gates rerun cold and reproduce (5 exactly). 12 are blocked by one unpublished software environment; 11 need a larger GPU, a private checkpoint, the arm or an unstated step. The register’s citations and paper-side fields were audited against the papers’ PDFs and the fixes are merged; of the 38 arXiv ids the published register names, the missing ones in our papers mirror belong to scheduled tests, and one tested paper, which has no arXiv id, was not checked against its PDF.
+
+<!-- editlens chunk 0.083 lines 94-99 -->
+<!-- editlens paragraph 0.083 lines 94-99 -->
+bels wait: under the protocol committed before any reading, they count only once a blind second reader, labelling the same 20 rows on the same form, agrees with the first pass at Cohen’s κ ≥ 0.6. The protocol and the form are in the repository. The second reading has not happened yet.
+
+### 5 Limitations (mean 0.399)
+
+<!-- editlens chunk 0.399 lines 101-112 -->
+<!-- editlens paragraph 0.399 lines 101-112 -->
+One rig, one arm, one operator. A failure here is a rig finding, not a refutation of the paper’s own setting. The verdicts were labelled by one person, at rest, not always blind to the arm. Of the 89 gates, 6 are same-commit and 23 have no bar: for 29, the order of bar and result cannot be proven from this repository. The commit-order audit is mechanical, but its 21 upgrades rest on matching a bar text, and the second-reader check of the classes — the only independent check in the study — has not been run. Under the bootstrap, 3 verdicts are fragile. Only 6 gates were rerun cold. And the papers themselves were chosen for relevance to one stack, not sampled, so the reproduction rate describes this register, not the field.
+
+### 6 Related work (mean 0.194)
+
+<!-- editlens chunk 0.194 lines 115-117 -->
+A standardized real-world benchmark on the same arm reports a failure and recovery taxonomy for VLA policies [13]; a fleet of SO-101 cells evaluates policies at
+
+### 3 Results (mean 0.060)
+
+<!-- editlens chunk 0.060 lines 118-129 -->
+<!-- editlens paragraph 0.060 lines 118-129 -->
+scale [14]. The vla-eval tool decouples VLA inference from 14 simulation benchmarks through a WebSocket Table 1 lists the register. Of the 22 papers, 4 reproduce, protocol and Docker isolation [8], and a benchmark of 13 fail, 3 are not proven, 1 was not tested and 1 was with- demonstration quality studies one method family emdrawn. The register holds 45 claim rows (42 tested): 17 pirically [22]. These evaluate policies; we re-test the reproduce, 20 fail, 3 not proven, 4 not tested, 1 with- claims behind methods (judges, world models, latency) drawn. 8 of the 45 rows are our own baseline compar- against bars fixed before the run, and audit our own isons rather than paper claims (5 of them reproduce, e.g. pre-registration. The closest statement of our thesis [27] ”the commanded joints beat the world model”); on the scores VLA and world-action models on five dimensions, 37 paper claims alone, 12 reproduce and 18 fail. among them reproduction evidence and deployment affordability; its reproduction-evidence score is five audit milestones (configuration mapping, task records, task
+
+### 4 Three failure classes (mean 0.169)
+
+<!-- editlens chunk 0.153 lines 130-245 -->
+<!-- editlens paragraph 0.174 lines 130-148 -->
+coverage, training records, seeds) and, in its words, not a probability that a result is correct. We give one pass/fail We propose three classes for the 20 failed claim rows. A, per claim on a €1,350 rig, with the bar committed before edge latency: the method may work, but on the edge the run and the pre-registration itself audited. GPU it misses the real-time budget the claim needs; an adaptive chunking method takes 4,751 ms per decision against a budget of 298 ms. B, zero-shot judges: a model 7 Conclusion used without training on this rig to judge success, failure or progress is no better than a trivial signal; a learned On a €1,350 rig, 12 of 37 tested paper claims reproreward model detects failures at AUROC 0.818 where duce under bars fixed for this hardware before the episode length alone reaches 0.938. C, latent planners run. The scarce resource was not compute — $45.10 beaten by joints: a learned latent used to plan, rank or covered all of it — but order: bars before results. track progress does worse than the commanded joints or Auditing our own history found 29 of 89 gates whose a copy-last / action-only baseline; a latent world model order we cannot prove, and both numbers belong in ranks the executed chunk first in 0.60 of anchors, against the same paper. The register stays open. The next a bar of 0.8 and 0.68–0.90 for an action-only baseline. The papers are already scheduled in the register file, and three examples are illustrative, nothing more. Per-row la- every number here can be rebuilt from the repository
+
+<!-- editlens paragraph 0.228 lines 183-212 -->
+A small JEPA world model learns the Dynamics: beat copy-last, every arm’s dynamics well enough to plan corruption ≥ 1.3 at K = 30. Planwith it. ning: rank the executed chunk first among 8 in ≥ 0.8 of anchors. A predictor on frozen DINOv2 G1b top-1 ≥ 0.8 at some target dispatches plans better than one on a tance. learned latent. Pretrained RoboJEPA predicts our la- 9-step L1 ≥ 15 % below copy-last tents, uses the actions, and runs on (300M) and ≥ 5 % below shuffled the robot’s computer. actions; 2-view encoder ≤ 200 ms on the Orin. A slow second level makes latent dis- Progress monotonicity Spearman tance track task progress. ρ ≤ −0.80; false stalls ≤ 10 %. A decision-aligned ranking operator G1b regret ≤ 0.10 and ≤ the on a frozen world model picks better action-only baseline + 0.05. action chunks. An event-anchored probe on imag- AUROC ≥ 0.85 and ≥ 0.05 above ined latents predicts grasp failure the current latent. better than the current latent. A conformal band on a learned fail- Successes flagged ≤ 1/20; failures ure score keeps false alarms at α flagged ≥ 50 %. while catching failures. A risk head on an action-conditioned ≥ 5/8 failures caught at ≤ latent warns before failures. 1/20 false interventions; actionconditioned iff true ≥ shuffled + 0.05. A verifier on observable history flags ≥ 5/8 failures at ≤ 1/20 false ina failing rollout early enough to cor- terventions. rect it.
+
+<!-- editlens paragraph 0.186 lines 236-245 -->
+A 4B reward model judges SO-101 Pooled AUROC ≥ 0.85 and rollouts zero-shot. within-policy ≥ 0.8 on ≥ 5 of 7 policies. A 450M VLA succeeds on an SO-101 10-trial operator-judged gate (no task and can run on low-cost hard- numeric pass mark registered); ware. chunk inference within the async budget (667 ms).
+
+<!-- editlens chunk 0.206 lines 276-395 -->
+<!-- editlens paragraph 0.193 lines 276-290 -->
+22.7 % of successes flagged at α = fail 5 %; 46 % of failures caught v1 AUROC 0.93 came from time fail and length; v2 0.789 vs 0.708 shuffled, 3/8 at 5/42 the paper’s verifier family on our fail rollouts (a GRU on pooled RGB statistics and actions): 2/8 caught at 3/42 false interventions, AUROC 0.59; cosine drift of the W1 latent 0/8, AUROC 0.30 pooled AUROC 0.818 on 2099 fail ArmnetBench rollouts; episode length alone 0.938 9/10 on bowls; 974 ms in PyTorch, reproduces 238 ms with vla.cpp on the Orin NX
+
+<!-- editlens paragraph 0.405 lines 378-395 -->
+Chunk length chosen from the entropy of N sampled chunks follows the task’s phases (long in transport, short at the grasp), lowers the boundary jump, and costs little with batched sampling. Picking among N sampled chunks by their flow residual under the precommit observation fits what happens next better than a random or stale pick, with no added controlstep delay. With long open-loop commitment, cutting a flow-matching VLA’s Euler steps from 10 to 2 contracts the action cloud around an unchanged centroid, saves most of the inference time and avoids edge-GPU thermal throttling. Reading a progress distribution out at the supported peak nearest the previous estimate steadies the estimate and lets it fall during real setbacks, with no worse detection of the stages.
+
+<!-- editlens chunk 0.163 lines 400-482 -->
+<!-- editlens paragraph 0.181 lines 400-445 -->
+upstream’s own trainer on our withdrawn data: task swap 0.020°, per-layout 38.9 %; control, their released LIBERO checkpoint run here: 0.105 (≈ 5.5° of pan) 10-trial operator-judged gate (no 9/10 for $9.7; 355 ms per chunk reproduces numeric pass mark registered); for on the Orin NX; reranking no-go reranking (H0): oracle / mean er- (0.76, 1.84×) ror ≤ 0.7 and N = 8 ≤ 1.5× the latency. ≥ 10 % of failed episodes oscillate 20.3 % of all episodes, 24.0 % of reproduces (their criterion). failures; REKI trained on my data: 19/20 + 19/20 on the arm, oscillates in 1/40 Best gradient-free method cuts the prefix overwrite cuts the jump 71– not median jump ≥ 50 % against naive 73 % against naive async at +0.4 proven async, drift ≤ +10 %, within 667 ms; tuned LeRobot identity mode is close ms. Crossover in [1.0, 2.0] s; at 2 s high- no crossover: W1 0.382 ± 0.005 → not level error ≤ 0.95 × low-level; 0.563 ± 0.007, high level 0.769 ± proven learned macro-actions ≥ net joint 0.009 → 0.759 ± 0.009 (0.73–2 s); cosine 0.608 ± 0.007 vs 0.551 ± displacement on cosine. 0.006 W1’s mean R2 from latent to joints W1 mean R2 0.565, anisotropy reproduces < 0.80; anisotropy (max − min 0.639 (shoulder lift 0.91, wrist flex per-joint R2 ) ≥ 0.20; the higher-R2 0.27); frozen DINOv2-S 0.867 / 0.301 model has the higher G1b top-1. τ below the 10th percentile of non- τ = 1.249 on W1 latents of 69 real fail equivalent pairs and ≤ 0.40; as a rollouts; as a monitor 3/8 at 6/42 monitor ≥ 5/8 failures at ≤ 2/42; (S = 30), AUROC 0.756 vs shuffled ≥ 0.05 AUROC over a shuffled 0.560 drafter. median h* in transport ≥ grasp h* 2 in transport and 2 at the grasp fail window + 2; jump with AAC + (86 % of decisions at the floor); overwrite ≤ fixed + overwrite at d jump 0.973 vs 0.940; N = 20 deci= 8; an N = 20 decision ≤ 298 ms sion 4,751 ms (sequential) on the Orin on the Orin. PACT beats a random pick and the stale-observation residual at d = 8 (CIs < 0); its delay on the Orin ≤ the naive delay; at that delay it still beats a single sample.

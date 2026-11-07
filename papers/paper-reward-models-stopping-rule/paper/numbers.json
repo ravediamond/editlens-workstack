@@ -1,0 +1,514 @@
+{
+ "ab_fail": {
+  "value": "1,532",
+  "anchor": "repro/length-null/expected/length_armnetbench.json, WS-077 length analysis (LENGTH_PROTOCOL.md, 1a69f30)"
+ },
+ "ab_n": {
+  "value": "2,047",
+  "anchor": "repro/length-null/expected/length_armnetbench.json, WS-077 length analysis (LENGTH_PROTOCOL.md, 1a69f30)"
+ },
+ "ab_ok": {
+  "value": "515",
+  "anchor": "repro/length-null/expected/length_armnetbench.json, WS-077 length analysis (LENGTH_PROTOCOL.md, 1a69f30)"
+ },
+ "dp_n": {
+  "value": "270",
+  "anchor": "repro/robometer-judge/expected/g9a_ab_complete.json, G9a-AB complete: per_task row with auroc null (the Displayport-cable task, one class only)"
+ },
+ "flora_auc": {
+  "value": "1.00",
+  "anchor": "repro/flora-input-format/expected/g_flora_summary.json, G-flora"
+ },
+ "flora_f": {
+  "value": "8",
+  "anchor": "repro/flora-input-format/expected/g_flora_summary.json, G-flora"
+ },
+ "flora_hi": {
+  "value": "1.00",
+  "anchor": "repro/flora-input-format/expected/g_flora_summary.json, G-flora"
+ },
+ "flora_lo": {
+  "value": "1.00",
+  "anchor": "repro/flora-input-format/expected/g_flora_summary.json, G-flora"
+ },
+ "flora_s": {
+  "value": "2",
+  "anchor": "repro/flora-input-format/expected/g_flora_summary.json, G-flora"
+ },
+ "flora_s_ci": {
+  "value": "1\u201316 %",
+  "anchor": "repro/length-null/expected/counts_ci.json, Wilson 95 %"
+ },
+ "ft_d": {
+  "value": "0.052",
+  "anchor": "repro/robometer-judge/expected/ft_results.json (G9A_FT protocol; in-sample: every evaluated episode is a training episode of the fine-tune)"
+ },
+ "ft_d_hi": {
+  "value": "0.067",
+  "anchor": "repro/robometer-judge/expected/ft_results.json (G9A_FT protocol; in-sample: every evaluated episode is a training episode of the fine-tune)"
+ },
+ "ft_d_lo": {
+  "value": "0.039",
+  "anchor": "repro/robometer-judge/expected/ft_results.json (G9A_FT protocol; in-sample: every evaluated episode is a training episode of the fine-tune)"
+ },
+ "ft_hi": {
+  "value": "0.996",
+  "anchor": "repro/robometer-judge/expected/ft_results.json (G9A_FT protocol; in-sample: every evaluated episode is a training episode of the fine-tune)"
+ },
+ "ft_lo": {
+  "value": "0.991",
+  "anchor": "repro/robometer-judge/expected/ft_results.json (G9A_FT protocol; in-sample: every evaluated episode is a training episode of the fine-tune)"
+ },
+ "ft_n": {
+  "value": "2,047",
+  "anchor": "repro/robometer-judge/expected/ft_results.json (G9A_FT protocol; in-sample: every evaluated episode is a training episode of the fine-tune)"
+ },
+ "ft_pooled": {
+  "value": "0.994",
+  "anchor": "repro/robometer-judge/expected/ft_results.json (G9A_FT protocol; in-sample: every evaluated episode is a training episode of the fine-tune)"
+ },
+ "ft_prog": {
+  "value": "0.989",
+  "anchor": "repro/robometer-judge/expected/ft_results.json (G9A_FT protocol; in-sample: every evaluated episode is a training episode of the fine-tune)"
+ },
+ "ft_sub64": {
+  "value": "0.995",
+  "anchor": "repro/robometer-judge/expected/ft_results.json (G9A_FT protocol; in-sample: every evaluated episode is a training episode of the fine-tune)"
+ },
+ "ft_sub8": {
+  "value": "0.989",
+  "anchor": "repro/robometer-judge/expected/ft_results.json (G9A_FT protocol; in-sample: every evaluated episode is a training episode of the fine-tune)"
+ },
+ "ft_sub_n": {
+  "value": "160",
+  "anchor": "repro/robometer-judge/expected/ft_results.json (G9A_FT protocol; in-sample: every evaluated episode is a training episode of the fine-tune)"
+ },
+ "ft_train_n": {
+  "value": "2,499",
+  "anchor": "repro/length-null/expected/armnetbench_episodes.csv, every ArmnetBench v0.1 episode (the fine-tune's single train split has the same count and labels, PROTOCOL_FT.md)"
+ },
+ "ft_w_hi": {
+  "value": "0.997",
+  "anchor": "repro/robometer-judge/expected/ft_results.json (G9A_FT protocol; in-sample: every evaluated episode is a training episode of the fine-tune)"
+ },
+ "ft_w_lo": {
+  "value": "0.992",
+  "anchor": "repro/robometer-judge/expected/ft_results.json (G9A_FT protocol; in-sample: every evaluated episode is a training episode of the fine-tune)"
+ },
+ "ft_within": {
+  "value": "0.994",
+  "anchor": "repro/robometer-judge/expected/ft_results.json (G9A_FT protocol; in-sample: every evaluated episode is a training episode of the fine-tune)"
+ },
+ "g9c3_acc": {
+  "value": "94.3",
+  "anchor": "repro/robometer-judge/expected/g9c3_test_results.json, G9c-3"
+ },
+ "g9c3_fn": {
+  "value": "5",
+  "anchor": "repro/robometer-judge/expected/g9c3_test_results.json, G9c-3"
+ },
+ "g9c3_fp": {
+  "value": "0",
+  "anchor": "repro/robometer-judge/expected/g9c3_test_results.json, G9c-3"
+ },
+ "g9c3_fp_ci": {
+  "value": "0\u201313 %",
+  "anchor": "repro/length-null/expected/counts_ci.json, Wilson 95 %"
+ },
+ "gem_auc": {
+  "value": "0.96",
+  "anchor": "repro/flora-input-format/expected/g_flora_abl_summary.json, G-flora-abl"
+ },
+ "gem_f": {
+  "value": "8",
+  "anchor": "repro/flora-input-format/expected/g_flora_abl_summary.json, G-flora-abl, gemini38flash flags_by_k (k-invariant)"
+ },
+ "gem_s": {
+  "value": "3",
+  "anchor": "repro/flora-input-format/expected/g_flora_abl_summary.json, G-flora-abl, gemini38flash flags_by_k (k-invariant)"
+ },
+ "hit_fail": {
+  "value": "8.7",
+  "anchor": "repro/length-null/expected/length_armnetbench.json, WS-077 length analysis (LENGTH_PROTOCOL.md, 1a69f30)"
+ },
+ "len_pol_max": {
+  "value": "0.96",
+  "anchor": "repro/length-null/expected/length_armnetbench.json, WS-077 length analysis (LENGTH_PROTOCOL.md, 1a69f30)"
+ },
+ "len_pol_min": {
+  "value": "0.91",
+  "anchor": "repro/length-null/expected/length_armnetbench.json, WS-077 length analysis (LENGTH_PROTOCOL.md, 1a69f30)"
+ },
+ "len_pooled": {
+  "value": "0.938",
+  "anchor": "repro/length-null/expected/length_armnetbench.json, WS-077 length analysis (LENGTH_PROTOCOL.md, 1a69f30)"
+ },
+ "len_pooled_hi": {
+  "value": "0.951",
+  "anchor": "repro/length-null/expected/length_armnetbench.json, WS-077 length analysis (LENGTH_PROTOCOL.md, 1a69f30)"
+ },
+ "len_pooled_lo": {
+  "value": "0.925",
+  "anchor": "repro/length-null/expected/length_armnetbench.json, WS-077 length analysis (LENGTH_PROTOCOL.md, 1a69f30)"
+ },
+ "len_t25": {
+  "value": "0.617",
+  "anchor": "repro/length-null/expected/robometer_length.json (analysis (c), amendment 2026-11-05 of PROTOCOL.md)"
+ },
+ "len_t50": {
+  "value": "0.851",
+  "anchor": "repro/length-null/expected/robometer_length.json (analysis (c), amendment 2026-11-05 of PROTOCOL.md)"
+ },
+ "len_t75": {
+  "value": "0.931",
+  "anchor": "repro/length-null/expected/robometer_length.json (analysis (c), amendment 2026-11-05 of PROTOCOL.md)"
+ },
+ "len_within": {
+  "value": "0.942",
+  "anchor": "repro/length-null/expected/length_armnetbench.json, WS-077 length analysis (LENGTH_PROTOCOL.md, 1a69f30)"
+ },
+ "len_within_hi": {
+  "value": "0.956",
+  "anchor": "repro/length-null/expected/length_armnetbench.json, WS-077 length analysis (LENGTH_PROTOCOL.md, 1a69f30)"
+ },
+ "len_within_lo": {
+  "value": "0.927",
+  "anchor": "repro/length-null/expected/length_armnetbench.json, WS-077 length analysis (LENGTH_PROTOCOL.md, 1a69f30)"
+ },
+ "n_pol": {
+  "value": "7",
+  "anchor": "repro/length-null/expected/length_armnetbench.json, WS-077 length analysis (LENGTH_PROTOCOL.md, 1a69f30)"
+ },
+ "own_fail": {
+  "value": "25",
+  "anchor": "repro/topreward/expected/own_rollout_labels.csv, operator labels of the 69 rollouts"
+ },
+ "own_len": {
+  "value": "0.52",
+  "anchor": "repro/robometer-judge/expected/g9a_own.json, G9a-own"
+ },
+ "own_n": {
+  "value": "88",
+  "anchor": "repro/robometer-judge/expected/g9a_own.json, G9a-own"
+ },
+ "own_rbm": {
+  "value": "0.577",
+  "anchor": "repro/robometer-judge/expected/g9a_own.json, G9a-own"
+ },
+ "own_rbm_pol": {
+  "value": "0.878",
+  "anchor": "repro/robometer-judge/expected/g9a_own.json, G9a-own"
+ },
+ "own_turbo_fail": {
+  "value": "17",
+  "anchor": "repro/topreward/expected/own_rollout_labels.csv, operator labels of the 69 rollouts"
+ },
+ "q27_auc": {
+  "value": "0.91",
+  "anchor": "repro/flora-input-format/expected/g_flora_abl_summary.json, G-flora-abl"
+ },
+ "q27_f": {
+  "value": "7",
+  "anchor": "repro/flora-input-format/expected/g_flora_abl_summary.json, G-flora-abl"
+ },
+ "q27_hi": {
+  "value": "1.00",
+  "anchor": "repro/flora-input-format/expected/g_flora_abl_summary.json, G-flora-abl"
+ },
+ "q27_lo": {
+  "value": "0.78",
+  "anchor": "repro/flora-input-format/expected/g_flora_abl_summary.json, G-flora-abl"
+ },
+ "q27_s": {
+  "value": "2",
+  "anchor": "repro/flora-input-format/expected/g_flora_abl_summary.json, G-flora-abl"
+ },
+ "q9_auc": {
+  "value": "0.75",
+  "anchor": "repro/flora-input-format/expected/g_flora_abl_summary.json, G-flora-abl"
+ },
+ "q9_f": {
+  "value": "7",
+  "anchor": "repro/flora-input-format/expected/g_flora_abl_summary.json, G-flora-abl, qwen9b flags_by_k (k-invariant)"
+ },
+ "q9_s": {
+  "value": "16",
+  "anchor": "repro/flora-input-format/expected/g_flora_abl_summary.json, G-flora-abl, qwen9b flags_by_k (k-invariant)"
+ },
+ "r1_log_auc": {
+  "value": "0.93",
+  "anchor": "repro/reap/expected/monitors.json, REAP v1"
+ },
+ "r2_log_auc": {
+  "value": "0.79",
+  "anchor": "repro/reap/expected/monitors_v2.json, REAP v2"
+ },
+ "r2_log_c": {
+  "value": "3",
+  "anchor": "repro/reap/expected/monitors_v2.json, REAP v2"
+ },
+ "r2_log_ci": {
+  "value": "14\u201369 %",
+  "anchor": "repro/length-null/expected/counts_ci.json, Wilson 95 %"
+ },
+ "r2_log_fi": {
+  "value": "5",
+  "anchor": "repro/reap/expected/monitors_v2.json, REAP v2"
+ },
+ "r2_mlp_c": {
+  "value": "6",
+  "anchor": "repro/reap/expected/monitors_v2.json, REAP v2"
+ },
+ "r2_mlp_fi": {
+  "value": "13",
+  "anchor": "repro/reap/expected/monitors_v2.json, REAP v2"
+ },
+ "r2_sh_auc": {
+  "value": "0.71",
+  "anchor": "repro/reap/expected/monitors_v2.json, REAP v2"
+ },
+ "rbm_d": {
+  "value": "-0.122",
+  "anchor": "repro/length-null/expected/robometer_length.json (analysis (c), amendment 2026-11-05 of PROTOCOL.md)"
+ },
+ "rbm_d_hi": {
+  "value": "-0.094",
+  "anchor": "repro/length-null/expected/robometer_length.json (analysis (c), amendment 2026-11-05 of PROTOCOL.md)"
+ },
+ "rbm_d_lo": {
+  "value": "-0.150",
+  "anchor": "repro/length-null/expected/robometer_length.json (analysis (c), amendment 2026-11-05 of PROTOCOL.md)"
+ },
+ "rbm_hi": {
+  "value": "0.843",
+  "anchor": "repro/robometer-judge/expected/g9a_ab_complete.json, G9a-AB complete"
+ },
+ "rbm_lo": {
+  "value": "0.790",
+  "anchor": "repro/robometer-judge/expected/g9a_ab_complete.json, G9a-AB complete"
+ },
+ "rbm_n_rescore": {
+  "value": "462",
+  "anchor": "repro/length-null/expected/robometer_length.json (analysis (c), amendment 2026-11-05 of PROTOCOL.md)"
+ },
+ "rbm_pooled": {
+  "value": "0.818",
+  "anchor": "repro/robometer-judge/expected/g9a_ab_complete.json, G9a-AB complete"
+ },
+ "rbm_prog": {
+  "value": "0.838",
+  "anchor": "repro/robometer-judge/expected/g9a_ab_complete.json, G9a-AB complete: baselines.last_progress_auroc"
+ },
+ "rbm_t25": {
+  "value": "0.706",
+  "anchor": "repro/length-null/expected/robometer_length.json (analysis (c), amendment 2026-11-05 of PROTOCOL.md)"
+ },
+ "rbm_t25_d_hi": {
+  "value": "0.129",
+  "anchor": "repro/length-null/expected/robometer_length.json (analysis (c), amendment 2026-11-05 of PROTOCOL.md)"
+ },
+ "rbm_t25_d_lo": {
+  "value": "0.049",
+  "anchor": "repro/length-null/expected/robometer_length.json (analysis (c), amendment 2026-11-05 of PROTOCOL.md)"
+ },
+ "rbm_t25_hi": {
+  "value": "0.734",
+  "anchor": "repro/length-null/expected/robometer_length.json (analysis (c), amendment 2026-11-05 of PROTOCOL.md)"
+ },
+ "rbm_t25_lo": {
+  "value": "0.677",
+  "anchor": "repro/length-null/expected/robometer_length.json (analysis (c), amendment 2026-11-05 of PROTOCOL.md)"
+ },
+ "rbm_t50": {
+  "value": "0.814",
+  "anchor": "repro/length-null/expected/robometer_length.json (analysis (c), amendment 2026-11-05 of PROTOCOL.md)"
+ },
+ "rbm_t50_d_hi": {
+  "value": "-0.011",
+  "anchor": "repro/length-null/expected/robometer_length.json (analysis (c), amendment 2026-11-05 of PROTOCOL.md)"
+ },
+ "rbm_t50_d_lo": {
+  "value": "-0.064",
+  "anchor": "repro/length-null/expected/robometer_length.json (analysis (c), amendment 2026-11-05 of PROTOCOL.md)"
+ },
+ "rbm_t50_hi": {
+  "value": "0.839",
+  "anchor": "repro/length-null/expected/robometer_length.json (analysis (c), amendment 2026-11-05 of PROTOCOL.md)"
+ },
+ "rbm_t50_lo": {
+  "value": "0.787",
+  "anchor": "repro/length-null/expected/robometer_length.json (analysis (c), amendment 2026-11-05 of PROTOCOL.md)"
+ },
+ "rbm_t75": {
+  "value": "0.821",
+  "anchor": "repro/length-null/expected/robometer_length.json (analysis (c), amendment 2026-11-05 of PROTOCOL.md)"
+ },
+ "rbm_t75_d_hi": {
+  "value": "-0.082",
+  "anchor": "repro/length-null/expected/robometer_length.json (analysis (c), amendment 2026-11-05 of PROTOCOL.md)"
+ },
+ "rbm_t75_d_lo": {
+  "value": "-0.138",
+  "anchor": "repro/length-null/expected/robometer_length.json (analysis (c), amendment 2026-11-05 of PROTOCOL.md)"
+ },
+ "rbm_t75_hi": {
+  "value": "0.846",
+  "anchor": "repro/length-null/expected/robometer_length.json (analysis (c), amendment 2026-11-05 of PROTOCOL.md)"
+ },
+ "rbm_t75_lo": {
+  "value": "0.794",
+  "anchor": "repro/length-null/expected/robometer_length.json (analysis (c), amendment 2026-11-05 of PROTOCOL.md)"
+ },
+ "rbm_w_hi": {
+  "value": "0.847",
+  "anchor": "repro/length-null/expected/robometer_length.json (analysis (c), amendment 2026-11-05 of PROTOCOL.md)"
+ },
+ "rbm_w_lo": {
+  "value": "0.794",
+  "anchor": "repro/length-null/expected/robometer_length.json (analysis (c), amendment 2026-11-05 of PROTOCOL.md)"
+ },
+ "rbm_within": {
+  "value": "0.821",
+  "anchor": "repro/robometer-judge/expected/g9a_ab_complete.json, G9a-AB complete: within_policy block, pair-weighted by n_success x n_failure (checked by l0_check.py)"
+ },
+ "rbm_within_max": {
+  "value": "0.87",
+  "anchor": "repro/robometer-judge/expected/g9a_ab_complete.json, G9a-AB complete: within_policy block, max per-policy AUROC"
+ },
+ "rbm_within_min": {
+  "value": "0.79",
+  "anchor": "repro/robometer-judge/expected/g9a_ab_complete.json, G9a-AB complete: within_policy block, min per-policy AUROC"
+ },
+ "t50_hi": {
+  "value": "0.873",
+  "anchor": "repro/length-null/expected/length_armnetbench.json, WS-077 length analysis (LENGTH_PROTOCOL.md, 1a69f30)"
+ },
+ "t50_lo": {
+  "value": "0.829",
+  "anchor": "repro/length-null/expected/length_armnetbench.json, WS-077 length analysis (LENGTH_PROTOCOL.md, 1a69f30)"
+ },
+ "t50_run_fail": {
+  "value": "88",
+  "anchor": "repro/length-null/expected/length_armnetbench.json, WS-077 length analysis (LENGTH_PROTOCOL.md, 1a69f30)"
+ },
+ "t50_run_ok": {
+  "value": "19",
+  "anchor": "repro/length-null/expected/length_armnetbench.json, WS-077 length analysis (LENGTH_PROTOCOL.md, 1a69f30)"
+ },
+ "t50_within": {
+  "value": "0.851",
+  "anchor": "repro/length-null/expected/length_armnetbench.json, WS-077 length analysis (LENGTH_PROTOCOL.md, 1a69f30)"
+ },
+ "tau_caught": {
+  "value": "0",
+  "anchor": "repro/six-monitors/expected/judge_tau.json, judge tau"
+ },
+ "tau_fi": {
+  "value": "1",
+  "anchor": "repro/six-monitors/expected/judge_tau.json, judge tau, false_intervention_rate x success_episodes"
+ },
+ "topr_cap": {
+  "value": "0.667",
+  "anchor": "repro/topreward/expected/topreward.json, WS-085 TOPReward"
+ },
+ "topr_d_hi": {
+  "value": "-0.25",
+  "anchor": "repro/topreward/expected/topreward.json, WS-085 TOPReward"
+ },
+ "topr_d_lo": {
+  "value": "-0.31",
+  "anchor": "repro/topreward/expected/topreward.json, WS-085 TOPReward"
+ },
+ "topr_hi": {
+  "value": "0.692",
+  "anchor": "repro/topreward/expected/topreward.json, WS-085 TOPReward"
+ },
+ "topr_lo": {
+  "value": "0.631",
+  "anchor": "repro/topreward/expected/topreward.json, WS-085 TOPReward"
+ },
+ "topr_own": {
+  "value": "0.82",
+  "anchor": "repro/topreward/expected/topreward.json, WS-085 TOPReward"
+ },
+ "topr_own_hi": {
+  "value": "0.93",
+  "anchor": "repro/topreward/expected/topreward.json, WS-085 TOPReward"
+ },
+ "topr_own_len": {
+  "value": "0.56",
+  "anchor": "repro/topreward/expected/topreward.json, WS-085 TOPReward"
+ },
+ "topr_own_lo": {
+  "value": "0.70",
+  "anchor": "repro/topreward/expected/topreward.json, WS-085 TOPReward"
+ },
+ "topr_own_n": {
+  "value": "69",
+  "anchor": "repro/topreward/expected/topreward.json, WS-085 TOPReward"
+ },
+ "topr_own_nt": {
+  "value": "0.78",
+  "anchor": "repro/topreward/expected/topreward.json, WS-085 TOPReward"
+ },
+ "topr_own_nt_n": {
+  "value": "50",
+  "anchor": "repro/topreward/expected/topreward.json, WS-085 TOPReward"
+ },
+ "topr_own_pol": {
+  "value": "0.87",
+  "anchor": "repro/topreward/expected/topreward.json, WS-085 TOPReward"
+ },
+ "topr_pooled": {
+  "value": "0.653",
+  "anchor": "repro/topreward/expected/topreward.json, WS-085 TOPReward"
+ },
+ "topr_pooled_hi": {
+  "value": "0.684",
+  "anchor": "repro/topreward/expected/topreward.json, WS-085 TOPReward"
+ },
+ "topr_pooled_lo": {
+  "value": "0.623",
+  "anchor": "repro/topreward/expected/topreward.json, WS-085 TOPReward"
+ },
+ "topr_within": {
+  "value": "0.661",
+  "anchor": "repro/topreward/expected/topreward.json, WS-085 TOPReward"
+ },
+ "topr_yn_own": {
+  "value": "0.85",
+  "anchor": "repro/topreward/expected/topreward.json, WS-085 TOPReward"
+ },
+ "topr_yn_within": {
+  "value": "0.678",
+  "anchor": "repro/topreward/expected/topreward.json, WS-085 TOPReward"
+ },
+ "w1_cos": {
+  "value": "0",
+  "anchor": "repro/six-monitors/expected/w1a_summary.json, W1-A"
+ },
+ "w1_cos_auc": {
+  "value": "0.30",
+  "anchor": "repro/six-monitors/expected/w1a_summary.json, W1-A"
+ },
+ "w1_cos_fi": {
+  "value": "2",
+  "anchor": "repro/six-monitors/expected/w1a_summary.json, W1-A, cos false_intervention_rate x success_episodes"
+ },
+ "w1_l2": {
+  "value": "2",
+  "anchor": "repro/six-monitors/expected/w1a_summary.json, W1-A"
+ },
+ "w1_l2_auc": {
+  "value": "0.86",
+  "anchor": "repro/six-monitors/expected/w1a_summary.json, W1-A"
+ },
+ "w1_l2_ci": {
+  "value": "7\u201359 %",
+  "anchor": "repro/length-null/expected/counts_ci.json, Wilson 95 %"
+ },
+ "w1_l2_fi": {
+  "value": "2",
+  "anchor": "repro/six-monitors/expected/w1a_summary.json, W1-A, l2 false_intervention_rate x success_episodes"
+ }
+}

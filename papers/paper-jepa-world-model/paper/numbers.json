@@ -1,0 +1,850 @@
+{
+ "anc_W1": {
+  "value": "0.8199",
+  "anchor": "repro/gaps/expected/controls.json w1c1/W1 current at anchor/auroc"
+ },
+ "anc_W1_avg": {
+  "value": "0.8377",
+  "anchor": "repro/gaps/expected/anchor_ci_sensitivity.json features/W1/auroc_seed_averaged"
+ },
+ "anc_W1_hi": {
+  "value": "0.9041",
+  "anchor": "repro/gaps/expected/anchor_ci_mean_of_seeds.json features/W1/ci95_mean_of_seeds[1]"
+ },
+ "anc_W1_lo": {
+  "value": "0.7141",
+  "anchor": "repro/gaps/expected/anchor_ci_mean_of_seeds.json features/W1/ci95_mean_of_seeds[0]"
+ },
+ "anc_W1_s0": {
+  "value": "0.7554",
+  "anchor": "repro/gaps/expected/anchor_ci_sensitivity.json features/W1/auroc_seed0"
+ },
+ "anc_W2p": {
+  "value": "0.7067",
+  "anchor": "repro/gaps/expected/controls.json w1c1/W2' current at anchor/auroc"
+ },
+ "anc_W2p_avg": {
+  "value": "0.7175",
+  "anchor": "repro/gaps/expected/anchor_ci_sensitivity.json features/W2p/auroc_seed_averaged"
+ },
+ "anc_W2p_hi": {
+  "value": "0.8269",
+  "anchor": "repro/gaps/expected/anchor_ci_mean_of_seeds.json features/W2p/ci95_mean_of_seeds[1]"
+ },
+ "anc_W2p_lo": {
+  "value": "0.5816",
+  "anchor": "repro/gaps/expected/anchor_ci_mean_of_seeds.json features/W2p/ci95_mean_of_seeds[0]"
+ },
+ "anc_W2p_s0": {
+  "value": "0.7024",
+  "anchor": "repro/gaps/expected/anchor_ci_sensitivity.json features/W2p/auroc_seed0"
+ },
+ "anc_fail": {
+  "value": "21",
+  "anchor": "repro/gaps/expected/controls.json w1c1/failures"
+ },
+ "anc_joints": {
+  "value": "0.5305",
+  "anchor": "repro/gaps/expected/controls.json w1c1/joints (commanded) current at anchor/auroc"
+ },
+ "anc_joints_avg": {
+  "value": "0.5346",
+  "anchor": "repro/gaps/expected/anchor_ci_sensitivity.json features/joints/auroc_seed_averaged"
+ },
+ "anc_joints_hi": {
+  "value": "0.6855",
+  "anchor": "repro/gaps/expected/anchor_ci_mean_of_seeds.json features/joints/ci95_mean_of_seeds[1]"
+ },
+ "anc_joints_lo": {
+  "value": "0.3709",
+  "anchor": "repro/gaps/expected/anchor_ci_mean_of_seeds.json features/joints/ci95_mean_of_seeds[0]"
+ },
+ "anc_joints_s0": {
+  "value": "0.5574",
+  "anchor": "repro/gaps/expected/anchor_ci_sensitivity.json features/joints/auroc_seed0"
+ },
+ "anc_lead": {
+  "value": "15",
+  "anchor": "repro/gaps/scripts/run_w1c_offline.py: 'ANCHOR_BEFORE_CLOSE, K_IMAGINE = 15, 30'"
+ },
+ "anc_scored": {
+  "value": "65",
+  "anchor": "repro/gaps/expected/controls.json w1c1/scored"
+ },
+ "arm_cost": {
+  "value": "200",
+  "anchor": "repro/register/expected/FEASIBILITY.md: 'on a $200 robot'"
+ },
+ "audit_dropped": {
+  "value": "192",
+  "anchor": "repro/register/expected/AUDIT_W1_LOADS.md: '192 encoder tensors dropped'"
+ },
+ "audit_random": {
+  "value": "1",
+  "anchor": "repro/register/expected/AUDIT_W1_LOADS.md: '**random: 1**'"
+ },
+ "audit_tf": {
+  "value": "5.5.4",
+  "anchor": "repro/register/expected/AUDIT_W1_LOADS.md: 'transformers 5.5.4'"
+ },
+ "audit_trained": {
+  "value": "26",
+  "anchor": "repro/register/expected/AUDIT_W1_LOADS.md: '**Trained: 26 rows**'"
+ },
+ "bar_first": {
+  "value": "19",
+  "anchor": "repro/register/expected/prereg_audited.json rows, audited class, counted by make_paper.py (bar-first)"
+ },
+ "c1_bar": {
+  "value": "≥ 0.85, ≥ +0.05",
+  "anchor": "repro/register/expected/FEASIBILITY.md §2 row W1-C1: '≥ 0.85, ≥ +0.05'"
+ },
+ "c1_current": {
+  "value": "0.82",
+  "anchor": "repro/register/expected/FEASIBILITY.md §2 row W1-C1: 'current 0.82'"
+ },
+ "c1_imagined": {
+  "value": "0.70",
+  "anchor": "repro/register/expected/FEASIBILITY.md §2 row W1-C1: 'imagined 0.70'"
+ },
+ "cost_w1": {
+  "value": "3.30",
+  "anchor": "repro/register/expected/FEASIBILITY.md: '3.30) predicts'"
+ },
+ "failure": {
+  "value": "25",
+  "anchor": "repro/gaps/expected/controls.json failure"
+ },
+ "g0_copy": {
+  "value": "0.89",
+  "anchor": "repro/register/expected/FEASIBILITY.md §2 row G0: '0.89'"
+ },
+ "g0_err": {
+  "value": "0.31",
+  "anchor": "repro/register/expected/FEASIBILITY.md §2 row G0: '0.31'"
+ },
+ "g10_anticip": {
+  "value": "+0.179",
+  "anchor": "repro/register/expected/FEASIBILITY.md §2 row G10: '+0.179'"
+ },
+ "g10_n": {
+  "value": "87",
+  "anchor": "repro/gaps/expected/README.md: 'against judge labels on 87'"
+ },
+ "g10_rest": {
+  "value": "1.000",
+  "anchor": "repro/register/expected/FEASIBILITY.md §2 row G10: 'W1 1.000'"
+ },
+ "g1b_actions": {
+  "value": "0.68–0.90",
+  "anchor": "repro/register/expected/FEASIBILITY.md §2 row G1b: '0.68–0.90'"
+ },
+ "g1b_bar": {
+  "value": "0.8",
+  "anchor": "repro/register/expected/FEASIBILITY.md §2 row G1b: '≥ 0.8'"
+ },
+ "g1b_top1": {
+  "value": "0.60",
+  "anchor": "repro/register/expected/FEASIBILITY.md §2 row G1b: '0.60'"
+ },
+ "g5_diff": {
+  "value": "−0.0499",
+  "anchor": "repro/gaps/expected/gap5_pooled_rerun.json pairs/W1_minus_W1_random_init/point"
+ },
+ "g5_hi": {
+  "value": "+0.6559",
+  "anchor": "repro/gaps/expected/gap5_pooled_rerun.json pairs/W1_minus_W1_random_init/ci95[1]"
+ },
+ "g5_lo": {
+  "value": "−0.7403",
+  "anchor": "repro/gaps/expected/gap5_pooled_rerun.json pairs/W1_minus_W1_random_init/ci95[0]"
+ },
+ "g5_orin": {
+  "value": "0.8042",
+  "anchor": "repro/gaps/expected/gap5_floor_stability.md: '0.8042 on the Orin'"
+ },
+ "g5_rand": {
+  "value": "0.7974",
+  "anchor": "repro/gaps/expected/gap5_pooled_rerun.json terms/W1_random_init"
+ },
+ "g5_unstable": {
+  "value": "1.4383",
+  "anchor": "repro/gaps/expected/gap5_floor_stability.md: 'It was 1.4383 on the first'"
+ },
+ "g5_val": {
+  "value": "25",
+  "anchor": "repro/gaps/expected/gap5_pooled_rerun.json val_episodes"
+ },
+ "g5_w1": {
+  "value": "0.7476",
+  "anchor": "repro/gaps/expected/gap5_pooled_rerun.json terms/W1"
+ },
+ "lejepa_w1": {
+  "value": "0.565",
+  "anchor": "repro/register/expected/FEASIBILITY.md §2 row LeJEPA: 'R² 0.565'"
+ },
+ "lejepa_w2p": {
+  "value": "0.867",
+  "anchor": "repro/register/expected/FEASIBILITY.md §2 row LeJEPA: 'W2′ 0.867'"
+ },
+ "m1_auroc": {
+  "value": "0.775",
+  "anchor": "repro/gaps/expected/M1_diag_note.md: 'AUROC 0.775 < 0.9'"
+ },
+ "m1_cf": {
+  "value": "2.558",
+  "anchor": "repro/gaps/expected/M1_diag_g0_repro.json by_k/30/constant_first_ratio"
+ },
+ "m1_cf_g0": {
+  "value": "2.543",
+  "anchor": "repro/gaps/expected/M1_diag_g0_repro.json g0_k30/constant_first_ratio"
+ },
+ "m1_xep": {
+  "value": "3.428",
+  "anchor": "repro/gaps/expected/M1_diag_g0_repro.json by_k/30/cross_episode_ratio"
+ },
+ "m1_xep_g0": {
+  "value": "3.341",
+  "anchor": "repro/gaps/expected/M1_diag_g0_repro.json g0_k30/cross_episode_ratio"
+ },
+ "m3_0_ep": {
+  "value": "8",
+  "anchor": "repro/gaps/expected/M3_diag_action_shuffle.json rows[0]/episode"
+ },
+ "m3_0_fr": {
+  "value": "402",
+  "anchor": "repro/gaps/expected/M3_diag_action_shuffle.json rows[0]/anchor"
+ },
+ "m3_0_sh": {
+  "value": "+0.014",
+  "anchor": "repro/gaps/expected/M3_diag_action_shuffle.json rows[0] 100 (shuffled − true_1) / true_1"
+ },
+ "m3_0_tok": {
+  "value": "21.1",
+  "anchor": "repro/gaps/expected/M3_diag_action_shuffle.json rows[0] 100 token_rel_l2"
+ },
+ "m3_0_true": {
+  "value": "1.3031",
+  "anchor": "repro/gaps/expected/M3_diag_action_shuffle.json rows[0]/true_1"
+ },
+ "m3_0_zero": {
+  "value": "+2.22",
+  "anchor": "repro/gaps/expected/M3_diag_action_shuffle.json rows[0] 100 (zero_tokens − true_1) / true_1"
+ },
+ "m3_1_ep": {
+  "value": "10",
+  "anchor": "repro/gaps/expected/M3_diag_action_shuffle.json rows[1]/episode"
+ },
+ "m3_1_fr": {
+  "value": "227",
+  "anchor": "repro/gaps/expected/M3_diag_action_shuffle.json rows[1]/anchor"
+ },
+ "m3_1_sh": {
+  "value": "+0.088",
+  "anchor": "repro/gaps/expected/M3_diag_action_shuffle.json rows[1] 100 (shuffled − true_1) / true_1"
+ },
+ "m3_1_tok": {
+  "value": "27.6",
+  "anchor": "repro/gaps/expected/M3_diag_action_shuffle.json rows[1] 100 token_rel_l2"
+ },
+ "m3_1_true": {
+  "value": "1.4641",
+  "anchor": "repro/gaps/expected/M3_diag_action_shuffle.json rows[1]/true_1"
+ },
+ "m3_1_zero": {
+  "value": "+0.50",
+  "anchor": "repro/gaps/expected/M3_diag_action_shuffle.json rows[1] 100 (zero_tokens − true_1) / true_1"
+ },
+ "m3_2_ep": {
+  "value": "23",
+  "anchor": "repro/gaps/expected/M3_diag_action_shuffle.json rows[2]/episode"
+ },
+ "m3_2_fr": {
+  "value": "327",
+  "anchor": "repro/gaps/expected/M3_diag_action_shuffle.json rows[2]/anchor"
+ },
+ "m3_2_sh": {
+  "value": "+0.036",
+  "anchor": "repro/gaps/expected/M3_diag_action_shuffle.json rows[2] 100 (shuffled − true_1) / true_1"
+ },
+ "m3_2_tok": {
+  "value": "21.1",
+  "anchor": "repro/gaps/expected/M3_diag_action_shuffle.json rows[2] 100 token_rel_l2"
+ },
+ "m3_2_true": {
+  "value": "1.4215",
+  "anchor": "repro/gaps/expected/M3_diag_action_shuffle.json rows[2]/true_1"
+ },
+ "m3_2_zero": {
+  "value": "+0.87",
+  "anchor": "repro/gaps/expected/M3_diag_action_shuffle.json rows[2] 100 (zero_tokens − true_1) / true_1"
+ },
+ "m3_3_ep": {
+  "value": "59",
+  "anchor": "repro/gaps/expected/M3_diag_action_shuffle.json rows[3]/episode"
+ },
+ "m3_3_fr": {
+  "value": "302",
+  "anchor": "repro/gaps/expected/M3_diag_action_shuffle.json rows[3]/anchor"
+ },
+ "m3_3_sh": {
+  "value": "+0.030",
+  "anchor": "repro/gaps/expected/M3_diag_action_shuffle.json rows[3] 100 (shuffled − true_1) / true_1"
+ },
+ "m3_3_tok": {
+  "value": "25.5",
+  "anchor": "repro/gaps/expected/M3_diag_action_shuffle.json rows[3] 100 token_rel_l2"
+ },
+ "m3_3_true": {
+  "value": "1.4637",
+  "anchor": "repro/gaps/expected/M3_diag_action_shuffle.json rows[3]/true_1"
+ },
+ "m3_3_zero": {
+  "value": "+1.28",
+  "anchor": "repro/gaps/expected/M3_diag_action_shuffle.json rows[3] 100 (zero_tokens − true_1) / true_1"
+ },
+ "m3_4_ep": {
+  "value": "65",
+  "anchor": "repro/gaps/expected/M3_diag_action_shuffle.json rows[4]/episode"
+ },
+ "m3_4_fr": {
+  "value": "302",
+  "anchor": "repro/gaps/expected/M3_diag_action_shuffle.json rows[4]/anchor"
+ },
+ "m3_4_sh": {
+  "value": "−0.070",
+  "anchor": "repro/gaps/expected/M3_diag_action_shuffle.json rows[4] 100 (shuffled − true_1) / true_1"
+ },
+ "m3_4_tok": {
+  "value": "22.0",
+  "anchor": "repro/gaps/expected/M3_diag_action_shuffle.json rows[4] 100 token_rel_l2"
+ },
+ "m3_4_true": {
+  "value": "1.5236",
+  "anchor": "repro/gaps/expected/M3_diag_action_shuffle.json rows[4]/true_1"
+ },
+ "m3_4_zero": {
+  "value": "−0.38",
+  "anchor": "repro/gaps/expected/M3_diag_action_shuffle.json rows[4] 100 (zero_tokens − true_1) / true_1"
+ },
+ "m3_auroc": {
+  "value": "0.501",
+  "anchor": "repro/gaps/expected/M3_diag_note.md: 'class-5 AUROC is 0.501 against the 0.9'"
+ },
+ "m3_n": {
+  "value": "5",
+  "anchor": "repro/gaps/expected/M3_diag_action_shuffle.json len(rows)"
+ },
+ "m3_sh": {
+  "value": "0.05",
+  "anchor": "repro/gaps/expected/M3_diag_action_shuffle.json 100 mean_abs_diff_shuffled / mean_true"
+ },
+ "m3_tok_hi": {
+  "value": "28",
+  "anchor": "repro/gaps/expected/M3_diag_action_shuffle.json max over rows of 100 token_rel_l2"
+ },
+ "m3_tok_lo": {
+  "value": "21",
+  "anchor": "repro/gaps/expected/M3_diag_action_shuffle.json min over rows of 100 token_rel_l2"
+ },
+ "m3_zero": {
+  "value": "1.05",
+  "anchor": "repro/gaps/expected/M3_diag_action_shuffle.json mean over rows of 100 |zero_tokens − true_1| / true_1"
+ },
+ "m3_zero_hi": {
+  "value": "2.2",
+  "anchor": "repro/gaps/expected/M3_diag_action_shuffle.json max over rows of 100 |zero_tokens − true_1| / true_1"
+ },
+ "m3_zero_lo": {
+  "value": "0.4",
+  "anchor": "repro/gaps/expected/M3_diag_action_shuffle.json min over rows of 100 |zero_tokens − true_1| / true_1"
+ },
+ "n": {
+  "value": "69",
+  "anchor": "repro/gaps/expected/controls.json n"
+ },
+ "n_fail": {
+  "value": "14",
+  "anchor": "repro/register/expected/FEASIBILITY.md §2 table, counted by make_paper.py (verdict fail)"
+ },
+ "n_met": {
+  "value": "1",
+  "anchor": "repro/register/expected/FEASIBILITY.md §2 table, counted by make_paper.py (verdict met)"
+ },
+ "n_np": {
+  "value": "2",
+  "anchor": "repro/register/expected/FEASIBILITY.md §2 table, counted by make_paper.py (verdict np)"
+ },
+ "n_pass": {
+  "value": "3",
+  "anchor": "repro/register/expected/FEASIBILITY.md §2 table, counted by make_paper.py (verdict pass)"
+ },
+ "pass_bar_first": {
+  "value": "3",
+  "anchor": "repro/register/expected/prereg_audited.json rows, audited class, counted by make_paper.py (bar-first among the verdict-pass rows of FEASIBILITY.md §2)"
+ },
+ "prereg_matched": {
+  "value": "20",
+  "anchor": "repro/register/expected/prereg_audited.json rows, audited class, counted by make_paper.py (rows minus unmatched)"
+ },
+ "prereg_v1_bar_first": {
+  "value": "13",
+  "anchor": "repro/register/expected/FEASIBILITY.md §2 table, counted by make_paper.py (pre-reg. bar-first, commit order only)"
+ },
+ "prereg_v1_same_commit": {
+  "value": "6",
+  "anchor": "repro/register/expected/FEASIBILITY.md §2 table, counted by make_paper.py (pre-reg. same-commit, commit order only)"
+ },
+ "rest_W1": {
+  "value": "0.9545",
+  "anchor": "repro/gaps/expected/controls.json gap2/W1 at judge frame (LOSO probe)/auroc"
+ },
+ "rest_W1_2": {
+  "value": "0.95",
+  "anchor": "repro/gaps/expected/controls.json gap2/W1 at judge frame (LOSO probe)/auroc, 2 decimals"
+ },
+ "rest_W1_hi": {
+  "value": "0.9908",
+  "anchor": "repro/gaps/expected/controls.json gap2/W1 at judge frame (LOSO probe)/ci95[1]"
+ },
+ "rest_W1_lo": {
+  "value": "0.9023",
+  "anchor": "repro/gaps/expected/controls.json gap2/W1 at judge frame (LOSO probe)/ci95[0]"
+ },
+ "rest_W2p": {
+  "value": "0.8655",
+  "anchor": "repro/gaps/expected/controls.json gap2/W2' at judge frame (LOSO probe)/auroc"
+ },
+ "rest_W2p_hi": {
+  "value": "0.9405",
+  "anchor": "repro/gaps/expected/controls.json gap2/W2' at judge frame (LOSO probe)/ci95[1]"
+ },
+ "rest_W2p_lo": {
+  "value": "0.7767",
+  "anchor": "repro/gaps/expected/controls.json gap2/W2' at judge frame (LOSO probe)/ci95[0]"
+ },
+ "rest_joints": {
+  "value": "0.7573",
+  "anchor": "repro/gaps/expected/controls.json gap2/joints (commanded) at judge frame (LOSO probe)/auroc"
+ },
+ "rest_joints_hi": {
+  "value": "0.8880",
+  "anchor": "repro/gaps/expected/controls.json gap2/joints (commanded) at judge frame (LOSO probe)/ci95[1]"
+ },
+ "rest_joints_lo": {
+  "value": "0.6084",
+  "anchor": "repro/gaps/expected/controls.json gap2/joints (commanded) at judge frame (LOSO probe)/ci95[0]"
+ },
+ "rest_judge": {
+  "value": "0.9432",
+  "anchor": "repro/gaps/expected/controls.json gap2/G9c-3 judge score s (no learning)/auroc"
+ },
+ "rest_judge_2": {
+  "value": "0.94",
+  "anchor": "repro/gaps/expected/controls.json gap2/G9c-3 judge score s (no learning)/auroc, 2 decimals"
+ },
+ "rest_judge_hi": {
+  "value": "0.9878",
+  "anchor": "repro/gaps/expected/controls.json gap2/G9c-3 judge score s (no learning)/ci95[1]"
+ },
+ "rest_judge_lo": {
+  "value": "0.8919",
+  "anchor": "repro/gaps/expected/controls.json gap2/G9c-3 judge score s (no learning)/ci95[0]"
+ },
+ "rest_policy": {
+  "value": "0.5882",
+  "anchor": "repro/gaps/expected/controls.json gap2/policy identity (LOSO probe)/auroc"
+ },
+ "rest_policy_hi": {
+  "value": "0.7515",
+  "anchor": "repro/gaps/expected/controls.json gap2/policy identity (LOSO probe)/ci95[1]"
+ },
+ "rest_policy_lo": {
+  "value": "0.4084",
+  "anchor": "repro/gaps/expected/controls.json gap2/policy identity (LOSO probe)/ci95[0]"
+ },
+ "rows": {
+  "value": "20",
+  "anchor": "repro/register/expected/FEASIBILITY.md §2 table, counted by make_paper.py"
+ },
+ "sai_eps": {
+  "value": "10,030",
+  "anchor": "repro/register/expected/FEASIBILITY.md: '10,030 LIBERO-Plus'"
+ },
+ "sai_gain": {
+  "value": "+0.03",
+  "anchor": "repro/register/expected/FEASIBILITY.md: '+0.03 points'"
+ },
+ "same_commit": {
+  "value": "1",
+  "anchor": "repro/register/expected/prereg_audited.json rows, audited class, counted by make_paper.py (same-commit)"
+ },
+ "same_commit_gates": {
+  "value": "G6b",
+  "anchor": "repro/register/expected/prereg_audited.json rows, audited class, counted by make_paper.py (same-commit gates)"
+ },
+ "sc1_aniso": {
+  "value": "0.598",
+  "anchor": "repro/data-scale/expected/S1/verdict.json P1/anisotropy"
+ },
+ "sc1_d30": {
+  "value": "0.403",
+  "anchor": "repro/data-scale/expected/S1/verdict.json P2/cells/d30/model_top1"
+ },
+ "sc1_eps": {
+  "value": "45",
+  "anchor": "repro/data-scale/README.md scale table (S1); list lengths checked by l0_check.py"
+ },
+ "sc1_frames": {
+  "value": "15,032",
+  "anchor": "repro/data-scale/expected/curve.json train_frames"
+ },
+ "sc1_gap": {
+  "value": "-0.471",
+  "anchor": "repro/data-scale/expected/S1/verdict.json P2/cells/d30/diff"
+ },
+ "sc1_gap_hi": {
+  "value": "-0.405",
+  "anchor": "repro/data-scale/expected/S1/verdict.json P2/cells/d30/diff_ci95[1]"
+ },
+ "sc1_gap_lo": {
+  "value": "-0.539",
+  "anchor": "repro/data-scale/expected/S1/verdict.json P2/cells/d30/diff_ci95[0]"
+ },
+ "sc1_p3": {
+  "value": "1.33",
+  "anchor": "repro/data-scale/expected/S1/verdict.json P3/bar/arm_ii_minus_max_i_iii"
+ },
+ "sc1_p3v": {
+  "value": "0.006",
+  "anchor": "repro/data-scale/expected/S1/verdict.json P3/bar/arm_v_minus_iv/value"
+ },
+ "sc1_p3w1": {
+  "value": "1.68",
+  "anchor": "repro/data-scale/expected/S1/verdict.json P3/bar/w1_arm_ii_minus_i"
+ },
+ "sc1_p4": {
+  "value": "1",
+  "anchor": "repro/data-scale/expected/S1/verdict.json P4/g16_set/l2/caught_failed"
+ },
+ "sc1_p5": {
+  "value": "0.931",
+  "anchor": "repro/data-scale/expected/S1/verdict.json P5/auroc"
+ },
+ "sc1_p5_hi": {
+  "value": "0.982",
+  "anchor": "repro/data-scale/expected/S1/verdict.json P5/ci95[1]"
+ },
+ "sc1_p5_lo": {
+  "value": "0.862",
+  "anchor": "repro/data-scale/expected/S1/verdict.json P5/ci95[0]"
+ },
+ "sc1_p5d": {
+  "value": "-0.012",
+  "anchor": "repro/data-scale/expected/S1/verdict.json P5/diff_vs_judge_valid"
+ },
+ "sc1_r2": {
+  "value": "0.556",
+  "anchor": "repro/data-scale/expected/S1/verdict.json P1/mean_r2"
+ },
+ "sc1_top1": {
+  "value": "0.422",
+  "anchor": "repro/data-scale/expected/S1/verdict.json P2/best_top1"
+ },
+ "sc3_aniso": {
+  "value": "0.639",
+  "anchor": "repro/data-scale/expected/S3/verdict.json P1/anisotropy"
+ },
+ "sc3_d30": {
+  "value": "0.605",
+  "anchor": "repro/data-scale/expected/S3/verdict.json P2/cells/d30/model_top1"
+ },
+ "sc3_eps": {
+  "value": "157",
+  "anchor": "repro/data-scale/README.md scale table (S3); list lengths checked by l0_check.py"
+ },
+ "sc3_frames": {
+  "value": "53,015",
+  "anchor": "repro/data-scale/expected/curve.json train_frames"
+ },
+ "sc3_gap": {
+  "value": "-0.269",
+  "anchor": "repro/data-scale/expected/S3/verdict.json P2/cells/d30/diff"
+ },
+ "sc3_gap_hi": {
+  "value": "-0.204",
+  "anchor": "repro/data-scale/expected/S3/verdict.json P2/cells/d30/diff_ci95[1]"
+ },
+ "sc3_gap_lo": {
+  "value": "-0.334",
+  "anchor": "repro/data-scale/expected/S3/verdict.json P2/cells/d30/diff_ci95[0]"
+ },
+ "sc3_p3": {
+  "value": "0.75",
+  "anchor": "repro/data-scale/expected/S3/verdict.json P3/bar/arm_ii_minus_max_i_iii"
+ },
+ "sc3_p3v": {
+  "value": "0.007",
+  "anchor": "repro/data-scale/expected/S3/verdict.json P3/bar/arm_v_minus_iv/value"
+ },
+ "sc3_p3w1": {
+  "value": "1.18",
+  "anchor": "repro/data-scale/expected/S3/verdict.json P3/bar/w1_arm_ii_minus_i"
+ },
+ "sc3_p4": {
+  "value": "2",
+  "anchor": "repro/data-scale/expected/S3/verdict.json P4/g16_set/l2/caught_failed"
+ },
+ "sc3_p5": {
+  "value": "0.955",
+  "anchor": "repro/data-scale/expected/S3/verdict.json P5/auroc"
+ },
+ "sc3_p5_hi": {
+  "value": "0.991",
+  "anchor": "repro/data-scale/expected/S3/verdict.json P5/ci95[1]"
+ },
+ "sc3_p5_lo": {
+  "value": "0.902",
+  "anchor": "repro/data-scale/expected/S3/verdict.json P5/ci95[0]"
+ },
+ "sc3_p5d": {
+  "value": "+0.011",
+  "anchor": "repro/data-scale/expected/S3/verdict.json P5/diff_vs_judge_valid"
+ },
+ "sc3_r2": {
+  "value": "0.565",
+  "anchor": "repro/data-scale/expected/S3/verdict.json P1/mean_r2"
+ },
+ "sc3_top1": {
+  "value": "0.605",
+  "anchor": "repro/data-scale/expected/S3/verdict.json P2/best_top1"
+ },
+ "sc4_aniso": {
+  "value": "0.637",
+  "anchor": "repro/data-scale/expected/S4/verdict.json P1/anisotropy"
+ },
+ "sc4_d30": {
+  "value": "0.273",
+  "anchor": "repro/data-scale/expected/S4/verdict.json P2/cells/d30/model_top1"
+ },
+ "sc4_eps": {
+  "value": "810",
+  "anchor": "repro/data-scale/README.md scale table (S4); list lengths checked by l0_check.py"
+ },
+ "sc4_frames": {
+  "value": "275,015",
+  "anchor": "repro/data-scale/expected/curve.json train_frames"
+ },
+ "sc4_gap": {
+  "value": "-0.600",
+  "anchor": "repro/data-scale/expected/S4/verdict.json P2/cells/d30/diff"
+ },
+ "sc4_gap_hi": {
+  "value": "-0.545",
+  "anchor": "repro/data-scale/expected/S4/verdict.json P2/cells/d30/diff_ci95[1]"
+ },
+ "sc4_gap_lo": {
+  "value": "-0.652",
+  "anchor": "repro/data-scale/expected/S4/verdict.json P2/cells/d30/diff_ci95[0]"
+ },
+ "sc4_p3": {
+  "value": "0.63",
+  "anchor": "repro/data-scale/expected/S4/verdict.json P3/bar/arm_ii_minus_max_i_iii"
+ },
+ "sc4_p3v": {
+  "value": "0.007",
+  "anchor": "repro/data-scale/expected/S4/verdict.json P3/bar/arm_v_minus_iv/value"
+ },
+ "sc4_p3w1": {
+  "value": "1.26",
+  "anchor": "repro/data-scale/expected/S4/verdict.json P3/bar/w1_arm_ii_minus_i"
+ },
+ "sc4_p4": {
+  "value": "1",
+  "anchor": "repro/data-scale/expected/S4/verdict.json P4/g16_set/l2/caught_failed"
+ },
+ "sc4_p5": {
+  "value": "0.956",
+  "anchor": "repro/data-scale/expected/S4/verdict.json P5/auroc"
+ },
+ "sc4_p5_hi": {
+  "value": "0.996",
+  "anchor": "repro/data-scale/expected/S4/verdict.json P5/ci95[1]"
+ },
+ "sc4_p5_lo": {
+  "value": "0.899",
+  "anchor": "repro/data-scale/expected/S4/verdict.json P5/ci95[0]"
+ },
+ "sc4_p5d": {
+  "value": "+0.012",
+  "anchor": "repro/data-scale/expected/S4/verdict.json P5/diff_vs_judge_valid"
+ },
+ "sc4_r2": {
+  "value": "0.565",
+  "anchor": "repro/data-scale/expected/S4/verdict.json P1/mean_r2"
+ },
+ "sc4_top1": {
+  "value": "0.279",
+  "anchor": "repro/data-scale/expected/S4/verdict.json P2/best_top1"
+ },
+ "sc5_aniso": {
+  "value": "0.684",
+  "anchor": "repro/data-scale/expected/S5a/verdict.json P1/anisotropy"
+ },
+ "sc5_d30": {
+  "value": "0.222",
+  "anchor": "repro/data-scale/expected/S5a/verdict.json P2/cells/d30/model_top1"
+ },
+ "sc5_eps": {
+  "value": "2,909",
+  "anchor": "repro/data-scale/README.md scale table (S5a); list lengths checked by l0_check.py"
+ },
+ "sc5_frames": {
+  "value": "1,282,161",
+  "anchor": "repro/data-scale/expected/curve.json train_frames"
+ },
+ "sc5_gap": {
+  "value": "-0.651",
+  "anchor": "repro/data-scale/expected/S5a/verdict.json P2/cells/d30/diff"
+ },
+ "sc5_gap_hi": {
+  "value": "-0.602",
+  "anchor": "repro/data-scale/expected/S5a/verdict.json P2/cells/d30/diff_ci95[1]"
+ },
+ "sc5_gap_lo": {
+  "value": "-0.696",
+  "anchor": "repro/data-scale/expected/S5a/verdict.json P2/cells/d30/diff_ci95[0]"
+ },
+ "sc5_p3": {
+  "value": "1.17",
+  "anchor": "repro/data-scale/expected/S5a/verdict.json P3/bar/arm_ii_minus_max_i_iii"
+ },
+ "sc5_p3v": {
+  "value": "0.009",
+  "anchor": "repro/data-scale/expected/S5a/verdict.json P3/bar/arm_v_minus_iv/value"
+ },
+ "sc5_p3w1": {
+  "value": "1.52",
+  "anchor": "repro/data-scale/expected/S5a/verdict.json P3/bar/w1_arm_ii_minus_i"
+ },
+ "sc5_p4": {
+  "value": "0",
+  "anchor": "repro/data-scale/expected/S5a/verdict.json P4/g16_set/l2/caught_failed"
+ },
+ "sc5_p5": {
+  "value": "0.897",
+  "anchor": "repro/data-scale/expected/S5a/verdict.json P5/auroc"
+ },
+ "sc5_p5_hi": {
+  "value": "0.964",
+  "anchor": "repro/data-scale/expected/S5a/verdict.json P5/ci95[1]"
+ },
+ "sc5_p5_lo": {
+  "value": "0.813",
+  "anchor": "repro/data-scale/expected/S5a/verdict.json P5/ci95[0]"
+ },
+ "sc5_p5d": {
+  "value": "-0.046",
+  "anchor": "repro/data-scale/expected/S5a/verdict.json P5/diff_vs_judge_valid"
+ },
+ "sc5_r2": {
+  "value": "0.573",
+  "anchor": "repro/data-scale/expected/S5a/verdict.json P1/mean_r2"
+ },
+ "sc5_top1": {
+  "value": "0.230",
+  "anchor": "repro/data-scale/expected/S5a/verdict.json P2/best_top1"
+ },
+ "sc_floor30": {
+  "value": "0.873",
+  "anchor": "repro/data-scale/expected/S3/verdict.json P2/cells/d30/action_only_top1 (the same ranker and anchors at every scale)"
+ },
+ "sc_judge": {
+  "value": "0.943",
+  "anchor": "repro/data-scale/expected/S3/verdict.json P5/judge_auroc_valid"
+ },
+ "sc_p3_ceil": {
+  "value": "0.009",
+  "anchor": "repro/data-scale/expected/*/verdict.json P3/bar/arm_v_minus_iv/value, maximum over the scales"
+ },
+ "sc_p3_floor": {
+  "value": "0.006",
+  "anchor": "repro/data-scale/expected/*/verdict.json P3/bar/arm_v_minus_iv/value, minimum over the scales"
+ },
+ "sc_p3_min": {
+  "value": "0.62",
+  "anchor": "repro/data-scale/expected/*/verdict.json P3/bar/arm_ii_minus_max_i_iii, minimum over the scales, rounded down to 2 decimals"
+ },
+ "sc_random_gain": {
+  "value": "1.25",
+  "anchor": "repro/data-scale/expected/S3/verdict.json P3/bar/random_init_arm_ii_minus_i (one untrained encoder at every scale)"
+ },
+ "sc_steps": {
+  "value": "81,068",
+  "anchor": "repro/data-scale/expected/S1/training_end.json step"
+ },
+ "scale_eps": {
+  "value": "653",
+  "anchor": "repro/register/expected/FEASIBILITY.md: '(653 episodes'"
+ },
+ "sessions": {
+  "value": "13",
+  "anchor": "repro/gaps/expected/controls.json sessions"
+ },
+ "success": {
+  "value": "44",
+  "anchor": "repro/gaps/expected/controls.json success"
+ },
+ "surv_paper": {
+  "value": "0.20",
+  "anchor": "repro/register/expected/FEASIBILITY.md §2 row SURVEYOR: 'paper 0.20'"
+ },
+ "surv_tau_W1": {
+  "value": "1.2488",
+  "anchor": "repro/gaps/expected/controls.json surveyor_gate0/W1/tau"
+ },
+ "surv_tau_W2p": {
+  "value": "0.3601",
+  "anchor": "repro/gaps/expected/controls.json surveyor_gate0/W2'/tau"
+ },
+ "surv_tau_joints": {
+  "value": "0.0265",
+  "anchor": "repro/gaps/expected/controls.json surveyor_gate0/joints (commanded)/tau"
+ },
+ "teleop_eps": {
+  "value": "182",
+  "anchor": "repro/register/expected/split.json n_train + n_val"
+ },
+ "train_eps": {
+  "value": "157",
+  "anchor": "repro/register/expected/split.json n_train"
+ },
+ "uses_both": {
+  "value": "5",
+  "anchor": "repro/register/expected/uses.json rows, needs = both"
+ },
+ "uses_encoder": {
+  "value": "7",
+  "anchor": "repro/register/expected/uses.json rows, needs = encoder"
+ },
+ "uses_predictor": {
+  "value": "8",
+  "anchor": "repro/register/expected/uses.json rows, needs = predictor"
+ },
+ "val_eps": {
+  "value": "25",
+  "anchor": "repro/register/expected/split.json n_val"
+ },
+ "w1a_hits": {
+  "value": "2/8 at 2/42",
+  "anchor": "repro/register/expected/FEASIBILITY.md §2 row W1-A: '2/8 at 2/42'"
+ },
+ "wm_keys": {
+  "value": "351",
+  "anchor": "repro/gaps/expected/vla_jepa_keyset.json world_model_keys"
+ },
+ "wm_missing": {
+  "value": "0",
+  "anchor": "repro/gaps/expected/vla_jepa_keyset.json world_model_keys_missing"
+ }
+}

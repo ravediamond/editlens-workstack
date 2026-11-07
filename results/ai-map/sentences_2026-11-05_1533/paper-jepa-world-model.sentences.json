@@ -1,0 +1,2927 @@
+{
+ "meta": {
+  "model": "pangram/editlens_Llama-3.2-3B",
+  "base": "meta-llama/Llama-3.2-3B",
+  "date": "2026-11-05T15:34:10",
+  "scale": "raw EditLens score in [0, 1], 0 = human, 1 = AI; no thresholds are published",
+  "note": "score_alone is for one sentence as a text of its own (noisy: the model trained on 75+ words); contribution = paragraph score minus the score of the paragraph without that sentence (paragraphs of 40+ words only)"
+ },
+ "paper": "paper-jepa-world-model",
+ "text": "rendered source (numbers filled) (DRAFT_4p.md)",
+ "file": "/home/jetson/scratch/paper-repos/paper-jepa-world-model/paper/DRAFT_4p.md",
+ "sentences": [
+  {
+   "id": 1,
+   "section": "Abstract",
+   "lines": [
+    7,
+    7
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.086,
+   "sentence_in_paragraph": 1,
+   "sentence": "We trained a small JEPA world model in the LeWorldModel recipe for $3.30 of rented GPU time.",
+   "words": 18,
+   "score_alone": 0.0719,
+   "score_without_it": 0.1667,
+   "contribution": -0.0807
+  },
+  {
+   "id": 2,
+   "section": "Abstract",
+   "lines": [
+    7,
+    7
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.086,
+   "sentence_in_paragraph": 2,
+   "sentence": "The training data are teleoperated demonstrations of one tabletop task on an SO-101 arm.",
+   "words": 15,
+   "score_alone": 0.1949,
+   "score_without_it": 0.1,
+   "contribution": -0.014
+  },
+  {
+   "id": 3,
+   "section": "Abstract",
+   "lines": [
+    7,
+    7
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.086,
+   "sentence_in_paragraph": 3,
+   "sentence": "We then re-tested on this model the uses of such models that recent papers propose.",
+   "words": 16,
+   "score_alone": 0.1567,
+   "score_without_it": 0.1328,
+   "contribution": -0.0468
+  },
+  {
+   "id": 4,
+   "section": "Abstract",
+   "lines": [
+    7,
+    7
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.086,
+   "sentence_in_paragraph": 4,
+   "sentence": "Each use has a threshold in a public register.",
+   "words": 9,
+   "score_alone": 0.249,
+   "score_without_it": 0.074,
+   "contribution": 0.012
+  },
+  {
+   "id": 5,
+   "section": "Abstract",
+   "lines": [
+    7,
+    7
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.086,
+   "sentence_in_paragraph": 5,
+   "sentence": "We tested the encoder on policy rollouts the model never saw.",
+   "words": 11,
+   "score_alone": 0.2293,
+   "score_without_it": 0.0858,
+   "contribution": 0.0001
+  },
+  {
+   "id": 6,
+   "section": "Abstract",
+   "lines": [
+    7,
+    7
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.086,
+   "sentence_in_paragraph": 6,
+   "sentence": "A linear probe on its last-frame latent separates success from failure about as well as a hand-built colour judge.",
+   "words": 21,
+   "score_alone": 0.3759,
+   "score_without_it": 0.0708,
+   "contribution": 0.0151
+  },
+  {
+   "id": 7,
+   "section": "Abstract",
+   "lines": [
+    7,
+    7
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.086,
+   "sentence_in_paragraph": 7,
+   "sentence": "It does better than a frozen DINOv2 encoder and better than the commanded joints.",
+   "words": 14,
+   "score_alone": 0.1401,
+   "score_without_it": 0.1171,
+   "contribution": -0.0311
+  },
+  {
+   "id": 8,
+   "section": "Abstract",
+   "lines": [
+    7,
+    7
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.086,
+   "sentence_in_paragraph": 8,
+   "sentence": "The predictor adds nothing to this.",
+   "words": 6,
+   "score_alone": 0.1866,
+   "score_without_it": 0.0921,
+   "contribution": -0.0061
+  },
+  {
+   "id": 9,
+   "section": "Abstract",
+   "lines": [
+    7,
+    7
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.086,
+   "sentence_in_paragraph": 9,
+   "sentence": "At the grasp, the imagined latent reads the outcome at 0.70 and the current latent at 0.82.",
+   "words": 19,
+   "score_alone": 0.398,
+   "score_without_it": 0.0742,
+   "contribution": 0.0117
+  },
+  {
+   "id": 10,
+   "section": "Abstract",
+   "lines": [
+    7,
+    7
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.086,
+   "sentence_in_paragraph": 10,
+   "sentence": "Every use that needs the predictor to roll forward misses its threshold at this data scale.",
+   "words": 16,
+   "score_alone": 0.3385,
+   "score_without_it": 0.0685,
+   "contribution": 0.0175
+  },
+  {
+   "id": 11,
+   "section": "Abstract",
+   "lines": [
+    7,
+    7
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.086,
+   "sentence_in_paragraph": 11,
+   "sentence": "The controls are exploratory and come from one rig and one model.",
+   "words": 12,
+   "score_alone": 0.1735,
+   "score_without_it": 0.0731,
+   "contribution": 0.0128
+  },
+  {
+   "id": 12,
+   "section": "Introduction",
+   "lines": [
+    11,
+    11
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.3352,
+   "sentence_in_paragraph": 1,
+   "sentence": "LeWorldModel (LeWM) [1] trains a world model in two parts.",
+   "words": 10,
+   "score_alone": 0.2665,
+   "score_without_it": 0.3774,
+   "contribution": -0.0422
+  },
+  {
+   "id": 13,
+   "section": "Introduction",
+   "lines": [
+    11,
+    11
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.3352,
+   "sentence_in_paragraph": 2,
+   "sentence": "The encoder maps camera frames to a latent vector.",
+   "words": 9,
+   "score_alone": 0.3738,
+   "score_without_it": 0.3235,
+   "contribution": 0.0117
+  },
+  {
+   "id": 14,
+   "section": "Introduction",
+   "lines": [
+    11,
+    11
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.3352,
+   "sentence_in_paragraph": 3,
+   "sentence": "The predictor takes the current latent and a sequence of actions and imagines the latents that follow.",
+   "words": 17,
+   "score_alone": 0.2531,
+   "score_without_it": 0.3592,
+   "contribution": -0.0241
+  },
+  {
+   "id": 15,
+   "section": "Introduction",
+   "lines": [
+    11,
+    11
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.3352,
+   "sentence_in_paragraph": 4,
+   "sentence": "Both are trained together from pixels with a joint-embedding predictive (JEPA) loss.",
+   "words": 13,
+   "score_alone": 0.1682,
+   "score_without_it": 0.3173,
+   "contribution": 0.0178
+  },
+  {
+   "id": 16,
+   "section": "Introduction",
+   "lines": [
+    11,
+    11
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.3352,
+   "sentence_in_paragraph": 5,
+   "sentence": "Papers built on these models propose several uses.",
+   "words": 8,
+   "score_alone": 0.313,
+   "score_without_it": 0.2776,
+   "contribution": 0.0576
+  },
+  {
+   "id": 17,
+   "section": "Introduction",
+   "lines": [
+    11,
+    11
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.3352,
+   "sentence_in_paragraph": 6,
+   "sentence": "Most of them need the predictor.",
+   "words": 6,
+   "score_alone": 0.1851,
+   "score_without_it": 0.3422,
+   "contribution": -0.007
+  },
+  {
+   "id": 18,
+   "section": "Introduction",
+   "lines": [
+    11,
+    11
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.3352,
+   "sentence_in_paragraph": 7,
+   "sentence": "One ranks a policy's candidate action chunks by their imagined outcome.",
+   "words": 12,
+   "score_alone": 0.3976,
+   "score_without_it": 0.3401,
+   "contribution": -0.0049
+  },
+  {
+   "id": 19,
+   "section": "Introduction",
+   "lines": [
+    11,
+    11
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.3352,
+   "sentence_in_paragraph": 8,
+   "sentence": "Others flag a failure when the observed latent drifts from the predicted one, read the outcome of a grasp before it happens, or plan over several time scales.",
+   "words": 28,
+   "score_alone": 0.3306,
+   "score_without_it": 0.3143,
+   "contribution": 0.0209
+  },
+  {
+   "id": 20,
+   "section": "Introduction",
+   "lines": [
+    11,
+    11
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.3352,
+   "sentence_in_paragraph": 9,
+   "sentence": "Each paper reports the use that worked on its own robot and data.",
+   "words": 13,
+   "score_alone": 0.1449,
+   "score_without_it": 0.2449,
+   "contribution": 0.0903
+  },
+  {
+   "id": 21,
+   "section": "Introduction",
+   "lines": [
+    13,
+    13
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.0906,
+   "sentence_in_paragraph": 1,
+   "sentence": "We had one such model, trained on our own arm.",
+   "words": 10,
+   "score_alone": 0.1873,
+   "score_without_it": 0.1097,
+   "contribution": -0.0191
+  },
+  {
+   "id": 22,
+   "section": "Introduction",
+   "lines": [
+    13,
+    13
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.0906,
+   "sentence_in_paragraph": 2,
+   "sentence": "We ran every use we could find on it.",
+   "words": 9,
+   "score_alone": 0.101,
+   "score_without_it": 0.0698,
+   "contribution": 0.0207
+  },
+  {
+   "id": 23,
+   "section": "Introduction",
+   "lines": [
+    13,
+    13
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.0906,
+   "sentence_in_paragraph": 3,
+   "sentence": "Each re-test is a row of a register with a threshold, a dataset, a result and a verdict.",
+   "words": 19,
+   "score_alone": 0.1468,
+   "score_without_it": 0.0957,
+   "contribution": -0.0052
+  },
+  {
+   "id": 24,
+   "section": "Introduction",
+   "lines": [
+    13,
+    13
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.0906,
+   "sentence_in_paragraph": 4,
+   "sentence": "Where we managed it, the threshold and the decision rule went into the repository before the result existed.",
+   "words": 18,
+   "score_alone": 0.278,
+   "score_without_it": 0.0995,
+   "contribution": -0.0089
+  },
+  {
+   "id": 25,
+   "section": "Introduction",
+   "lines": [
+    13,
+    13
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.0906,
+   "sentence_in_paragraph": 5,
+   "sentence": "That commit order is what we mean by pre-registration.",
+   "words": 10,
+   "score_alone": 0.185,
+   "score_without_it": 0.0827,
+   "contribution": 0.0079
+  },
+  {
+   "id": 26,
+   "section": "Introduction",
+   "lines": [
+    13,
+    13
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.0906,
+   "sentence_in_paragraph": 6,
+   "sentence": "All 20 rows match a pre-registration record in the commit history.",
+   "words": 12,
+   "score_alone": 0.3533,
+   "score_without_it": 0.1003,
+   "contribution": -0.0097
+  },
+  {
+   "id": 27,
+   "section": "Introduction",
+   "lines": [
+    13,
+    13
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.0906,
+   "sentence_in_paragraph": 7,
+   "sentence": "In 19 of them the bar was in place before the result.",
+   "words": 12,
+   "score_alone": 0.1861,
+   "score_without_it": 0.133,
+   "contribution": -0.0425
+  },
+  {
+   "id": 28,
+   "section": "Introduction",
+   "lines": [
+    13,
+    13
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.0906,
+   "sentence_in_paragraph": 8,
+   "sentence": "The two-level hierarchical progress use had it in the same commit.",
+   "words": 12,
+   "score_alone": 0.2214,
+   "score_without_it": 0.0692,
+   "contribution": 0.0213
+  },
+  {
+   "id": 29,
+   "section": "Introduction",
+   "lines": [
+    13,
+    13
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.0906,
+   "sentence_in_paragraph": 9,
+   "sentence": "One more row is not a use of our model.",
+   "words": 10,
+   "score_alone": 0.1583,
+   "score_without_it": 0.1107,
+   "contribution": -0.0202
+  },
+  {
+   "id": 30,
+   "section": "Introduction",
+   "lines": [
+    13,
+    13
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.0906,
+   "sentence_in_paragraph": 10,
+   "sentence": "It times the pretrained RoboJEPA [2] and V-JEPA 2.1 [3] encoders on our on-board computer.",
+   "words": 18,
+   "score_alone": 0.2191,
+   "score_without_it": 0.0397,
+   "contribution": 0.0509
+  },
+  {
+   "id": 31,
+   "section": "Introduction",
+   "lines": [
+    13,
+    13
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.0906,
+   "sentence_in_paragraph": 11,
+   "sentence": "14 of the 20 rows fail or are no-go.",
+   "words": 10,
+   "score_alone": 0.3507,
+   "score_without_it": 0.093,
+   "contribution": -0.0025
+  },
+  {
+   "id": 32,
+   "section": "Introduction",
+   "lines": [
+    13,
+    13
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.0906,
+   "sentence_in_paragraph": 12,
+   "sentence": "Table 1 lists all of them.",
+   "words": 6,
+   "score_alone": 0.1181,
+   "score_without_it": 0.0706,
+   "contribution": 0.0199
+  },
+  {
+   "id": 33,
+   "section": "Introduction",
+   "lines": [
+    15,
+    15
+   ],
+   "paragraph": 3,
+   "paragraph_score": 0.2012,
+   "sentence_in_paragraph": 1,
+   "sentence": "The first version of this paper argued something completely different.",
+   "words": 10,
+   "score_alone": 0.2659,
+   "score_without_it": 0.1537,
+   "contribution": 0.0475
+  },
+  {
+   "id": 34,
+   "section": "Introduction",
+   "lines": [
+    15,
+    15
+   ],
+   "paragraph": 3,
+   "paragraph_score": 0.2012,
+   "sentence_in_paragraph": 2,
+   "sentence": "We read the failures as a sign that the latent mostly encodes the arm's pose.",
+   "words": 16,
+   "score_alone": 0.2704,
+   "score_without_it": 0.1293,
+   "contribution": 0.0719
+  },
+  {
+   "id": 35,
+   "section": "Introduction",
+   "lines": [
+    15,
+    15
+   ],
+   "paragraph": 3,
+   "paragraph_score": 0.2012,
+   "sentence_in_paragraph": 3,
+   "sentence": "Then a frozen image encoder or the commanded joints would do at least as well.",
+   "words": 15,
+   "score_alone": 0.2612,
+   "score_without_it": 0.1613,
+   "contribution": 0.0399
+  },
+  {
+   "id": 36,
+   "section": "Introduction",
+   "lines": [
+    15,
+    15
+   ],
+   "paragraph": 3,
+   "paragraph_score": 0.2012,
+   "sentence_in_paragraph": 4,
+   "sentence": "We ran these controls on 69 policy rollouts.",
+   "words": 8,
+   "score_alone": 0.144,
+   "score_without_it": 0.2384,
+   "contribution": -0.0372
+  },
+  {
+   "id": 37,
+   "section": "Introduction",
+   "lines": [
+    15,
+    15
+   ],
+   "paragraph": 3,
+   "paragraph_score": 0.2012,
+   "sentence_in_paragraph": 5,
+   "sentence": "The encoder read how the episode went better than either control.",
+   "words": 11,
+   "score_alone": 0.2021,
+   "score_without_it": 0.1368,
+   "contribution": 0.0644
+  },
+  {
+   "id": 38,
+   "section": "Introduction",
+   "lines": [
+    15,
+    15
+   ],
+   "paragraph": 3,
+   "paragraph_score": 0.2012,
+   "sentence_in_paragraph": 6,
+   "sentence": "We modified the claim around the predictor.",
+   "words": 7,
+   "score_alone": 0.2877,
+   "score_without_it": 0.1784,
+   "contribution": 0.0228
+  },
+  {
+   "id": 39,
+   "section": "Introduction",
+   "lines": [
+    17,
+    17
+   ],
+   "paragraph": 4,
+   "paragraph_score": null,
+   "sentence_in_paragraph": 1,
+   "sentence": "We come back several times to one moment, the grasp anchor.",
+   "words": 11,
+   "score_alone": 0.1894,
+   "score_without_it": null,
+   "contribution": null
+  },
+  {
+   "id": 40,
+   "section": "Introduction",
+   "lines": [
+    17,
+    17
+   ],
+   "paragraph": 4,
+   "paragraph_score": null,
+   "sentence_in_paragraph": 2,
+   "sentence": "It is 15 frames before the gripper first closes.",
+   "words": 9,
+   "score_alone": 0.195,
+   "score_without_it": null,
+   "contribution": null
+  },
+  {
+   "id": 41,
+   "section": "Introduction",
+   "lines": [
+    17,
+    17
+   ],
+   "paragraph": 4,
+   "paragraph_score": null,
+   "sentence_in_paragraph": 3,
+   "sentence": "There the current latent reads the outcome at 0.82 and the imagined latent at 0.70.",
+   "words": 17,
+   "score_alone": 0.2977,
+   "score_without_it": null,
+   "contribution": null
+  },
+  {
+   "id": 42,
+   "section": "Introduction",
+   "lines": [
+    19,
+    19
+   ],
+   "paragraph": 5,
+   "paragraph_score": 0.2262,
+   "sentence_in_paragraph": 1,
+   "sentence": "The controls came after the data.",
+   "words": 6,
+   "score_alone": 0.2115,
+   "score_without_it": 0.2139,
+   "contribution": 0.0123
+  },
+  {
+   "id": 43,
+   "section": "Introduction",
+   "lines": [
+    19,
+    19
+   ],
+   "paragraph": 5,
+   "paragraph_score": 0.2262,
+   "sentence_in_paragraph": 2,
+   "sentence": "Each readout is a linear probe with leave-one-session-out (LOSO) cross-validation on the 69 rollouts (44 success, 25 failure, 13 sessions).",
+   "words": 24,
+   "score_alone": 0.2481,
+   "score_without_it": 0.2731,
+   "contribution": -0.0469
+  },
+  {
+   "id": 44,
+   "section": "Introduction",
+   "lines": [
+    19,
+    19
+   ],
+   "paragraph": 5,
+   "paragraph_score": 0.2262,
+   "sentence_in_paragraph": 3,
+   "sentence": "The labels were given at rest by the author.",
+   "words": 9,
+   "score_alone": 0.1449,
+   "score_without_it": 0.2261,
+   "contribution": 0.0001
+  },
+  {
+   "id": 45,
+   "section": "Introduction",
+   "lines": [
+    19,
+    19
+   ],
+   "paragraph": 5,
+   "paragraph_score": 0.2262,
+   "sentence_in_paragraph": 4,
+   "sentence": "The model was trained on teleoperation only and never saw these rollouts.",
+   "words": 12,
+   "score_alone": 0.3504,
+   "score_without_it": 0.2156,
+   "contribution": 0.0105
+  },
+  {
+   "id": 46,
+   "section": "Introduction",
+   "lines": [
+    19,
+    19
+   ],
+   "paragraph": 5,
+   "paragraph_score": 0.2262,
+   "sentence_in_paragraph": 5,
+   "sentence": "No threshold was committed for these comparisons.",
+   "words": 7,
+   "score_alone": 0.2482,
+   "score_without_it": 0.2179,
+   "contribution": 0.0083
+  },
+  {
+   "id": 47,
+   "section": "Introduction",
+   "lines": [
+    19,
+    19
+   ],
+   "paragraph": 5,
+   "paragraph_score": 0.2262,
+   "sentence_in_paragraph": 6,
+   "sentence": "Everything this paper says about the split between encoder and predictor is therefore exploratory.",
+   "words": 14,
+   "score_alone": 0.2311,
+   "score_without_it": 0.2307,
+   "contribution": -0.0046
+  },
+  {
+   "id": 48,
+   "section": "Introduction",
+   "lines": [
+    19,
+    19
+   ],
+   "paragraph": 5,
+   "paragraph_score": 0.2262,
+   "sentence_in_paragraph": 7,
+   "sentence": "3 of the 3 register passes have their bar committed before the result.",
+   "words": 13,
+   "score_alone": 0.3096,
+   "score_without_it": 0.252,
+   "contribution": -0.0259
+  },
+  {
+   "id": 49,
+   "section": "Introduction",
+   "lines": [
+    19,
+    19
+   ],
+   "paragraph": 5,
+   "paragraph_score": 0.2262,
+   "sentence_in_paragraph": 8,
+   "sentence": "The register still marks the outcome-readout verdict as retrospective.",
+   "words": 10,
+   "score_alone": 0.2953,
+   "score_without_it": 0.1859,
+   "contribution": 0.0403
+  },
+  {
+   "id": 50,
+   "section": "Setup",
+   "lines": [
+    23,
+    23
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.0378,
+   "sentence_in_paragraph": 1,
+   "sentence": "The robot is one SO-101 arm [4] driven through LeRobot [5], with a top and a wrist camera.",
+   "words": 19,
+   "score_alone": 0.0602,
+   "score_without_it": 0.0503,
+   "contribution": -0.0125
+  },
+  {
+   "id": 51,
+   "section": "Setup",
+   "lines": [
+    23,
+    23
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.0378,
+   "sentence_in_paragraph": 2,
+   "sentence": "The task is to put a bowl into another bowl.",
+   "words": 10,
+   "score_alone": 0.152,
+   "score_without_it": 0.0604,
+   "contribution": -0.0227
+  },
+  {
+   "id": 52,
+   "section": "Setup",
+   "lines": [
+    23,
+    23
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.0378,
+   "sentence_in_paragraph": 3,
+   "sentence": "We trained our model on X, split by grid layout into 157 training and 25 validation episodes.",
+   "words": 17,
+   "score_alone": 0.2471,
+   "score_without_it": 0.0514,
+   "contribution": -0.0136
+  },
+  {
+   "id": 53,
+   "section": "Setup",
+   "lines": [
+    23,
+    23
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.0378,
+   "sentence_in_paragraph": 4,
+   "sentence": "The evaluation rollouts come from a separate dataset, X. They are SmolVLA [6] runs recorded after our model was trained.",
+   "words": 20,
+   "score_alone": 0.1021,
+   "score_without_it": 0.0354,
+   "contribution": 0.0023
+  },
+  {
+   "id": 54,
+   "section": "Setup",
+   "lines": [
+    25,
+    25
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.0778,
+   "sentence_in_paragraph": 1,
+   "sentence": "Our model follows the LeWM recipe [1], with a multi-view ViT encoder, an action-conditioned predictor and the SIGReg regulariser.",
+   "words": 21,
+   "score_alone": 0.1298,
+   "score_without_it": 0.1431,
+   "contribution": -0.0654
+  },
+  {
+   "id": 55,
+   "section": "Setup",
+   "lines": [
+    25,
+    25
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.0778,
+   "sentence_in_paragraph": 2,
+   "sentence": "We compare it with four cheaper signals.",
+   "words": 7,
+   "score_alone": 0.138,
+   "score_without_it": 0.1004,
+   "contribution": -0.0226
+  },
+  {
+   "id": 56,
+   "section": "Setup",
+   "lines": [
+    25,
+    25
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.0778,
+   "sentence_in_paragraph": 3,
+   "sentence": "The frozen DINOv2-S control is a frozen DINOv2 small encoder [7], mean-pooled over the top and wrist views as in DINO-WM [8].",
+   "words": 25,
+   "score_alone": 0.1117,
+   "score_without_it": 0.1046,
+   "contribution": -0.0268
+  },
+  {
+   "id": 57,
+   "section": "Setup",
+   "lines": [
+    25,
+    25
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.0778,
+   "sentence_in_paragraph": 4,
+   "sentence": "The joints control is the commanded joint vector.",
+   "words": 8,
+   "score_alone": 0.3414,
+   "score_without_it": 0.0761,
+   "contribution": 0.0017
+  },
+  {
+   "id": 58,
+   "section": "Setup",
+   "lines": [
+    25,
+    25
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.0778,
+   "sentence_in_paragraph": 5,
+   "sentence": "The colour judge is a hand-built rule on the final frame with no learning.",
+   "words": 15,
+   "score_alone": 0.1792,
+   "score_without_it": 0.0746,
+   "contribution": 0.0032
+  },
+  {
+   "id": 59,
+   "section": "Setup",
+   "lines": [
+    25,
+    25
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.0778,
+   "sentence_in_paragraph": 6,
+   "sentence": "Policy identity is the checkpoint that ran the episode.",
+   "words": 9,
+   "score_alone": 0.159,
+   "score_without_it": 0.0829,
+   "contribution": -0.0051
+  },
+  {
+   "id": 60,
+   "section": "Setup",
+   "lines": [
+    27,
+    27
+   ],
+   "paragraph": 3,
+   "paragraph_score": 0.231,
+   "sentence_in_paragraph": 1,
+   "sentence": "In October we found a loading bug.",
+   "words": 7,
+   "score_alone": 0.1203,
+   "score_without_it": 0.2699,
+   "contribution": -0.0389
+  },
+  {
+   "id": 61,
+   "section": "Setup",
+   "lines": [
+    27,
+    27
+   ],
+   "paragraph": 3,
+   "paragraph_score": 0.231,
+   "sentence_in_paragraph": 2,
+   "sentence": "A timing test on the on-board computer loaded our checkpoint with X. The image had transformers 5.5.4, and under that version 192 encoder tensors did not match.",
+   "words": 30,
+   "score_alone": 0.1292,
+   "score_without_it": 0.2936,
+   "contribution": -0.0625
+  },
+  {
+   "id": 62,
+   "section": "Setup",
+   "lines": [
+    27,
+    27
+   ],
+   "paragraph": 3,
+   "paragraph_score": 0.231,
+   "sentence_in_paragraph": 3,
+   "sentence": "They were dropped without an error, so the test timed a random encoder.",
+   "words": 13,
+   "score_alone": 0.2394,
+   "score_without_it": 0.2151,
+   "contribution": 0.0159
+  },
+  {
+   "id": 63,
+   "section": "Setup",
+   "lines": [
+    27,
+    27
+   ],
+   "paragraph": 3,
+   "paragraph_score": 0.231,
+   "sentence_in_paragraph": 4,
+   "sentence": "We voided its latents.",
+   "words": 4,
+   "score_alone": 0.2147,
+   "score_without_it": 0.2301,
+   "contribution": 0.0009
+  },
+  {
+   "id": 64,
+   "section": "Setup",
+   "lines": [
+    27,
+    27
+   ],
+   "paragraph": 3,
+   "paragraph_score": 0.231,
+   "sentence_in_paragraph": 5,
+   "sentence": "We then traced how every other use loaded the model.",
+   "words": 10,
+   "score_alone": 0.1983,
+   "score_without_it": 0.2113,
+   "contribution": 0.0198
+  },
+  {
+   "id": 65,
+   "section": "Setup",
+   "lines": [
+    27,
+    27
+   ],
+   "paragraph": 3,
+   "paragraph_score": 0.231,
+   "sentence_in_paragraph": 6,
+   "sentence": "26 ran the trained model and 1 ran a random one (that test).",
+   "words": 13,
+   "score_alone": 0.3175,
+   "score_without_it": 0.2227,
+   "contribution": 0.0083
+  },
+  {
+   "id": 66,
+   "section": "Setup",
+   "lines": [
+    27,
+    27
+   ],
+   "paragraph": 3,
+   "paragraph_score": 0.231,
+   "sentence_in_paragraph": 7,
+   "sentence": "The world-model block of VLA-JEPA, which one diagnostic below uses, loads all 351 of its keys.",
+   "words": 18,
+   "score_alone": 0.1531,
+   "score_without_it": 0.2419,
+   "contribution": -0.0109
+  },
+  {
+   "id": 67,
+   "section": "The register",
+   "lines": [
+    31,
+    31
+   ],
+   "paragraph": 1,
+   "paragraph_score": null,
+   "sentence_in_paragraph": 1,
+   "sentence": "Table 1 lists the 20 uses.",
+   "words": 6,
+   "score_alone": 0.1146,
+   "score_without_it": null,
+   "contribution": null
+  },
+  {
+   "id": 68,
+   "section": "The register",
+   "lines": [
+    31,
+    31
+   ],
+   "paragraph": 1,
+   "paragraph_score": null,
+   "sentence_in_paragraph": 2,
+   "sentence": "The takes column says what each one needs from our model: the encoder alone (7), the predictor (8) or both (5).",
+   "words": 21,
+   "score_alone": 0.2465,
+   "score_without_it": null,
+   "contribution": null
+  },
+  {
+   "id": 69,
+   "section": "The register",
+   "lines": [
+    58,
+    58
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.1769,
+   "sentence_in_paragraph": 1,
+   "sentence": "Among the encoder uses, reading the outcome works.",
+   "words": 8,
+   "score_alone": 0.2324,
+   "score_without_it": 0.1393,
+   "contribution": 0.0376
+  },
+  {
+   "id": 70,
+   "section": "The register",
+   "lines": [
+    58,
+    58
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.1769,
+   "sentence_in_paragraph": 2,
+   "sentence": "The outcome readout at rest passes.",
+   "words": 6,
+   "score_alone": 0.2625,
+   "score_without_it": 0.1538,
+   "contribution": 0.0231
+  },
+  {
+   "id": 71,
+   "section": "The register",
+   "lines": [
+    58,
+    58
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.1769,
+   "sentence_in_paragraph": 3,
+   "sentence": "At the grasp anchor the current latent reads the grasp at 0.82.",
+   "words": 13,
+   "score_alone": 0.162,
+   "score_without_it": 0.1567,
+   "contribution": 0.0202
+  },
+  {
+   "id": 72,
+   "section": "The register",
+   "lines": [
+    58,
+    58
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.1769,
+   "sentence_in_paragraph": 4,
+   "sentence": "Reading progress does not work.",
+   "words": 5,
+   "score_alone": 0.1517,
+   "score_without_it": 0.217,
+   "contribution": -0.0401
+  },
+  {
+   "id": 73,
+   "section": "The register",
+   "lines": [
+    58,
+    58
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.1769,
+   "sentence_in_paragraph": 5,
+   "sentence": "Four uses ask the latent for progress or task stage, and all four fail.",
+   "words": 14,
+   "score_alone": 0.1692,
+   "score_without_it": 0.1655,
+   "contribution": 0.0114
+  },
+  {
+   "id": 74,
+   "section": "The register",
+   "lines": [
+    58,
+    58
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.1769,
+   "sentence_in_paragraph": 6,
+   "sentence": "They are progress monotonicity, two-level hierarchical progress [10], the latent stage tracker and SURVEYOR's latent-distance scale [13].",
+   "words": 20,
+   "score_alone": 0.1825,
+   "score_without_it": 0.1466,
+   "contribution": 0.0302
+  },
+  {
+   "id": 75,
+   "section": "The register",
+   "lines": [
+    58,
+    58
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.1769,
+   "sentence_in_paragraph": 7,
+   "sentence": "We also ran the pose probes of LeJEPA [12].",
+   "words": 9,
+   "score_alone": 0.0935,
+   "score_without_it": 0.2215,
+   "contribution": -0.0446
+  },
+  {
+   "id": 76,
+   "section": "The register",
+   "lines": [
+    58,
+    58
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.1769,
+   "sentence_in_paragraph": 8,
+   "sentence": "A linear readout recovers about half of the joint variance from our encoder (R² 0.565).",
+   "words": 16,
+   "score_alone": 0.2891,
+   "score_without_it": 0.19,
+   "contribution": -0.0131
+  },
+  {
+   "id": 77,
+   "section": "The register",
+   "lines": [
+    58,
+    58
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.1769,
+   "sentence_in_paragraph": 9,
+   "sentence": "It recovers more from the frozen DINOv2-S control (0.867).",
+   "words": 11,
+   "score_alone": 0.1652,
+   "score_without_it": 0.1873,
+   "contribution": -0.0104
+  },
+  {
+   "id": 78,
+   "section": "The register",
+   "lines": [
+    60,
+    60
+   ],
+   "paragraph": 3,
+   "paragraph_score": 0.2544,
+   "sentence_in_paragraph": 1,
+   "sentence": "The predictor does predict its own latent.",
+   "words": 7,
+   "score_alone": 0.2224,
+   "score_without_it": 0.3145,
+   "contribution": -0.0601
+  },
+  {
+   "id": 79,
+   "section": "The register",
+   "lines": [
+    60,
+    60
+   ],
+   "paragraph": 3,
+   "paragraph_score": 0.2544,
+   "sentence_in_paragraph": 2,
+   "sentence": "At K = 30 its open-loop error is 0.31.",
+   "words": 10,
+   "score_alone": 0.236,
+   "score_without_it": 0.2901,
+   "contribution": -0.0357
+  },
+  {
+   "id": 80,
+   "section": "The register",
+   "lines": [
+    60,
+    60
+   ],
+   "paragraph": 3,
+   "paragraph_score": 0.2544,
+   "sentence_in_paragraph": 3,
+   "sentence": "Copying the last latent gives 0.89.",
+   "words": 7,
+   "score_alone": 0.2246,
+   "score_without_it": 0.2732,
+   "contribution": -0.0189
+  },
+  {
+   "id": 81,
+   "section": "The register",
+   "lines": [
+    60,
+    60
+   ],
+   "paragraph": 3,
+   "paragraph_score": 0.2544,
+   "sentence_in_paragraph": 4,
+   "sentence": "The uses of this prediction fail.",
+   "words": 6,
+   "score_alone": 0.2892,
+   "score_without_it": 0.2612,
+   "contribution": -0.0068
+  },
+  {
+   "id": 82,
+   "section": "The register",
+   "lines": [
+    60,
+    60
+   ],
+   "paragraph": 3,
+   "paragraph_score": 0.2544,
+   "sentence_in_paragraph": 5,
+   "sentence": "In chunk ranking [1] the model puts the executed chunk first in 0.60 of anchors.",
+   "words": 16,
+   "score_alone": 0.2924,
+   "score_without_it": 0.2515,
+   "contribution": 0.0029
+  },
+  {
+   "id": 83,
+   "section": "The register",
+   "lines": [
+    60,
+    60
+   ],
+   "paragraph": 3,
+   "paragraph_score": 0.2544,
+   "sentence_in_paragraph": 6,
+   "sentence": "The threshold was 0.8.",
+   "words": 5,
+   "score_alone": 0.2601,
+   "score_without_it": 0.2864,
+   "contribution": -0.032
+  },
+  {
+   "id": 84,
+   "section": "The register",
+   "lines": [
+    60,
+    60
+   ],
+   "paragraph": 3,
+   "paragraph_score": 0.2544,
+   "sentence_in_paragraph": 7,
+   "sentence": "The commanded actions alone reach 0.68–0.90.",
+   "words": 9,
+   "score_alone": 0.3654,
+   "score_without_it": 0.1675,
+   "contribution": 0.0869
+  },
+  {
+   "id": 85,
+   "section": "The register",
+   "lines": [
+    60,
+    60
+   ],
+   "paragraph": 3,
+   "paragraph_score": 0.2544,
+   "sentence_in_paragraph": 8,
+   "sentence": "The surprise monitor catches 2/8 at 2/42 failures.",
+   "words": 10,
+   "score_alone": 0.2391,
+   "score_without_it": 0.2137,
+   "contribution": 0.0407
+  },
+  {
+   "id": 86,
+   "section": "The register",
+   "lines": [
+    60,
+    60
+   ],
+   "paragraph": 3,
+   "paragraph_score": 0.2544,
+   "sentence_in_paragraph": 9,
+   "sentence": "The hierarchical planner [14], the conformal surprise band, re-ranking, the risk head [11] and the calibrated reflex also miss their thresholds.",
+   "words": 22,
+   "score_alone": 0.2124,
+   "score_without_it": 0.2544,
+   "contribution": -0.0001
+  },
+  {
+   "id": 87,
+   "section": "The register",
+   "lines": [
+    60,
+    60
+   ],
+   "paragraph": 3,
+   "paragraph_score": 0.2544,
+   "sentence_in_paragraph": 10,
+   "sentence": "Table 1 gives the margins.",
+   "words": 5,
+   "score_alone": 0.1423,
+   "score_without_it": 0.2996,
+   "contribution": -0.0452
+  },
+  {
+   "id": 88,
+   "section": "What the encoder knows",
+   "lines": [
+    64,
+    64
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.0604,
+   "sentence_in_paragraph": 1,
+   "sentence": "We tested whether the encoder carries anything that a frozen encoder or the joints do not.",
+   "words": 16,
+   "score_alone": 0.2278,
+   "score_without_it": 0.062,
+   "contribution": -0.0016
+  },
+  {
+   "id": 89,
+   "section": "What the encoder knows",
+   "lines": [
+    64,
+    64
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.0604,
+   "sentence_in_paragraph": 2,
+   "sentence": "Table 2 sets our model beside the four other signals on the same 69 rollouts.",
+   "words": 15,
+   "score_alone": 0.1199,
+   "score_without_it": 0.0637,
+   "contribution": -0.0033
+  },
+  {
+   "id": 90,
+   "section": "What the encoder knows",
+   "lines": [
+    64,
+    64
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.0604,
+   "sentence_in_paragraph": 3,
+   "sentence": "Every probe is a LOSO linear probe against the author's labels.",
+   "words": 12,
+   "score_alone": 0.1578,
+   "score_without_it": 0.0708,
+   "contribution": -0.0104
+  },
+  {
+   "id": 91,
+   "section": "What the encoder knows",
+   "lines": [
+    64,
+    64
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.0604,
+   "sentence_in_paragraph": 4,
+   "sentence": "At rest the interval is a 95 % episode-bootstrap CI.",
+   "words": 10,
+   "score_alone": 0.1028,
+   "score_without_it": 0.0687,
+   "contribution": -0.0083
+  },
+  {
+   "id": 92,
+   "section": "What the encoder knows",
+   "lines": [
+    64,
+    64
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.0604,
+   "sentence_in_paragraph": 5,
+   "sentence": "At the anchor it is a bootstrap of the mean over 5 seeds of the out-of-fold AUROC, with episodes resampled jointly across the seeds (2,000 resamples, percentile).",
+   "words": 30,
+   "score_alone": 0.2026,
+   "score_without_it": 0.0655,
+   "contribution": -0.0051
+  },
+  {
+   "id": 93,
+   "section": "What the encoder knows",
+   "lines": [
+    78,
+    78
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.1739,
+   "sentence_in_paragraph": 1,
+   "sentence": "At rest our model is level with the colour judge.",
+   "words": 10,
+   "score_alone": 0.0688,
+   "score_without_it": 0.2259,
+   "contribution": -0.052
+  },
+  {
+   "id": 94,
+   "section": "What the encoder knows",
+   "lines": [
+    78,
+    78
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.1739,
+   "sentence_in_paragraph": 2,
+   "sentence": "The two CIs overlap.",
+   "words": 4,
+   "score_alone": 0.2729,
+   "score_without_it": 0.2299,
+   "contribution": -0.056
+  },
+  {
+   "id": 95,
+   "section": "What the encoder knows",
+   "lines": [
+    78,
+    78
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.1739,
+   "sentence_in_paragraph": 3,
+   "sentence": "Our model is above the frozen encoder and the joints.",
+   "words": 10,
+   "score_alone": 0.1396,
+   "score_without_it": 0.2007,
+   "contribution": -0.0268
+  },
+  {
+   "id": 96,
+   "section": "What the encoder knows",
+   "lines": [
+    78,
+    78
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.1739,
+   "sentence_in_paragraph": 4,
+   "sentence": "At the grasp anchor no judge applies, and our model is above both controls.",
+   "words": 14,
+   "score_alone": 0.2951,
+   "score_without_it": 0.1144,
+   "contribution": 0.0595
+  },
+  {
+   "id": 97,
+   "section": "What the encoder knows",
+   "lines": [
+    78,
+    78
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.1739,
+   "sentence_in_paragraph": 5,
+   "sentence": "The pose probes hold the joints better than our encoder does.",
+   "words": 11,
+   "score_alone": 0.2324,
+   "score_without_it": 0.2136,
+   "contribution": -0.0397
+  },
+  {
+   "id": 98,
+   "section": "What the encoder knows",
+   "lines": [
+    78,
+    78
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.1739,
+   "sentence_in_paragraph": 6,
+   "sentence": "They hold the outcome worse.",
+   "words": 5,
+   "score_alone": 0.1795,
+   "score_without_it": 0.1613,
+   "contribution": 0.0126
+  },
+  {
+   "id": 99,
+   "section": "What the encoder knows",
+   "lines": [
+    78,
+    78
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.1739,
+   "sentence_in_paragraph": 7,
+   "sentence": "On these rollouts the encoder has outcome information that the pose alone does not give.",
+   "words": 15,
+   "score_alone": 0.301,
+   "score_without_it": 0.1342,
+   "contribution": 0.0397
+  },
+  {
+   "id": 100,
+   "section": "What the encoder knows",
+   "lines": [
+    80,
+    80
+   ],
+   "paragraph": 3,
+   "paragraph_score": 0.1156,
+   "sentence_in_paragraph": 1,
+   "sentence": "The anchor column depends on how the five seeds are combined.",
+   "words": 11,
+   "score_alone": 0.2151,
+   "score_without_it": 0.0926,
+   "contribution": 0.023
+  },
+  {
+   "id": 101,
+   "section": "What the encoder knows",
+   "lines": [
+    80,
+    80
+   ],
+   "paragraph": 3,
+   "paragraph_score": 0.1156,
+   "sentence_in_paragraph": 2,
+   "sentence": "If we average the predictions before scoring, our model gets 0.8377, frozen DINOv2-S 0.7175 and the joints 0.5346.",
+   "words": 22,
+   "score_alone": 0.1727,
+   "score_without_it": 0.132,
+   "contribution": -0.0163
+  },
+  {
+   "id": 102,
+   "section": "What the encoder knows",
+   "lines": [
+    80,
+    80
+   ],
+   "paragraph": 3,
+   "paragraph_score": 0.1156,
+   "sentence_in_paragraph": 3,
+   "sentence": "With seed 0 alone they get 0.7554, 0.7024 and 0.5574.",
+   "words": 13,
+   "score_alone": 0.229,
+   "score_without_it": 0.0859,
+   "contribution": 0.0298
+  },
+  {
+   "id": 103,
+   "section": "What the encoder knows",
+   "lines": [
+    80,
+    80
+   ],
+   "paragraph": 3,
+   "paragraph_score": 0.1156,
+   "sentence_in_paragraph": 4,
+   "sentence": "The gap to the frozen encoder is smaller with seed 0.",
+   "words": 11,
+   "score_alone": 0.3751,
+   "score_without_it": 0.1183,
+   "contribution": -0.0026
+  },
+  {
+   "id": 104,
+   "section": "What the encoder knows",
+   "lines": [
+    80,
+    80
+   ],
+   "paragraph": 3,
+   "paragraph_score": 0.1156,
+   "sentence_in_paragraph": 5,
+   "sentence": "The order is the same.",
+   "words": 5,
+   "score_alone": 0.1724,
+   "score_without_it": 0.1454,
+   "contribution": -0.0298
+  },
+  {
+   "id": 105,
+   "section": "What the encoder knows",
+   "lines": [
+    82,
+    82
+   ],
+   "paragraph": 4,
+   "paragraph_score": 0.14,
+   "sentence_in_paragraph": 1,
+   "sentence": "On SURVEYOR's scale check the controls do better than our model.",
+   "words": 12,
+   "score_alone": 0.167,
+   "score_without_it": 0.1895,
+   "contribution": -0.0495
+  },
+  {
+   "id": 106,
+   "section": "What the encoder knows",
+   "lines": [
+    82,
+    82
+   ],
+   "paragraph": 4,
+   "paragraph_score": 0.14,
+   "sentence_in_paragraph": 2,
+   "sentence": "Frozen DINOv2-S has τ 0.3601 and the joints τ 0.0265, and both pass.",
+   "words": 16,
+   "score_alone": 0.2828,
+   "score_without_it": 0.1358,
+   "contribution": 0.0042
+  },
+  {
+   "id": 107,
+   "section": "What the encoder knows",
+   "lines": [
+    82,
+    82
+   ],
+   "paragraph": 4,
+   "paragraph_score": 0.14,
+   "sentence_in_paragraph": 3,
+   "sentence": "Our model has τ 1.2488 and fails.",
+   "words": 8,
+   "score_alone": 0.2477,
+   "score_without_it": 0.1437,
+   "contribution": -0.0038
+  },
+  {
+   "id": 108,
+   "section": "What the encoder knows",
+   "lines": [
+    82,
+    82
+   ],
+   "paragraph": 4,
+   "paragraph_score": 0.14,
+   "sentence_in_paragraph": 4,
+   "sentence": "SURVEYOR reports 0.20.",
+   "words": 4,
+   "score_alone": 0.2526,
+   "score_without_it": 0.1397,
+   "contribution": 0.0003
+  },
+  {
+   "id": 109,
+   "section": "What the encoder knows",
+   "lines": [
+    82,
+    82
+   ],
+   "paragraph": 4,
+   "paragraph_score": 0.14,
+   "sentence_in_paragraph": 5,
+   "sentence": "The task and the rollouts are the same for all three features.",
+   "words": 12,
+   "score_alone": 0.2317,
+   "score_without_it": 0.1421,
+   "contribution": -0.0021
+  },
+  {
+   "id": 110,
+   "section": "What the encoder knows",
+   "lines": [
+    82,
+    82
+   ],
+   "paragraph": 4,
+   "paragraph_score": 0.14,
+   "sentence_in_paragraph": 6,
+   "sentence": "We take the failure as a property of our latent space.",
+   "words": 11,
+   "score_alone": 0.2486,
+   "score_without_it": 0.1476,
+   "contribution": -0.0076
+  },
+  {
+   "id": 111,
+   "section": "What the encoder knows",
+   "lines": [
+    84,
+    84
+   ],
+   "paragraph": 5,
+   "paragraph_score": null,
+   "sentence_in_paragraph": 1,
+   "sentence": "The register's own outcome-readout row reports 1.000.",
+   "words": 10,
+   "score_alone": 0.1804,
+   "score_without_it": null,
+   "contribution": null
+  },
+  {
+   "id": 112,
+   "section": "What the encoder knows",
+   "lines": [
+    84,
+    84
+   ],
+   "paragraph": 5,
+   "paragraph_score": null,
+   "sentence_in_paragraph": 2,
+   "sentence": "That number was scored against the colour judge's labels on 87 rollouts.",
+   "words": 13,
+   "score_alone": 0.1127,
+   "score_without_it": null,
+   "contribution": null
+  },
+  {
+   "id": 113,
+   "section": "What the encoder knows",
+   "lines": [
+    84,
+    84
+   ],
+   "paragraph": 5,
+   "paragraph_score": null,
+   "sentence_in_paragraph": 3,
+   "sentence": "Scored against the author's labels on the 69 rollouts, the same readout gives 0.9545.",
+   "words": 16,
+   "score_alone": 0.3376,
+   "score_without_it": null,
+   "contribution": null
+  },
+  {
+   "id": 114,
+   "section": "Where the predictor fails",
+   "lines": [
+    88,
+    88
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.2346,
+   "sentence_in_paragraph": 1,
+   "sentence": "ContactGuard [9] finds that probes on the imagined latent beat probes on the current latent for grasp tasks.",
+   "words": 18,
+   "score_alone": 0.1864,
+   "score_without_it": 0.3383,
+   "contribution": -0.1036
+  },
+  {
+   "id": 115,
+   "section": "Where the predictor fails",
+   "lines": [
+    88,
+    88
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.2346,
+   "sentence_in_paragraph": 2,
+   "sentence": "We expected the same at our grasp anchor.",
+   "words": 8,
+   "score_alone": 0.1589,
+   "score_without_it": 0.2112,
+   "contribution": 0.0234
+  },
+  {
+   "id": 116,
+   "section": "Where the predictor fails",
+   "lines": [
+    88,
+    88
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.2346,
+   "sentence_in_paragraph": 3,
+   "sentence": "The pre-registered threshold asked the imagined latent for ≥ 0.85, ≥ +0.05 over the current one.",
+   "words": 17,
+   "score_alone": 0.3001,
+   "score_without_it": 0.1636,
+   "contribution": 0.0711
+  },
+  {
+   "id": 117,
+   "section": "Where the predictor fails",
+   "lines": [
+    88,
+    88
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.2346,
+   "sentence_in_paragraph": 4,
+   "sentence": "We find the reverse.",
+   "words": 4,
+   "score_alone": 0.3105,
+   "score_without_it": 0.2178,
+   "contribution": 0.0169
+  },
+  {
+   "id": 118,
+   "section": "Where the predictor fails",
+   "lines": [
+    88,
+    88
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.2346,
+   "sentence_in_paragraph": 5,
+   "sentence": "With the same encoder and the same anchor, the current latent reads the outcome at 0.82 and the imagined latent at 0.70.",
+   "words": 24,
+   "score_alone": 0.4554,
+   "score_without_it": 0.2393,
+   "contribution": -0.0047
+  },
+  {
+   "id": 119,
+   "section": "Where the predictor fails",
+   "lines": [
+    88,
+    88
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.2346,
+   "sentence_in_paragraph": 6,
+   "sentence": "The row fails.",
+   "words": 3,
+   "score_alone": 0.2105,
+   "score_without_it": 0.2485,
+   "contribution": -0.0139
+  },
+  {
+   "id": 120,
+   "section": "Where the predictor fails",
+   "lines": [
+    90,
+    90
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.146,
+   "sentence_in_paragraph": 1,
+   "sentence": "We also ran the distillation probe on our model's inverse-dynamics term, pooled over the 25 teleoperation validation episodes.",
+   "words": 20,
+   "score_alone": 0.2149,
+   "score_without_it": 0.194,
+   "contribution": -0.048
+  },
+  {
+   "id": 121,
+   "section": "Where the predictor fails",
+   "lines": [
+    90,
+    90
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.146,
+   "sentence_in_paragraph": 2,
+   "sentence": "The trained model scores 0.7476.",
+   "words": 6,
+   "score_alone": 0.4143,
+   "score_without_it": 0.1363,
+   "contribution": 0.0097
+  },
+  {
+   "id": 122,
+   "section": "Where the predictor fails",
+   "lines": [
+    90,
+    90
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.146,
+   "sentence_in_paragraph": 3,
+   "sentence": "Its random initialisation scores 0.7974.",
+   "words": 6,
+   "score_alone": 0.1922,
+   "score_without_it": 0.1889,
+   "contribution": -0.0429
+  },
+  {
+   "id": 123,
+   "section": "Where the predictor fails",
+   "lines": [
+    90,
+    90
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.146,
+   "sentence_in_paragraph": 4,
+   "sentence": "The difference is −0.0499, with a 95 % paired episode-bootstrap CI of [−0.7403, +0.6559] (X).",
+   "words": 18,
+   "score_alone": 0.2225,
+   "score_without_it": 0.066,
+   "contribution": 0.08
+  },
+  {
+   "id": 124,
+   "section": "Where the predictor fails",
+   "lines": [
+    90,
+    90
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.146,
+   "sentence_in_paragraph": 5,
+   "sentence": "The term depends on the machine.",
+   "words": 6,
+   "score_alone": 0.1444,
+   "score_without_it": 0.1462,
+   "contribution": -0.0002
+  },
+  {
+   "id": 125,
+   "section": "Where the predictor fails",
+   "lines": [
+    90,
+    90
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.146,
+   "sentence_in_paragraph": 6,
+   "sentence": "The same untrained network scored 1.4383 on one machine and 0.7974 and 0.8042 on two others.",
+   "words": 19,
+   "score_alone": 0.3595,
+   "score_without_it": 0.1647,
+   "contribution": -0.0187
+  },
+  {
+   "id": 126,
+   "section": "Where the predictor fails",
+   "lines": [
+    90,
+    90
+   ],
+   "paragraph": 2,
+   "paragraph_score": 0.146,
+   "sentence_in_paragraph": 7,
+   "sentence": "It is sensitive to the BLAS library and to ridge conditioning.",
+   "words": 11,
+   "score_alone": 0.2176,
+   "score_without_it": 0.1863,
+   "contribution": -0.0403
+  },
+  {
+   "id": 127,
+   "section": "Where the predictor fails",
+   "lines": [
+    92,
+    92
+   ],
+   "paragraph": 3,
+   "paragraph_score": 0.2124,
+   "sentence_in_paragraph": 1,
+   "sentence": "The surprise monitor has a failure-class AUROC of 0.775, below its sanity bar.",
+   "words": 15,
+   "score_alone": 0.2716,
+   "score_without_it": 0.1095,
+   "contribution": 0.1029
+  },
+  {
+   "id": 128,
+   "section": "Where the predictor fails",
+   "lines": [
+    92,
+    92
+   ],
+   "paragraph": 3,
+   "paragraph_score": 0.2124,
+   "sentence_in_paragraph": 2,
+   "sentence": "We checked it for a loading or scoring bug.",
+   "words": 9,
+   "score_alone": 0.1611,
+   "score_without_it": 0.2019,
+   "contribution": 0.0105
+  },
+  {
+   "id": 129,
+   "section": "Where the predictor fails",
+   "lines": [
+    92,
+    92
+   ],
+   "paragraph": 3,
+   "paragraph_score": 0.2124,
+   "sentence_in_paragraph": 3,
+   "sentence": "The same scorer reproduces the open-loop corruption ratios at K = 30 (X).",
+   "words": 13,
+   "score_alone": 0.2027,
+   "score_without_it": 0.2234,
+   "contribution": -0.011
+  },
+  {
+   "id": 130,
+   "section": "Where the predictor fails",
+   "lines": [
+    92,
+    92
+   ],
+   "paragraph": 3,
+   "paragraph_score": 0.2124,
+   "sentence_in_paragraph": 4,
+   "sentence": "Cross-episode gives 3.428, against 3.341 in the original run.",
+   "words": 12,
+   "score_alone": 0.3131,
+   "score_without_it": 0.1995,
+   "contribution": 0.013
+  },
+  {
+   "id": 131,
+   "section": "Where the predictor fails",
+   "lines": [
+    92,
+    92
+   ],
+   "paragraph": 3,
+   "paragraph_score": 0.2124,
+   "sentence_in_paragraph": 5,
+   "sentence": "Constant-first gives 2.558, against 2.543.",
+   "words": 8,
+   "score_alone": 0.2105,
+   "score_without_it": 0.2425,
+   "contribution": -0.03
+  },
+  {
+   "id": 132,
+   "section": "Where the predictor fails",
+   "lines": [
+    92,
+    92
+   ],
+   "paragraph": 3,
+   "paragraph_score": 0.2124,
+   "sentence_in_paragraph": 6,
+   "sentence": "We found no bug.",
+   "words": 4,
+   "score_alone": 0.1045,
+   "score_without_it": 0.2052,
+   "contribution": 0.0073
+  },
+  {
+   "id": 133,
+   "section": "Where the predictor fails",
+   "lines": [
+    94,
+    94
+   ],
+   "paragraph": 4,
+   "paragraph_score": 0.1931,
+   "sentence_in_paragraph": 1,
+   "sentence": "We ran an action-shuffle check on the predictor of VLA-JEPA at 5 anchors (Table 3, from X).",
+   "words": 19,
+   "score_alone": 0.1107,
+   "score_without_it": 0.2223,
+   "contribution": -0.0292
+  },
+  {
+   "id": 134,
+   "section": "Where the predictor fails",
+   "lines": [
+    94,
+    94
+   ],
+   "paragraph": 4,
+   "paragraph_score": 0.1931,
+   "sentence_in_paragraph": 2,
+   "sentence": "Action tokens from another episode differ from the true ones by 21–28 % in relative L2.",
+   "words": 16,
+   "score_alone": 0.2086,
+   "score_without_it": 0.1623,
+   "contribution": 0.0307
+  },
+  {
+   "id": 135,
+   "section": "Where the predictor fails",
+   "lines": [
+    94,
+    94
+   ],
+   "paragraph": 4,
+   "paragraph_score": 0.1931,
+   "sentence_in_paragraph": 3,
+   "sentence": "They move the loss by about 0.05 %.",
+   "words": 8,
+   "score_alone": 0.2073,
+   "score_without_it": 0.1883,
+   "contribution": 0.0048
+  },
+  {
+   "id": 136,
+   "section": "Where the predictor fails",
+   "lines": [
+    94,
+    94
+   ],
+   "paragraph": 4,
+   "paragraph_score": 0.1931,
+   "sentence_in_paragraph": 4,
+   "sentence": "Zeroing the tokens moves it by about 1.05 % on average.",
+   "words": 11,
+   "score_alone": 0.2388,
+   "score_without_it": 0.2161,
+   "contribution": -0.0231
+  },
+  {
+   "id": 137,
+   "section": "Where the predictor fails",
+   "lines": [
+    94,
+    94
+   ],
+   "paragraph": 4,
+   "paragraph_score": 0.1931,
+   "sentence_in_paragraph": 5,
+   "sentence": "The forward pass is deterministic.",
+   "words": 5,
+   "score_alone": 0.3847,
+   "score_without_it": 0.1977,
+   "contribution": -0.0046
+  },
+  {
+   "id": 138,
+   "section": "Where the predictor fails",
+   "lines": [
+    94,
+    94
+   ],
+   "paragraph": 4,
+   "paragraph_score": 0.1931,
+   "sentence_in_paragraph": 6,
+   "sentence": "The predictor barely uses its actions.",
+   "words": 6,
+   "score_alone": 0.3513,
+   "score_without_it": 0.1852,
+   "contribution": 0.0079
+  },
+  {
+   "id": 139,
+   "section": "Where the predictor fails",
+   "lines": [
+    94,
+    94
+   ],
+   "paragraph": 4,
+   "paragraph_score": 0.1931,
+   "sentence_in_paragraph": 7,
+   "sentence": "Its failure-class AUROC is 0.501, below the same sanity check, and we leave its table unread under the frozen bar.",
+   "words": 22,
+   "score_alone": 0.2228,
+   "score_without_it": 0.1709,
+   "contribution": 0.0222
+  },
+  {
+   "id": 140,
+   "section": "Where the predictor fails",
+   "lines": [
+    106,
+    106
+   ],
+   "paragraph": 5,
+   "paragraph_score": 0.3108,
+   "sentence_in_paragraph": 1,
+   "sentence": "One pass in the register uses the imagined latent.",
+   "words": 9,
+   "score_alone": 0.2242,
+   "score_without_it": 0.3368,
+   "contribution": -0.026
+  },
+  {
+   "id": 141,
+   "section": "Where the predictor fails",
+   "lines": [
+    106,
+    106
+   ],
+   "paragraph": 5,
+   "paragraph_score": 0.3108,
+   "sentence_in_paragraph": 2,
+   "sentence": "In the anticipation step of the outcome-readout gate, the imagined latent beat policy identity by +0.179.",
+   "words": 18,
+   "score_alone": 0.3172,
+   "score_without_it": 0.3267,
+   "contribution": -0.0158
+  },
+  {
+   "id": 142,
+   "section": "Where the predictor fails",
+   "lines": [
+    106,
+    106
+   ],
+   "paragraph": 5,
+   "paragraph_score": 0.3108,
+   "sentence_in_paragraph": 3,
+   "sentence": "That bar is retrospective.",
+   "words": 4,
+   "score_alone": 0.1678,
+   "score_without_it": 0.2877,
+   "contribution": 0.0232
+  },
+  {
+   "id": 143,
+   "section": "Where the predictor fails",
+   "lines": [
+    106,
+    106
+   ],
+   "paragraph": 5,
+   "paragraph_score": 0.3108,
+   "sentence_in_paragraph": 4,
+   "sentence": "We reran the same idea twice with the threshold committed first, in the grasp probe and in the calibrated surprise reflex.",
+   "words": 21,
+   "score_alone": 0.1931,
+   "score_without_it": 0.2349,
+   "contribution": 0.0759
+  },
+  {
+   "id": 144,
+   "section": "Where the predictor fails",
+   "lines": [
+    106,
+    106
+   ],
+   "paragraph": 5,
+   "paragraph_score": 0.3108,
+   "sentence_in_paragraph": 5,
+   "sentence": "Both fail.",
+   "words": 2,
+   "score_alone": null,
+   "score_without_it": 0.2763,
+   "contribution": 0.0345
+  },
+  {
+   "id": 145,
+   "section": "Related work",
+   "lines": [
+    110,
+    110
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.2375,
+   "sentence_in_paragraph": 1,
+   "sentence": "LeWorldModel [1] trains the recipe we use end to end from pixels and plans with it in Push-T and in simulation.",
+   "words": 22,
+   "score_alone": 0.1258,
+   "score_without_it": 0.3159,
+   "contribution": -0.0784
+  },
+  {
+   "id": 146,
+   "section": "Related work",
+   "lines": [
+    110,
+    110
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.2375,
+   "sentence_in_paragraph": 2,
+   "sentence": "We tested its two planning uses on our arm, and both fail.",
+   "words": 12,
+   "score_alone": 0.2355,
+   "score_without_it": 0.2467,
+   "contribution": -0.0092
+  },
+  {
+   "id": 147,
+   "section": "Related work",
+   "lines": [
+    110,
+    110
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.2375,
+   "sentence_in_paragraph": 3,
+   "sentence": "LeJEPA's identifiability analysis [12] predicts that SIGReg latents identify the state up to anisotropy.",
+   "words": 15,
+   "score_alone": 0.211,
+   "score_without_it": 0.2804,
+   "contribution": -0.0429
+  },
+  {
+   "id": 148,
+   "section": "Related work",
+   "lines": [
+    110,
+    110
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.2375,
+   "sentence_in_paragraph": 4,
+   "sentence": "Our pose probes support this in part.",
+   "words": 7,
+   "score_alone": 0.1795,
+   "score_without_it": 0.2469,
+   "contribution": -0.0094
+  },
+  {
+   "id": 149,
+   "section": "Related work",
+   "lines": [
+    110,
+    110
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.2375,
+   "sentence_in_paragraph": 5,
+   "sentence": "DINO-WM [8] plans on frozen DINOv2 [7] patches, and our frozen control uses the same design.",
+   "words": 17,
+   "score_alone": 0.207,
+   "score_without_it": 0.2302,
+   "contribution": 0.0073
+  },
+  {
+   "id": 150,
+   "section": "Related work",
+   "lines": [
+    110,
+    110
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.2375,
+   "sentence_in_paragraph": 6,
+   "sentence": "We timed V-JEPA 2.1 [3] and RoboJEPA [2] on our on-board computer, and both are too slow.",
+   "words": 20,
+   "score_alone": 0.1588,
+   "score_without_it": 0.1929,
+   "contribution": 0.0446
+  },
+  {
+   "id": 151,
+   "section": "Related work",
+   "lines": [
+    110,
+    110
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.2375,
+   "sentence_in_paragraph": 7,
+   "sentence": "ContactGuard [9] finds imagined-latent probes better than current-latent ones on grasp tasks.",
+   "words": 14,
+   "score_alone": 0.3368,
+   "score_without_it": 0.2409,
+   "contribution": -0.0034
+  },
+  {
+   "id": 152,
+   "section": "Related work",
+   "lines": [
+    110,
+    110
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.2375,
+   "sentence_in_paragraph": 8,
+   "sentence": "On our arm we find the reverse.",
+   "words": 7,
+   "score_alone": 0.1792,
+   "score_without_it": 0.2718,
+   "contribution": -0.0342
+  },
+  {
+   "id": 153,
+   "section": "Related work",
+   "lines": [
+    110,
+    110
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.2375,
+   "sentence_in_paragraph": 9,
+   "sentence": "We also re-tested ReAP's action-conditioned risk [11], the hierarchical planners of HWM [14] and H-JEPA [10], and SURVEYOR's latent-distance scale [13].",
+   "words": 27,
+   "score_alone": 0.1567,
+   "score_without_it": 0.2253,
+   "contribution": 0.0123
+  },
+  {
+   "id": 154,
+   "section": "Related work",
+   "lines": [
+    110,
+    110
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.2375,
+   "sentence_in_paragraph": 10,
+   "sentence": "All of them miss here, at this data scale.",
+   "words": 9,
+   "score_alone": 0.2885,
+   "score_without_it": 0.2397,
+   "contribution": -0.0021
+  },
+  {
+   "id": 155,
+   "section": "Related work",
+   "lines": [
+    110,
+    110
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.2375,
+   "sentence_in_paragraph": 11,
+   "sentence": "SaiVLA-JEPA [15] reports that a training-only future-latent head adds +0.03 points to control on 10,030 paired episodes.",
+   "words": 22,
+   "score_alone": 0.3643,
+   "score_without_it": 0.2311,
+   "contribution": 0.0065
+  },
+  {
+   "id": 156,
+   "section": "Related work",
+   "lines": [
+    110,
+    110
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.2375,
+   "sentence_in_paragraph": 12,
+   "sentence": "HIJP [16] finds LeWM below goal-conditioned behaviour cloning in simulation.",
+   "words": 11,
+   "score_alone": 0.2036,
+   "score_without_it": 0.253,
+   "contribution": -0.0154
+  },
+  {
+   "id": 157,
+   "section": "Limitations",
+   "lines": [
+    114,
+    114
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.2569,
+   "sentence_in_paragraph": 1,
+   "sentence": "The split between encoder and predictor is exploratory.",
+   "words": 8,
+   "score_alone": 0.2795,
+   "score_without_it": 0.2856,
+   "contribution": -0.0288
+  },
+  {
+   "id": 158,
+   "section": "Limitations",
+   "lines": [
+    114,
+    114
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.2569,
+   "sentence_in_paragraph": 2,
+   "sentence": "We chose its probes after the data and fit them on 69 rollouts labelled by a single operator, the author.",
+   "words": 20,
+   "score_alone": 0.2058,
+   "score_without_it": 0.2682,
+   "contribution": -0.0113
+  },
+  {
+   "id": 159,
+   "section": "Limitations",
+   "lines": [
+    114,
+    114
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.2569,
+   "sentence_in_paragraph": 3,
+   "sentence": "The model never saw these rollouts, and every probe is cross-validated by session.",
+   "words": 14,
+   "score_alone": 0.2592,
+   "score_without_it": 0.2504,
+   "contribution": 0.0065
+  },
+  {
+   "id": 160,
+   "section": "Limitations",
+   "lines": [
+    114,
+    114
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.2569,
+   "sentence_in_paragraph": 4,
+   "sentence": "A fresh set of rollouts scored under a threshold committed first would confirm or reject the split.",
+   "words": 17,
+   "score_alone": 0.2739,
+   "score_without_it": 0.2279,
+   "contribution": 0.0289
+  },
+  {
+   "id": 161,
+   "section": "Limitations",
+   "lines": [
+    114,
+    114
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.2569,
+   "sentence_in_paragraph": 5,
+   "sentence": "That needs a day on the arm.",
+   "words": 7,
+   "score_alone": 0.1843,
+   "score_without_it": 0.265,
+   "contribution": -0.0081
+  },
+  {
+   "id": 162,
+   "section": "Limitations",
+   "lines": [
+    114,
+    114
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.2569,
+   "sentence_in_paragraph": 6,
+   "sentence": "All results come from one model at one data scale.",
+   "words": 10,
+   "score_alone": 0.3004,
+   "score_without_it": 0.2388,
+   "contribution": 0.018
+  },
+  {
+   "id": 163,
+   "section": "Limitations",
+   "lines": [
+    114,
+    114
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.2569,
+   "sentence_in_paragraph": 7,
+   "sentence": "A second point at 653 episodes is costed and queued.",
+   "words": 10,
+   "score_alone": 0.1547,
+   "score_without_it": 0.254,
+   "contribution": 0.0028
+  },
+  {
+   "id": 164,
+   "section": "Limitations",
+   "lines": [
+    114,
+    114
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.2569,
+   "sentence_in_paragraph": 8,
+   "sentence": "We did not run three controls.",
+   "words": 6,
+   "score_alone": 0.1189,
+   "score_without_it": 0.256,
+   "contribution": 0.0008
+  },
+  {
+   "id": 165,
+   "section": "Limitations",
+   "lines": [
+    114,
+    114
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.2569,
+   "sentence_in_paragraph": 9,
+   "sentence": "The surprise monitor and the imagined arm of the grasp probe would each need a predictor trained on frozen DINOv2-S features or on the joints.",
+   "words": 26,
+   "score_alone": 0.2395,
+   "score_without_it": 0.2911,
+   "contribution": -0.0342
+  },
+  {
+   "id": 166,
+   "section": "Limitations",
+   "lines": [
+    114,
+    114
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.2569,
+   "sentence_in_paragraph": 10,
+   "sentence": "Progress monotonicity with the controls would need a reimplementation.",
+   "words": 9,
+   "score_alone": 0.3111,
+   "score_without_it": 0.2545,
+   "contribution": 0.0023
+  },
+  {
+   "id": 167,
+   "section": "Limitations",
+   "lines": [
+    114,
+    114
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.2569,
+   "sentence_in_paragraph": 11,
+   "sentence": "In the register, the outcome-readout verdict is retrospective.",
+   "words": 9,
+   "score_alone": 0.3759,
+   "score_without_it": 0.2502,
+   "contribution": 0.0067
+  },
+  {
+   "id": 168,
+   "section": "Limitations",
+   "lines": [
+    114,
+    114
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.2569,
+   "sentence_in_paragraph": 12,
+   "sentence": "The two-level hierarchical progress use has its bar in the same commit as its result.",
+   "words": 16,
+   "score_alone": 0.2521,
+   "score_without_it": 0.2781,
+   "contribution": -0.0213
+  },
+  {
+   "id": 169,
+   "section": "Limitations",
+   "lines": [
+    114,
+    114
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.2569,
+   "sentence_in_paragraph": 13,
+   "sentence": "Ordered by commit alone, without the audit, the register reads 13 bar-first and 6 same-commit rows.",
+   "words": 18,
+   "score_alone": 0.3321,
+   "score_without_it": 0.2501,
+   "contribution": 0.0067
+  },
+  {
+   "id": 170,
+   "section": "Conclusion",
+   "lines": [
+    118,
+    118
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.1968,
+   "sentence_in_paragraph": 1,
+   "sentence": "We tested 20 published uses on a $3.30 world model.",
+   "words": 11,
+   "score_alone": 0.1768,
+   "score_without_it": 0.2082,
+   "contribution": -0.0114
+  },
+  {
+   "id": 171,
+   "section": "Conclusion",
+   "lines": [
+    118,
+    118
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.1968,
+   "sentence_in_paragraph": 2,
+   "sentence": "At this data scale the encoder reads the outcome and the predictor adds nothing to that reading.",
+   "words": 17,
+   "score_alone": 0.2401,
+   "score_without_it": 0.116,
+   "contribution": 0.0808
+  },
+  {
+   "id": 172,
+   "section": "Conclusion",
+   "lines": [
+    118,
+    118
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.1968,
+   "sentence_in_paragraph": 3,
+   "sentence": "In chunk ranking the commanded actions did better than the predictor, so they are worth keeping as a baseline for any model of this size.",
+   "words": 25,
+   "score_alone": 0.1957,
+   "score_without_it": 0.1194,
+   "contribution": 0.0774
+  },
+  {
+   "id": 173,
+   "section": "(figure and table captions)",
+   "lines": [
+    33,
+    33
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.1734,
+   "sentence_in_paragraph": 1,
+   "sentence": "Table 1: The register: every use of our world model re-tested here (with the frozen-DINOv2 and RoboJEPA rows beside it), what it takes from the model, whether its bar came before the result, and the verdict.",
+   "words": 38,
+   "score_alone": 0.135,
+   "score_without_it": 0.1883,
+   "contribution": -0.0149
+  },
+  {
+   "id": 174,
+   "section": "(figure and table captions)",
+   "lines": [
+    33,
+    33
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.1734,
+   "sentence_in_paragraph": 2,
+   "sentence": "Read the takes column against the verdict: the predictor uses fail.",
+   "words": 11,
+   "score_alone": 0.1678,
+   "score_without_it": 0.1585,
+   "contribution": 0.0149
+  },
+  {
+   "id": 175,
+   "section": "(figure and table captions)",
+   "lines": [
+    33,
+    33
+   ],
+   "paragraph": 1,
+   "paragraph_score": 0.1734,
+   "sentence_in_paragraph": 3,
+   "sentence": "Bar, result and verdict are quoted from repro/register/expected/FEASIBILITY.md §2.",
+   "words": 13,
+   "score_alone": 0.3186,
+   "score_without_it": 0.1405,
+   "contribution": 0.0329
+  },
+  {
+   "id": 176,
+   "section": "(figure and table captions)",
+   "lines": [
+    66,
+    66
+   ],
+   "paragraph": 2,
+   "paragraph_score": null,
+   "sentence_in_paragraph": 1,
+   "sentence": "Table 2: Outcome AUROC of each signal on the same 69 rollouts (exploratory: controls chosen after the data).",
+   "words": 18,
+   "score_alone": 0.1158,
+   "score_without_it": null,
+   "contribution": null
+  },
+  {
+   "id": 177,
+   "section": "(figure and table captions)",
+   "lines": [
+    66,
+    66
+   ],
+   "paragraph": 2,
+   "paragraph_score": null,
+   "sentence_in_paragraph": 2,
+   "sentence": "No judge applies at the anchor.",
+   "words": 6,
+   "score_alone": 0.2318,
+   "score_without_it": null,
+   "contribution": null
+  },
+  {
+   "id": 178,
+   "section": "(figure and table captions)",
+   "lines": [
+    76,
+    76
+   ],
+   "paragraph": 3,
+   "paragraph_score": null,
+   "sentence_in_paragraph": 1,
+   "sentence": "Table 2 as a dot plot.",
+   "words": 6,
+   "score_alone": 0.1467,
+   "score_without_it": null,
+   "contribution": null
+  },
+  {
+   "id": 179,
+   "section": "(figure and table captions)",
+   "lines": [
+    76,
+    76
+   ],
+   "paragraph": 3,
+   "paragraph_score": null,
+   "sentence_in_paragraph": 2,
+   "sentence": "Left: at rest, with the 95 % CI.",
+   "words": 7,
+   "score_alone": 0.1657,
+   "score_without_it": null,
+   "contribution": null
+  },
+  {
+   "id": 180,
+   "section": "(figure and table captions)",
+   "lines": [
+    76,
+    76
+   ],
+   "paragraph": 3,
+   "paragraph_score": null,
+   "sentence_in_paragraph": 3,
+   "sentence": "Right: at the grasp anchor, with the seed range (not a CI).",
+   "words": 12,
+   "score_alone": 0.1651,
+   "score_without_it": null,
+   "contribution": null
+  },
+  {
+   "id": 181,
+   "section": "(figure and table captions)",
+   "lines": [
+    96,
+    96
+   ],
+   "paragraph": 4,
+   "paragraph_score": null,
+   "sentence_in_paragraph": 1,
+   "sentence": "Table 3: VLA-JEPA world-model loss at 5 anchors with true, shuffled (Δ shuffled) and zeroed action tokens (exploratory spot check).",
+   "words": 22,
+   "score_alone": 0.1469,
+   "score_without_it": null,
+   "contribution": null
+  },
+  {
+   "id": 182,
+   "section": "(figure and table captions)",
+   "lines": [
+    96,
+    96
+   ],
+   "paragraph": 4,
+   "paragraph_score": null,
+   "sentence_in_paragraph": 2,
+   "sentence": "The token change is the relative L2 of the shuffled tokens.",
+   "words": 11,
+   "score_alone": 0.2115,
+   "score_without_it": null,
+   "contribution": null
+  }
+ ],
+ "n_sentences": 182
+}

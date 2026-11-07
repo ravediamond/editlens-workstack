@@ -1,0 +1,2 @@
+slopscore-lint==0.16.0
+lmscan==0.6.1

@@ -1,0 +1,5 @@
+# WS-158 / WS-160: owner-edited allowlist for the prose gate. The worker never edits this file.
+# One entry per line: `RULE_ID: word or phrase` (case-insensitive, the whole flagged span). Example, if you decide to allow
+# this repo's own noun and word:
+#   LEXICAL_OVERPOLISHED_VERBS: harness
+#   LEXICAL_SYNTHETIC_SOPHISTICATION: dynamic
