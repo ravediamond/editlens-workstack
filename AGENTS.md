@@ -69,6 +69,7 @@ Read `docs/WORKFLOW.md` first, then `workstack/QUEUE.md`.
 ```bash
 pip install -r tools/requirements-editlens.txt          # torch is assumed installed; GPU needed only for scoring
 make check                                               # all L0 checks and every paper regenerated from its stored rows (CPU, no model)
+git restore 'papers/*/paper/fig' 'editlens-paper/paper/fig'  # after make check: it regenerates figure binaries byte-differently; keep the committed ones unless you changed a figure on purpose
 python tools/paper_polish.py serve                       # load the 3B scorer (about a minute, about 7 GB GPU); `stop` when done
 python tools/paper_polish.py list papers/paper-X --top 10   # paragraph scores, baseline frozen in papers/paper-X/polish/
 python tools/paper_map.py papers/paper-X                 # per-section map of one paper (writes under runs/, copy into results/ai-map/<date>/)

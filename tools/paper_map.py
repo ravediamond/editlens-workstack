@@ -233,6 +233,8 @@ class EditLensScorer:
 
     @staticmethod
     def avail_wait(need_gb=9.0, max_wait=600):
+        if os.environ.get("EDITLENS_SKIP_MEMWAIT"):  # machines with a dedicated GPU: the check below reads system RAM (made for a unified-memory Jetson)
+            return
         t0 = time.time()
         while True:
             kb = int(re.search(r"MemAvailable:\s+(\d+)", Path("/proc/meminfo").read_text()).group(1))
