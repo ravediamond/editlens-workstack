@@ -15,40 +15,30 @@ model, keeping the writing rules that came out of that, and finishing the paper 
 | `workstack/` | `QUEUE.md` (the items, WS-NNN), `GO.txt` (the owner's gates), `prompts/` (one self-contained prompt per item), `notes/` |
 | `papers/paper-*/` | the four papers (source, `numbers.json`, `make_paper.py`, `repro/` rows, built PDF). `papers/SYNC.json` records which commit of each original repo they were copied from |
 | `editlens-paper/` | the paper about the detector (`paper/`), and every experiment as `repro/<name>/` (protocol, scripts, stored results, `l0_check.py`). `repro/human-dose/` is the open study |
-| `tools/` | `paper_map.py` (per-section score map), `paper_polish.py` (scoring server + `list`, `loo`, `try`, `report`), `paper_sentences.py`, `prose_check.py` (slopscore + lmscan gate), `sync_papers.py` (owner only) |
+| `tools/` | `paper_map.py` (per-section score map), `paper_polish.py` (scoring server + `list`, `loo`, `try`, `apply`, `report`), `paper_sentences.py`, `prose_check.py` (slopscore + lmscan gate), `sync_papers.py` (owner only) |
 | `rules/` | `WRITING_RULES.md`, `MY_STYLE.md`, `EDITLENS_LEXICON.md`, `REWRITE_NOTES.md` |
 | `results/` | `EDITLENS_PASS_REPORT.md` (the full history with numbers), score maps of every run (`ai-map/`), `REPRO_STATUS.md`, notes on the model |
-| `docs/` | `WORKFLOW.md` (the workflow, step by step), `original-prompts/` (the prompts this was built from; they name an Orin and a private repo you cannot reach: context only) |
+| `originals/` | copies of the EditLens authors' code, configs and data (CC BY-NC-SA); the paper PDF goes here |
+| `docs/` | `WORKFLOW.md` (the workflow, step by step), `RESULTS.md` (what was done, what worked, what did not), `original-prompts/` (the prompts this was built from; they name an Orin and a private repo you cannot reach: context only) |
 
-Read `docs/WORKFLOW.md` first, then `workstack/QUEUE.md`.
+Read `docs/WORKFLOW.md` and `docs/RESULTS.md` first, then `workstack/QUEUE.md`.
 
-## 2. Standing rules
+## 2. Notes that apply to every item
 
-1. **You do not write or edit paper prose.** The versions of the papers that count as human edits are the owner's hand edits
-   (`papers/*/paper/DRAFT_4p.src.md`, `DRAFT_4p.md.in`, `main.src.tex`, `editlens-paper/paper/DRAFT_4p*.md`, any README of a paper).
-   You may write: analysis code, tables, figures, stored results, protocols the owner asked for, review notes, and a skeleton of
-   bullet prompts per section in `workstack/notes/`. Anything you propose for a paper goes in `workstack/notes/` as a suggestion,
-   never into a paper source.
-2. **You may check and report on paper prose**: every number against `paper/numbers.json` and the file it is anchored to,
-   unsupported claims, typos, broken references, `make check`. Report them; the owner fixes the prose.
-3. **Never write or change a bar, a threshold, a protocol field or a success criterion.** If one is missing, set the item to
-   `waiting-owner` with one actionable line. Anything decided after seeing data is labelled *exploratory*. A frozen protocol
-   changes only through a numbered deviation signed by the owner.
-4. **The score is a pointer, not a target and not evidence of authorship.** EditLens measures how much AI editing a paragraph
-   seems to hold; it does not say who wrote it. The papers say that they were drafted with an AI assistant; keep every such
-   statement intact. Do not build or run a loop that rewrites text until a score drops, and do not present a low score as
-   evidence that a person wrote a paragraph. (The loop existed; its record is in `results/` and `editlens-paper/repro/rewrite-loop/`,
-   and it is the data of one experiment. The auto-apply step was left out of `tools/paper_polish.py` on purpose.)
-5. **Frozen numbers.** Never type a number into prose or a result line. A number comes from a file you can open, with its n, and
-   is written with its path. `paper/make_paper.py` is how numbers reach a paper; a new number is a new anchored entry there.
-6. **Model, licence and tokens.** `pangram/editlens_Llama-3.2-3B` (on `meta-llama/Llama-3.2-3B`) is CC BY-NC-SA 4.0, non-commercial,
-   gated per account. `tools/paper_map.py` refuses paths outside `papers/`, `editlens-paper/`, `results/` and `refs/`
-   (`EDITLENS_REFS`): keep that fence. Tokens come from `HF_TOKEN` or the Hugging Face cache; never print, log or commit one.
-7. **Spending and posting.** The production Pangram API (paid, cap $25, one run) only after `go prod WS-NNN` in `workstack/GO.txt`.
-   No other paid service. Post nothing anywhere (issues, PRs, comments, forums); drafts only.
-8. **Commits.** One line, no `Co-Authored-By`, no session links, no mention of an AI. Author as given by the owner's git config; if none
-   is set, `-c user.name="Ravindu Somawansa" -c user.email="ravindu.somawansa@gmail.com"`. `git pull --rebase` before every push.
-9. **No secrets, no private data in the repository.** Run `git diff --cached` and look before every commit.
+1. **What was done, what worked, what did not** is in `docs/RESULTS.md`. Read it before choosing an approach; the numbers behind it are
+   in `results/EDITLENS_PASS_REPORT.md` and in each `editlens-paper/repro/<experiment>/expected/`.
+2. **Protocols are the owner's.** A bar, threshold or success criterion is written before the data it judges, by the owner. If one is missing,
+   set the item to `waiting-owner` with one actionable line. Anything decided after seeing data is labelled *exploratory*. A frozen protocol
+   changes through a numbered deviation signed by the owner.
+3. **Numbers come from files.** Quote a number from a file you can open, with its n, and write its path next to it. `paper/make_paper.py` is how
+   numbers reach a paper; a new number is a new anchored entry there.
+4. **Model, licence and tokens.** `pangram/editlens_Llama-3.2-3B` (on `meta-llama/Llama-3.2-3B`) is CC BY-NC-SA 4.0, non-commercial, gated per
+   account. `tools/paper_map.py` has a path fence (`papers/`, `editlens-paper/`, `results/`, `refs/` or `EDITLENS_REFS`) that enforces the licence
+   scope. Tokens come from `HF_TOKEN` or the Hugging Face cache and are never printed, logged or committed.
+5. **Paid calls.** The production Pangram API costs money: it runs after `go prod WS-NNN` in `workstack/GO.txt` (cap $25 in the protocol).
+6. **Commits.** One line, no `Co-Authored-By`, no session links, no mention of an AI. Author as in the owner's git config; if none is set,
+   `-c user.name="Ravindu Somawansa" -c user.email="ravindu.somawansa@gmail.com"`. `git pull --rebase` before every push.
+7. **No secrets in the repository.** Run `git diff --cached` and look before every commit.
 
 ## 3. How to run an item
 
@@ -72,6 +62,7 @@ make check                                               # all L0 checks and eve
 git restore 'papers/*/paper/fig' 'editlens-paper/paper/fig'  # after make check: it regenerates figure binaries byte-differently; keep the committed ones unless you changed a figure on purpose
 python tools/paper_polish.py serve                       # load the 3B scorer (about a minute, about 7 GB GPU); `stop` when done
 python tools/paper_polish.py list papers/paper-X --top 10   # paragraph scores, baseline frozen in papers/paper-X/polish/
+python tools/paper_polish.py loo|try|apply|report ...     # sentence leave-one-out, candidate scoring, apply a candidate, before/after
 python tools/paper_map.py papers/paper-X                 # per-section map of one paper (writes under runs/, copy into results/ai-map/<date>/)
 python tools/prose_check.py <file.md>                    # slopscore + lmscan gate on a text (needs tools/requirements-prose.txt)
 ```

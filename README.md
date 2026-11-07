@@ -14,7 +14,8 @@ editlens-paper/ the paper about the detector, and repro/<experiment>/ for each e
 tools/          score map, scoring server, prose gate, sync of the original repositories
 rules/          writing rules, voice, lexicon
 results/        pass report with every number, score maps of each run
-docs/           workflow, the original prompts
+docs/           workflow, results, the original prompts and skills
+originals/      copies of the authors' EditLens code and data (the paper PDF goes here)
 ```
 
 `make check` recomputes every stored number and regenerates every paper from its rows on a CPU, with no model and no network.

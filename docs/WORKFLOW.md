@@ -25,20 +25,19 @@ account with every number is `results/EDITLENS_PASS_REPORT.md`; this file is the
 3. **Rewrite loop** (`editlens-paper/repro/rewrite-loop/`, `polish/` in each paper). Paragraph by paragraph: rank sentences by what
    the paragraph loses without them, write candidates that keep every number placeholder, score, keep the lowest that keeps
    every fact. 90 candidates in 50 paragraph-rounds; paper means moved by 0.013 to 0.058 and stayed above the human range.
-   This loop is now **data for an experiment**, not a procedure: the owner decided on 2026-11-06 to stop optimising against the
-   score (see section 4).
+   Its record: `editlens-paper/repro/rewrite-loop/` and `polish/` in each paper. The commands are in `tools/paper_polish.py`.
 4. **Experiments on the detector** (`editlens-paper/repro/`). Controlled edits on 62 paragraphs (two of five suspected features held,
    one reversed, two did nothing), additivity of the rewrite (hunk effects sum to the rewrite effect, r 0.94), attribution (469
    sentences, 2,042 word deletions, a weak real lexicon), a human reference (39 pre-2022 robot-learning papers: paper-mean median
    0.071, results paragraphs median 0.045), triggers on unselected hosts (LM-style sentences, generic openers and the digits of
    the prose raise a paragraph; a neutral figure pointer and long specific technical detail lower it).
 
-## 3. What the work says
+## 3. What the work says (details and numbers: `RESULTS.md`)
 
 - Naming things and plain "we ran X on Y" sentences lower a paragraph; generic framing, list sentences, semicolons and generic
   closers raise it; rhythm, order and pronouns do nothing. Copying a human style by its statistics did not work (5 of 7 rose).
 - What stays high is what only the author can write: the decision and its reason, what surprised him. No rewrite supplies it.
-- The open model is a pointer to paragraphs to reread. It is not evidence of who wrote them, and nothing here shows the effects carry
+- The open model estimates how much AI editing a paragraph holds; it does not measure authorship. Nothing here shows that the effects carry
   over to the production detector.
 
 ## 4. The current direction (owner, 2026-11-06)
@@ -56,8 +55,6 @@ The EditLens paper was nearly dead ("the model is too good"). It is **kept and r
   that, under the gate in the protocol (cap $25).
 - Every outcome is a result: the curves mirror (score measures magnitude), small human edits collapse it (it tracks the last editor),
   or human polish barely moves it (robust).
-- The paper's prose is the owner's. The agent supplies the pipeline, the numbers, the tables and figures, the number and claim
-  checks, and a skeleton of bullet prompts.
 
 ## 5. Loop to continue (per hand-edit batch)
 

@@ -39,7 +39,7 @@ append a block at the end of `## Queue` with the next number, commit `workstack:
 - added: 2026-11-07
 - why: after each editing session of the owner, add the new versions, score them and report coverage. Re-park after each run; the owner types `go WS-003` again.
 
-### WS-004 · Audit the EditLens paper against its own numbers and write the section skeleton (report only, no prose edits)
+### WS-004 · Audit the EditLens paper against its own numbers and write the section skeleton
 - status: todo
 - owner-type: review
 - needs: offline
@@ -48,7 +48,7 @@ append a block at the end of `## Queue` with the next number, commit `workstack:
 - added: 2026-11-07
 - why: the paper is being reframed; before the owner rewrites it by hand he needs to know which statements the stored numbers still support, and what each section has to say.
 
-### WS-005 · Audit the four papers: numbers, claims about own role, train/eval relation, source twins (report only)
+### WS-005 · Audit the four papers: numbers, claims about own role, train/eval relation, source twins
 - status: todo
 - owner-type: review
 - needs: offline

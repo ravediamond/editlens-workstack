@@ -1,19 +1,20 @@
 #!/usr/bin/env python3
-"""Paragraph-level EditLens scorer for the owner's own research papers. DIAGNOSTIC AND EXPERIMENT TOOL: it scores, ranks and logs; it never writes paper text (the `apply` step of the original harness was left out on purpose, see AGENTS.md) (WS-162 follow-up, 2026-11-05; lessons in
+"""Paragraph-level EditLens loop for the owner's own research papers (WS-162 follow-up, 2026-11-05; lessons in
 journal/papers/ai-map/WRITING_RULES.md group L and EDITLENS_LEXICON.md).
 
     python tools/paper_polish.py serve | stop | status          keep the open EditLens 3B model loaded (~7 GB, ~0.5 s per paragraph at 25 W)
     python tools/paper_polish.py list REPO [--top N]            paragraphs of the paper source with their score (baseline kept in REPO/polish/)
     python tools/paper_polish.py loo REPO N [N ...]             what the paragraph loses without each sentence: fix the top one or two first
     python tools/paper_polish.py try REPO N cands.json [--round R]   score candidate rewrites of paragraph N (a JSON list of source texts)
+    python tools/paper_polish.py apply REPO N K                 write candidate K of the last `try` of paragraph N (kept per paragraph in polish/last_try_N.json) into the source
     python tools/paper_polish.py report REPO                    word-weighted mean before / after, worst paragraph, paragraphs changed
 
 A paragraph is a blank-line-separated block of the paper source (DRAFT_4p.src.md or DRAFT_4p.md.in; code, tables, headings and
 image lines skipped) of at least 40 words, rendered with paper/numbers.json before it is scored, so the text the model sees is the
-text of the paper. Every
+text of the paper. `apply` refuses a candidate that changes the placeholders (a number or claim must not move; rule 30). Every
 scored candidate goes to REPO/polish/iterlog.jsonl, the provenance of the rewrite. The score is a pointer to paragraphs to reread
 (rule 40), not a measure of authorship; the model is CC BY-NC-SA 4.0 and runs on the owner's own research papers only
-(paper_map.fence)."""
+(paper_map.fence). After an `apply`, port the paragraph to the tex twin and rebuild (rule 90)."""
 import json
 import os
 import re
@@ -172,6 +173,18 @@ def cmd_try(p, a):
         p.log(para=i, round=rnd, cand=k, score=s, ph_ok=ok, text=c)
 
 
+def cmd_apply(p, a):
+    i, k = int(a[0]), int(a[1]); f = p.pol / f"last_try_{i}.json"
+    if not f.exists():
+        sys.exit(f"no `try` for paragraph {i} yet")
+    last = json.loads(f.read_text())
+    new = last["cands"][k - 1].rstrip("\n"); bl = p.blocks(); b = bl[i]
+    if phs(new) != phs(b["src"]):
+        sys.exit("refused: the candidate changes the placeholders (a number or claim moved, rule 30)")
+    L = p.src.read_text().split("\n"); L[b["l0"] - 1: b["l1"]] = new.split("\n"); p.src.write_text("\n".join(L))
+    print(f"applied candidate {k} to paragraph {i} of {p.src.name}; port it to the tex twin and rebuild (rule 90)")
+
+
 def cmd_report(p, a):
     inv = p.inventory() or sys.exit("no baseline yet: run `list` first")
     bl = p.blocks(); cur = score([p.render(b["src"]) for b in bl]); w = [x["words"] for x in inv]
@@ -208,7 +221,7 @@ def main(argv=None):
         return 0
     if cmd == "status":
         print("running" if alive() else "not running"); return 0
-    fn = {"list": cmd_list, "loo": cmd_loo, "try": cmd_try, "report": cmd_report}.get(cmd)
+    fn = {"list": cmd_list, "loo": cmd_loo, "try": cmd_try, "apply": cmd_apply, "report": cmd_report}.get(cmd)
     if not fn or not a:
         print(__doc__); return 2
     fn(Paper(a[0]), a[1:])
