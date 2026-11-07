@@ -28,8 +28,8 @@ The repository's own prose gates did not predict the detector.
 | 15:40 | author rewrite of the highest paragraph | 0.166 | 0.239 | 0.170 | 0.220 |
 
 - Worked: the de-polish pass (all four fell); the author's own rewrite of the highest paragraph (all four fell, jepa line 11 from 0.409 to 0.335).
-- Did not work: rules 41 to 70 (two papers rose); the rhythm merge pass (all four rose or stayed level, none by more than 0.02); the 11:40 rules
-  (register's highest paragraph rose from 0.508 to 0.579).
+- Did not work: rules 41 to 70 (reward and VLA rose); the rhythm merge pass (all four rose, none by more than 0.02).
+- Mixed: the 11:40 rules (register, reward and VLA fell, jepa rose; register's highest paragraph rose from 0.508 to 0.579).
 - Register only: removing the six highest-contribution sentences took the mean from 0.239 to 0.200; adding the real code behind the method left it at 0.198.
 - Human references stayed 0.053 / 0.055 / 0.095 in every run; the highest human chunk is 0.106. After the last run, 69 % to 100 % of the words of each paper sit in chunks above that chunk.
 
